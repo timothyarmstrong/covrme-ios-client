@@ -21,9 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];    
     
     // Urban Airship
     
@@ -42,11 +40,7 @@
                                          UIRemoteNotificationTypeSound |
                                          UIRemoteNotificationTypeAlert)];
     
-//    UIViewController *transList = [[CMTransactionsListViewController alloc] initWithNibName:@"CMTransactionsListViewController" bundle:nil];
-//    UINavigationController *transNav = [[UINavigationController alloc] initWithRootViewController:transList];
     UIViewController *CMProfileVC = [[CMProfileSummaryViewController alloc] initWithNibName:@"CMProfileSummaryViewController" bundle:nil];
-//    self.tabBarController = [[UITabBarController alloc] init];
-//    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController2, transNav, nil];
     self.window.rootViewController = CMProfileVC;
     [self.window makeKeyAndVisible];
     return YES;
