@@ -41,12 +41,4 @@
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
         </view>
     </objects>
-    <classes>
-        <class className="CMProfileSummaryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMProfileSummaryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="omwTapped:"/>
-            </relationships>
-        </class>
-    </classes>
 </document>
