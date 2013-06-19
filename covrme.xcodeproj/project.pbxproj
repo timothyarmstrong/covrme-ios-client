@@ -194,6 +194,7 @@
 		92E8C4BA17715C5500B06215 /* CMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */; };
 		92E8C4BE17715CBD00B06215 /* CMFrontDoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */; };
 		92E8C4BF17715CBD00B06215 /* CMFrontDoorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */; };
+		92E8C4C11771642F00B06215 /* ios-linen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4C01771642F00B06215 /* ios-linen.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -565,6 +566,7 @@
 		92E8C4BB17715CBD00B06215 /* CMFrontDoorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFrontDoorViewController.h; sourceTree = "<group>"; };
 		92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFrontDoorViewController.m; sourceTree = "<group>"; };
 		92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMFrontDoorViewController.xib; sourceTree = "<group>"; };
+		92E8C4C01771642F00B06215 /* ios-linen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ios-linen.jpg"; path = "../../../../../../Downloads/ios-linen/ios-linen.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -809,6 +811,7 @@
 		92E8C2C81771558800B06215 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				92E8C4C01771642F00B06215 /* ios-linen.jpg */,
 				92E8C2C91771558800B06215 /* dingdong.wav */,
 				92E8C2CA1771558800B06215 /* first.png */,
 				92E8C2CB1771558800B06215 /* first@2x.png */,
@@ -1527,6 +1530,7 @@
 				92E8C4B517715B2D00B06215 /* CMHistoryListViewController.xib in Resources */,
 				92E8C4BA17715C5500B06215 /* CMSettingsViewController.xib in Resources */,
 				92E8C4BF17715CBD00B06215 /* CMFrontDoorViewController.xib in Resources */,
+				92E8C4C11771642F00B06215 /* ios-linen.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

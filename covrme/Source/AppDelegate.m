@@ -15,9 +15,16 @@
 
 @implementation AppDelegate
 
+- (void)customizeAppearance
+{
+    [[UINavigationBar appearance] setTintColor:[UIColor redColor]];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];    
+    
+    [self customizeAppearance];
     
     // Urban Airship
     
@@ -39,16 +46,21 @@
     // Front Door VC
     CMFrontDoorViewController *frontDoorVC = [[CMFrontDoorViewController alloc] initWithNibName:@"CMFrontDoorViewController"
                                                                                          bundle:nil];
+    UINavigationController *frontDoorNavController = [[UINavigationController alloc] initWithRootViewController:frontDoorVC];
     
     // History List VC
     CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithNibName:@"CMHistoryListViewController"
                                                                                                bundle:nil];
+    UINavigationController *historyListNavController = [[UINavigationController alloc] initWithRootViewController:historyListVC];
+
     // Settings VC
     CMSettingsViewController *settingsVC = [[CMSettingsViewController alloc] initWithNibName:@"CMSettingsViewController"
                                                                                       bundle:nil];
+    UINavigationController *settingsNavController = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+
     
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[frontDoorVC, historyListVC, settingsVC];
+    self.tabBarController.viewControllers = @[frontDoorNavController, historyListNavController, settingsNavController];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
