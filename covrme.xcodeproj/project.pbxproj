@@ -190,6 +190,8 @@
 		92E8C46D177157E500B06215 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E8C46C177157E500B06215 /* CoreData.framework */; };
 		92E8C4B417715B2D00B06215 /* CMHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C4B217715B2D00B06215 /* CMHistoryListViewController.m */; };
 		92E8C4B517715B2D00B06215 /* CMHistoryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */; };
+		92E8C4B917715C5500B06215 /* CMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C4B717715C5500B06215 /* CMSettingsViewController.m */; };
+		92E8C4BA17715C5500B06215 /* CMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -555,6 +557,9 @@
 		92E8C4B117715B2D00B06215 /* CMHistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHistoryListViewController.h; sourceTree = "<group>"; };
 		92E8C4B217715B2D00B06215 /* CMHistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHistoryListViewController.m; sourceTree = "<group>"; };
 		92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMHistoryListViewController.xib; sourceTree = "<group>"; };
+		92E8C4B617715C5500B06215 /* CMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsViewController.h; sourceTree = "<group>"; };
+		92E8C4B717715C5500B06215 /* CMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsViewController.m; sourceTree = "<group>"; };
+		92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMSettingsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -819,6 +824,9 @@
 				92E8C4B117715B2D00B06215 /* CMHistoryListViewController.h */,
 				92E8C4B217715B2D00B06215 /* CMHistoryListViewController.m */,
 				92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */,
+				92E8C4B617715C5500B06215 /* CMSettingsViewController.h */,
+				92E8C4B717715C5500B06215 /* CMSettingsViewController.m */,
+				92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1509,6 +1517,7 @@
 				92E8C46A1771571600B06215 /* UASubscriptionSettingsViewController.xib in Resources */,
 				92E8C46B1771571600B06215 /* UASubscriptionUserProductsViewController.xib in Resources */,
 				92E8C4B517715B2D00B06215 /* CMHistoryListViewController.xib in Resources */,
+				92E8C4BA17715C5500B06215 /* CMSettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1611,6 +1620,7 @@
 				92E8C45A1771571600B06215 /* UASubscriptionUI.m in Sources */,
 				92E8C45B1771571600B06215 /* UASubscriptionUIUtil.m in Sources */,
 				92E8C4B417715B2D00B06215 /* CMHistoryListViewController.m in Sources */,
+				92E8C4B917715C5500B06215 /* CMSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
