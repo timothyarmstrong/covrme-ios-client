@@ -1495,9 +1495,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "../Airship/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PROVISIONING_PROFILE = "C31AF10B-D978-4795-967C-88203C1A4D6A";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 			};
 			name = Debug;
 		};
@@ -1520,10 +1520,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "../Airship/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "C31AF10B-D978-4795-967C-88203C1A4D6A";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1535,7 +1535,7 @@
 				GCC_PREFIX_HEADER = "covrme/covrme-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "covrme/covrme-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Airship\"",
@@ -1553,7 +1553,7 @@
 				GCC_PREFIX_HEADER = "covrme/covrme-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "covrme/covrme-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Airship\"",
