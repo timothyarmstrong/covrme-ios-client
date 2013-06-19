@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"History";
     }
     return self;
 }
@@ -33,6 +33,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UITableViewDelegate Methods
+
+#pragma mark - UITableViewDatasource Methods
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+- (NSUInteger)tableView:tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
 }
 
 @end

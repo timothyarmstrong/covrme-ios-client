@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMHistoryListViewController : UIViewController
+@interface CMHistoryListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

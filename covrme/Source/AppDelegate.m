@@ -9,11 +9,11 @@
 #import "AppDelegate.h"
 #import "UAirship.h"
 #import "UAPush.h"
+#import "CMFrontDoorViewController.h"
+#import "CMHistoryListViewController.h"
+#import "CMSettingsViewController.h"
 
 @implementation AppDelegate
-
-@synthesize window = _window;
-@synthesize tabBarController = _tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -36,8 +36,22 @@
                                          UIRemoteNotificationTypeSound |
                                          UIRemoteNotificationTypeAlert)];
     
-//    self.window.rootViewController = CMProfileVC;
+    // Front Door VC
+    CMFrontDoorViewController *frontDoorVC = [[CMFrontDoorViewController alloc] initWithNibName:@"CMFrontDoorViewController"
+                                                                                         bundle:nil];
+    
+    // History List VC
+    CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithNibName:@"CMHistoryListViewController"
+                                                                                               bundle:nil];
+    // Settings VC
+    CMSettingsViewController *settingsVC = [[CMSettingsViewController alloc] initWithNibName:@"CMSettingsViewController"
+                                                                                      bundle:nil];
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = @[frontDoorVC, historyListVC, settingsVC];
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
