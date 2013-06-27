@@ -12,6 +12,11 @@
 		925BF4B71501C6270054AE57 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925BF4B61501C6270054AE57 /* CoreGraphics.framework */; };
 		925BF4BD1501C6270054AE57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 925BF4BB1501C6270054AE57 /* InfoPlist.strings */; };
 		925BF4BF1501C6270054AE57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 925BF4BE1501C6270054AE57 /* main.m */; };
+		9279049D177BE0A600816021 /* CMHistoryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9279049C177BE0A600816021 /* CMHistoryTableCell.xib */; };
+		927904A1177BE27600816021 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927904A0177BE27600816021 /* ImageIO.framework */; };
+		927904B0177BEEF500816021 /* CMSettingsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927904AF177BEEF500816021 /* CMSettingsTableCell.xib */; };
+		927904B2177BF03C00816021 /* CMSettingsSwitchedTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927904B1177BF03C00816021 /* CMSettingsSwitchedTableCell.xib */; };
+		927904B5177BF0F100816021 /* CMSettingsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 927904B4177BF0F100816021 /* CMSettingsTableCell.m */; };
 		92974D2C16644C3200C12C91 /* libUAirship-1.3.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D2B16644C3200C12C91 /* libUAirship-1.3.5.a */; };
 		92974D2E16644C3B00C12C91 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D2D16644C3B00C12C91 /* CFNetwork.framework */; };
 		92974D3016644C4A00C12C91 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D2F16644C4A00C12C91 /* MobileCoreServices.framework */; };
@@ -206,6 +211,12 @@
 		925BF4BC1501C6270054AE57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		925BF4BE1501C6270054AE57 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		925BF4C01501C6270054AE57 /* covrme-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "covrme-Prefix.pch"; sourceTree = "<group>"; };
+		9279049C177BE0A600816021 /* CMHistoryTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMHistoryTableCell.xib; path = Source/CMHistoryTableCell.xib; sourceTree = "<group>"; };
+		927904A0177BE27600816021 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		927904AF177BEEF500816021 /* CMSettingsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMSettingsTableCell.xib; sourceTree = "<group>"; };
+		927904B1177BF03C00816021 /* CMSettingsSwitchedTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMSettingsSwitchedTableCell.xib; sourceTree = "<group>"; };
+		927904B3177BF0F100816021 /* CMSettingsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsTableCell.h; sourceTree = "<group>"; };
+		927904B4177BF0F100816021 /* CMSettingsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsTableCell.m; sourceTree = "<group>"; };
 		92974D2B16644C3200C12C91 /* libUAirship-1.3.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-1.3.5.a"; path = "Airship/libUAirship-1.3.5.a"; sourceTree = "<group>"; };
 		92974D2D16644C3B00C12C91 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		92974D2F16644C4A00C12C91 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -559,13 +570,13 @@
 		92E8C46C177157E500B06215 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		92E8C4B117715B2D00B06215 /* CMHistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHistoryListViewController.h; sourceTree = "<group>"; };
 		92E8C4B217715B2D00B06215 /* CMHistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHistoryListViewController.m; sourceTree = "<group>"; };
-		92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMHistoryListViewController.xib; sourceTree = "<group>"; };
+		92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMHistoryListViewController.xib; path = Source/CMHistoryListViewController.xib; sourceTree = "<group>"; };
 		92E8C4B617715C5500B06215 /* CMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsViewController.h; sourceTree = "<group>"; };
 		92E8C4B717715C5500B06215 /* CMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsViewController.m; sourceTree = "<group>"; };
-		92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMSettingsViewController.xib; sourceTree = "<group>"; };
+		92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMSettingsViewController.xib; path = Source/CMSettingsViewController.xib; sourceTree = "<group>"; };
 		92E8C4BB17715CBD00B06215 /* CMFrontDoorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFrontDoorViewController.h; sourceTree = "<group>"; };
 		92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFrontDoorViewController.m; sourceTree = "<group>"; };
-		92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMFrontDoorViewController.xib; sourceTree = "<group>"; };
+		92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMFrontDoorViewController.xib; path = Source/CMFrontDoorViewController.xib; sourceTree = "<group>"; };
 		92E8C4C01771642F00B06215 /* ios-linen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ios-linen.jpg"; path = "../../../../../../Downloads/ios-linen/ios-linen.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -574,6 +585,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				927904A1177BE27600816021 /* ImageIO.framework in Frameworks */,
 				92E8C46D177157E500B06215 /* CoreData.framework in Frameworks */,
 				92974ECA1664529100C12C91 /* MessageUI.framework in Frameworks */,
 				92974EC81664528B00C12C91 /* AudioToolbox.framework in Frameworks */,
@@ -602,7 +614,6 @@
 		925BF4A31501C6270054AE57 = {
 			isa = PBXGroup;
 			children = (
-				92E8C46C177157E500B06215 /* CoreData.framework */,
 				92974EC21664518C00C12C91 /* Default-568h@2x.png */,
 				925BF4B81501C6270054AE57 /* covrme */,
 				925BF4B11501C6270054AE57 /* Frameworks */,
@@ -621,6 +632,8 @@
 		925BF4B11501C6270054AE57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				927904A0177BE27600816021 /* ImageIO.framework */,
+				92E8C46C177157E500B06215 /* CoreData.framework */,
 				92974EC91664529100C12C91 /* MessageUI.framework */,
 				92974EC71664528B00C12C91 /* AudioToolbox.framework */,
 				92974EC4166451F800C12C91 /* MapKit.framework */,
@@ -644,6 +657,7 @@
 		925BF4B81501C6270054AE57 /* covrme */ = {
 			isa = PBXGroup;
 			children = (
+				927904AA177BEBB700816021 /* Xibs */,
 				92E8C22B1771557900B06215 /* Libraries */,
 				92E8C2C81771558800B06215 /* Resources */,
 				92E8C2D5177155A300B06215 /* Source */,
@@ -662,6 +676,27 @@
 				92974D3F16644DC100C12C91 /* AirshipConfig.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		927904AA177BEBB700816021 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				927904AE177BEEE100816021 /* Table Cells */,
+				92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */,
+				92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */,
+				92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		927904AE177BEEE100816021 /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9279049C177BE0A600816021 /* CMHistoryTableCell.xib */,
+				927904AF177BEEF500816021 /* CMSettingsTableCell.xib */,
+				927904B1177BF03C00816021 /* CMSettingsSwitchedTableCell.xib */,
+			);
+			name = "Table Cells";
 			sourceTree = "<group>";
 		};
 		92E8C22B1771557900B06215 /* Libraries */ = {
@@ -831,13 +866,12 @@
 				92E8C2D9177155A300B06215 /* CMAPIClient.m */,
 				92E8C4B117715B2D00B06215 /* CMHistoryListViewController.h */,
 				92E8C4B217715B2D00B06215 /* CMHistoryListViewController.m */,
-				92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */,
 				92E8C4B617715C5500B06215 /* CMSettingsViewController.h */,
 				92E8C4B717715C5500B06215 /* CMSettingsViewController.m */,
-				92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */,
 				92E8C4BB17715CBD00B06215 /* CMFrontDoorViewController.h */,
 				92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */,
-				92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */,
+				927904B3177BF0F100816021 /* CMSettingsTableCell.h */,
+				927904B4177BF0F100816021 /* CMSettingsTableCell.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1531,6 +1565,9 @@
 				92E8C4BA17715C5500B06215 /* CMSettingsViewController.xib in Resources */,
 				92E8C4BF17715CBD00B06215 /* CMFrontDoorViewController.xib in Resources */,
 				92E8C4C11771642F00B06215 /* ios-linen.jpg in Resources */,
+				9279049D177BE0A600816021 /* CMHistoryTableCell.xib in Resources */,
+				927904B0177BEEF500816021 /* CMSettingsTableCell.xib in Resources */,
+				927904B2177BF03C00816021 /* CMSettingsSwitchedTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1635,6 +1672,7 @@
 				92E8C4B417715B2D00B06215 /* CMHistoryListViewController.m in Sources */,
 				92E8C4B917715C5500B06215 /* CMSettingsViewController.m in Sources */,
 				92E8C4BE17715CBD00B06215 /* CMFrontDoorViewController.m in Sources */,
+				927904B5177BF0F100816021 /* CMSettingsTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1677,7 +1715,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../Airship/**";
+				HEADER_SEARCH_PATHS = (
+					"../Airship/**",
+					"$(BUILT_PRODUCTS_DIR)/**",
+					"$(SOURCE_ROOT)/SDWebImage-3.3.framework/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PROVISIONING_PROFILE = "C31AF10B-D978-4795-967C-88203C1A4D6A";
 				SDKROOT = iphoneos6.1;
@@ -1702,7 +1744,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../Airship/**";
+				HEADER_SEARCH_PATHS = (
+					"../Airship/**",
+					"$(BUILT_PRODUCTS_DIR)/**",
+					"$(SOURCE_ROOT)/SDWebImage-3.3.framework/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "C31AF10B-D978-4795-967C-88203C1A4D6A";
@@ -1714,6 +1760,11 @@
 		925BF4DB1501C6270054AE57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/covrme/Libraries\"",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "covrme/covrme-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -1733,6 +1784,11 @@
 		925BF4DC1501C6270054AE57 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/covrme/Libraries\"",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "covrme/covrme-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";

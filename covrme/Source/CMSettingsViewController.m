@@ -35,4 +35,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - UITableViewDataSource Delegate
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            3;
+            break;
+            
+        default:
+            break;
+    }
+}
 @end

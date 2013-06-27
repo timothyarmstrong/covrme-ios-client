@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMSettingsViewController : UIViewController
+@interface CMSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
 
 @end

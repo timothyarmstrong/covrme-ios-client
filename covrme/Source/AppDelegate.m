@@ -17,7 +17,7 @@
 
 - (void)customizeAppearance
 {
-    [[UINavigationBar appearance] setTintColor:[UIColor redColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
