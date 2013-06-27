@@ -32,6 +32,7 @@
 		92974EC5166451F800C12C91 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC4166451F800C12C91 /* MapKit.framework */; };
 		92974EC81664528B00C12C91 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC71664528B00C12C91 /* AudioToolbox.framework */; };
 		92974ECA1664529100C12C91 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC91664529100C12C91 /* MessageUI.framework */; };
+		92B786DA177BF65C000D658A /* CMSettingsSwitchedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */; };
 		92E8C2A21771557900B06215 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C2461771557900B06215 /* MagicalImportFunctions.m */; };
 		92E8C2A31771557900B06215 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C2481771557900B06215 /* NSAttributeDescription+MagicalDataImport.m */; };
 		92E8C2A41771557900B06215 /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C24A1771557900B06215 /* NSEntityDescription+MagicalDataImport.m */; };
@@ -232,6 +233,8 @@
 		92974EC4166451F800C12C91 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		92974EC71664528B00C12C91 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		92974EC91664529100C12C91 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		92B786D8177BF65C000D658A /* CMSettingsSwitchedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsSwitchedTableCell.h; sourceTree = "<group>"; };
+		92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsSwitchedTableCell.m; sourceTree = "<group>"; };
 		92E8C2451771557900B06215 /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		92E8C2461771557900B06215 /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		92E8C2471771557900B06215 /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -699,6 +702,17 @@
 			name = "Table Cells";
 			sourceTree = "<group>";
 		};
+		92B786D7177BF63A000D658A /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				927904B3177BF0F100816021 /* CMSettingsTableCell.h */,
+				927904B4177BF0F100816021 /* CMSettingsTableCell.m */,
+				92B786D8177BF65C000D658A /* CMSettingsSwitchedTableCell.h */,
+				92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */,
+			);
+			name = "Table Cells";
+			sourceTree = "<group>";
+		};
 		92E8C22B1771557900B06215 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -860,6 +874,7 @@
 		92E8C2D5177155A300B06215 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				92B786D7177BF63A000D658A /* Table Cells */,
 				92E8C2D6177155A300B06215 /* AppDelegate.h */,
 				92E8C2D7177155A300B06215 /* AppDelegate.m */,
 				92E8C2D8177155A300B06215 /* CMAPIClient.h */,
@@ -870,8 +885,6 @@
 				92E8C4B717715C5500B06215 /* CMSettingsViewController.m */,
 				92E8C4BB17715CBD00B06215 /* CMFrontDoorViewController.h */,
 				92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */,
-				927904B3177BF0F100816021 /* CMSettingsTableCell.h */,
-				927904B4177BF0F100816021 /* CMSettingsTableCell.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1673,6 +1686,7 @@
 				92E8C4B917715C5500B06215 /* CMSettingsViewController.m in Sources */,
 				92E8C4BE17715CBD00B06215 /* CMFrontDoorViewController.m in Sources */,
 				927904B5177BF0F100816021 /* CMSettingsTableCell.m in Sources */,
+				92B786DA177BF65C000D658A /* CMSettingsSwitchedTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CMSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

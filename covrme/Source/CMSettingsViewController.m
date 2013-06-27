@@ -7,6 +7,8 @@
 //
 
 #import "CMSettingsViewController.h"
+#import "CMSettingsTableCell.h"
+#import "CMSettingsSwitchedTableCell.h"
 
 @interface CMSettingsViewController ()
 
@@ -27,6 +29,13 @@
 {
     [super viewDidLoad];
     
+    UINib *nib = [UINib nibWithNibName:@"CMSettingsTableCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"CMSettingsTableCell"];
+    
+    nib = [UINib nibWithNibName:@"CMSettingsSwitchedTableCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"CMSettingsSwitchedTableCell"];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,23 +44,65 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)path
+{
+    CMSettingsSwitchedTableCell *switchedCell = (CMSettingsSwitchedTableCell *) cell;
+    CMSettingsTableCell *settingsCell = (CMSettingsTableCell *) cell;
+    
+    switch (path.row) {
+        case 0:
+            switchedCell.textLabel.text = @"Quiet Mode";
+            break;
+        case 1:
+            settingsCell.textLabel.text = @"Ringtone";
+            break;
+        case 2:
+            settingsCell.textLabel.text = @"Custom Responses";
+            settingsCell.subTextLabel.text = @"";
+            break;
+        default:
+            settingsCell.textLabel.text = @"Set me up!";
+            break;
+    }
+}
 
 #pragma mark - UITableViewDataSource Delegate
+
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell;
+    if (indexPath.row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CMSettingsSwitchedTableCell"];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CMSettingsTableCell"];
+    }
     
+    [self configureCell:cell atIndexPath:indexPath];
+
+    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     switch (section) {
         case 0:
-            3;
+            return 3;
             break;
             
         default:
+            return 0;
             break;
     }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Client Settings";
 }
 @end
