@@ -12,11 +12,14 @@
 + (CMAPIClient*) sharedClient;
 
 typedef void(^CMAPIClientStartupBlock)(NSOperation* operation);
-typedef void(^CMAPIClientSuccessBlock) ();
+typedef void(^CMAPIClientSuccessBlock) (AFHTTPRequestOperation *operation, id responseObject);
 typedef void(^CMAPIClientCompletionBlock)();
 typedef void(^CMAPIClientFailureBlock)(NSHTTPURLResponse *response, NSError *error);
 
 - (void)postToTimsServerWithParameters:(NSDictionary*)params success:(CMAPIClientSuccessBlock)success failure:(CMAPIClientFailureBlock)failure;
 
+- (void)getHistoryWithParameters:(NSDictionary *)params
+                         success:(CMAPIClientSuccessBlock)success
+                         failure:(CMAPIClientFailureBlock)failure;
 
 @end
