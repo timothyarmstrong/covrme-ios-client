@@ -8,8 +8,8 @@
 
 #import "CMHistoryListViewController.h"
 #import "UIImageView+WebCache.h"
-
-
+#import "CMAPIClient.h"
+#import "CMHistoryTableCell.h"
 @interface CMHistoryListViewController ()
 
 @end
@@ -21,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"History";
+        
     }
     return self;
 }
@@ -28,7 +29,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    UINib *nib = [UINib nibWithNibName:@"CMHistoryTableCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"CMHistoryTableCell"];
+    
+    [[CMAPIClient sharedClient] getHistoryWithParameters:nil
+                                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                     self.dingDongs = (NSArray *) responseObject;
+//                                                     [self.tableView reloadData];
+                                                 } failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                                     
+                                                 }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,15 +50,28 @@
 
 #pragma mark - UITableViewDelegate Methods
 
+
 #pragma mark - UITableViewDatasource Methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    
+    CMHistoryTableCell *cell = (CMHistoryTableCell *)[self.tableView dequeueReusableCellWithIdentifier:@"CMHistoryTableCell"];
+    NSDictionary *dingDong = [self.dingDongs objectAtIndex:indexPath.row];
+    
+    [cell configureWithDingDong:dingDong];
+    
+    return cell;
+    
 }
 
-- (NSUInteger)tableView:tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [self.dingDongs count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView
+    heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.f;
+}
 @end

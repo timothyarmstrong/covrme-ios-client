@@ -61,6 +61,8 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[frontDoorNavController, historyListNavController, settingsNavController];
+    self.tabBarController.selectedIndex = 1;
+    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     

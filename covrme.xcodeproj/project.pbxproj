@@ -27,6 +27,11 @@
 		925CE98C177DEDC200FE5F90 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 925CE97D177DEDC200FE5F90 /* UIImage+WebP.m */; };
 		925CE98D177DEDC200FE5F90 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 925CE97F177DEDC200FE5F90 /* UIImageView+WebCache.m */; };
 		925CE992177E010B00FE5F90 /* covrme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 925CE990177E010B00FE5F90 /* covrme.xcdatamodeld */; };
+		925CE995177F4A1F00FE5F90 /* CMHistoryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 925CE994177F4A1F00FE5F90 /* CMHistoryTableCell.m */; };
+		925CE997177F7D0000FE5F90 /* placeholder_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 925CE996177F7D0000FE5F90 /* placeholder_48.png */; };
+		925CE999177F7E5100FE5F90 /* placeholder_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 925CE998177F7E5100FE5F90 /* placeholder_256.png */; };
+		925CE99C177F83BB00FE5F90 /* CMCustomResponsesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925CE99B177F83BB00FE5F90 /* CMCustomResponsesViewController.m */; };
+		925CE99E177F83F300FE5F90 /* CMCustomResponsesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925CE99D177F83F200FE5F90 /* CMCustomResponsesViewController.xib */; };
 		9279049D177BE0A600816021 /* CMHistoryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9279049C177BE0A600816021 /* CMHistoryTableCell.xib */; };
 		927904A1177BE27600816021 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927904A0177BE27600816021 /* ImageIO.framework */; };
 		927904B0177BEEF500816021 /* CMSettingsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927904AF177BEEF500816021 /* CMSettingsTableCell.xib */; };
@@ -156,6 +161,13 @@
 		925CE97E177DEDC200FE5F90 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		925CE97F177DEDC200FE5F90 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		925CE991177E010B00FE5F90 /* covrme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = covrme.xcdatamodel; sourceTree = "<group>"; };
+		925CE993177F4A1F00FE5F90 /* CMHistoryTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHistoryTableCell.h; sourceTree = "<group>"; };
+		925CE994177F4A1F00FE5F90 /* CMHistoryTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHistoryTableCell.m; sourceTree = "<group>"; };
+		925CE996177F7D0000FE5F90 /* placeholder_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_48.png; sourceTree = "<group>"; };
+		925CE998177F7E5100FE5F90 /* placeholder_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_256.png; sourceTree = "<group>"; };
+		925CE99A177F83BB00FE5F90 /* CMCustomResponsesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMCustomResponsesViewController.h; sourceTree = "<group>"; };
+		925CE99B177F83BB00FE5F90 /* CMCustomResponsesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMCustomResponsesViewController.m; sourceTree = "<group>"; };
+		925CE99D177F83F200FE5F90 /* CMCustomResponsesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMCustomResponsesViewController.xib; path = Source/CMCustomResponsesViewController.xib; sourceTree = "<group>"; };
 		9279049C177BE0A600816021 /* CMHistoryTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMHistoryTableCell.xib; path = Source/CMHistoryTableCell.xib; sourceTree = "<group>"; };
 		927904A0177BE27600816021 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		927904AF177BEEF500816021 /* CMSettingsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMSettingsTableCell.xib; sourceTree = "<group>"; };
@@ -532,6 +544,7 @@
 				92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */,
 				92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */,
 				92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */,
+				925CE99D177F83F200FE5F90 /* CMCustomResponsesViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -553,6 +566,8 @@
 				927904B4177BF0F100816021 /* CMSettingsTableCell.m */,
 				92B786D8177BF65C000D658A /* CMSettingsSwitchedTableCell.h */,
 				92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */,
+				925CE993177F4A1F00FE5F90 /* CMHistoryTableCell.h */,
+				925CE994177F4A1F00FE5F90 /* CMHistoryTableCell.m */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -705,6 +720,8 @@
 		92E8C2C81771558800B06215 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				925CE996177F7D0000FE5F90 /* placeholder_48.png */,
+				925CE998177F7E5100FE5F90 /* placeholder_256.png */,
 				92E8C4C01771642F00B06215 /* ios-linen.jpg */,
 				92E8C2C91771558800B06215 /* dingdong.wav */,
 				92E8C2CA1771558800B06215 /* first.png */,
@@ -731,6 +748,8 @@
 				92E8C4B717715C5500B06215 /* CMSettingsViewController.m */,
 				92E8C4BB17715CBD00B06215 /* CMFrontDoorViewController.h */,
 				92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */,
+				925CE99A177F83BB00FE5F90 /* CMCustomResponsesViewController.h */,
+				925CE99B177F83BB00FE5F90 /* CMCustomResponsesViewController.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1027,6 +1046,9 @@
 				9279049D177BE0A600816021 /* CMHistoryTableCell.xib in Resources */,
 				927904B0177BEEF500816021 /* CMSettingsTableCell.xib in Resources */,
 				927904B2177BF03C00816021 /* CMSettingsSwitchedTableCell.xib in Resources */,
+				925CE997177F7D0000FE5F90 /* placeholder_48.png in Resources */,
+				925CE999177F7E5100FE5F90 /* placeholder_256.png in Resources */,
+				925CE99E177F83F300FE5F90 /* CMCustomResponsesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1107,6 +1129,8 @@
 				925CE98C177DEDC200FE5F90 /* UIImage+WebP.m in Sources */,
 				925CE98D177DEDC200FE5F90 /* UIImageView+WebCache.m in Sources */,
 				925CE992177E010B00FE5F90 /* covrme.xcdatamodeld in Sources */,
+				925CE995177F4A1F00FE5F90 /* CMHistoryTableCell.m in Sources */,
+				925CE99C177F83BB00FE5F90 /* CMCustomResponsesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

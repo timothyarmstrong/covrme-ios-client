@@ -7,6 +7,7 @@
 //
 
 #import "CMFrontDoorViewController.h"
+#import "CMCustomResponsesViewController.h"
 
 @interface CMFrontDoorViewController ()
 
@@ -33,6 +34,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)sendCustomTouched:(id)sender
+{
+    CMCustomResponsesViewController *customResponsesVC =
+        [[CMCustomResponsesViewController alloc] initWithNibName:@"CMCustomResponsesViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:customResponsesVC animated:YES];
+    
 }
 
 @end

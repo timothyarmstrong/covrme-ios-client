@@ -10,4 +10,6 @@
 
 @interface CMFrontDoorViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *picture;
+- (IBAction)sendCustomTouched:(id)sender;
 @end

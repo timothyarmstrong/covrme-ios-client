@@ -57,7 +57,24 @@
                          success:(CMAPIClientSuccessBlock)success
                          failure:(CMAPIClientFailureBlock)failure
 {
-    NSDictionary *responseObject = @[@{": <#object, ...#>}]
-    success(nil,)
+    NSArray *responseObject = @[
+                                @{@"pictureURL": @"http://placekitten.com/48/48",
+                                  @"type": @"Delivery",
+                                  @"timestamp": [NSDate date]},
+                                @{@"pictureURL": @"http://placekitten.com/48/48",
+                                  @"type": @"Friend",
+                                  @"timestamp": [NSDate date]},
+                                @{@"pictureURL": @"http://placekitten.com/48/48",
+                                  @"type": @"Other",
+                                  @"timestamp": [NSDate date]},
+                                @{@"pictureURL": @"http://placekitten.com/48/48",
+                                  @"type": @"Delivery",
+                                  @"timestamp": [NSDate date]},
+                                @{@"pictureURL": @"http://placekitten.com/48/48",
+                                  @"type": @"Other",
+                                  @"timestamp": [NSDate date]},
+                                ];
+    
+    success(nil, responseObject);
 }
 @end
