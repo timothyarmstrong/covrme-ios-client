@@ -120,6 +120,7 @@
 		92E8C4BE17715CBD00B06215 /* CMFrontDoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */; };
 		92E8C4BF17715CBD00B06215 /* CMFrontDoorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */; };
 		92E8C4C11771642F00B06215 /* ios-linen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4C01771642F00B06215 /* ios-linen.jpg */; };
+		92F43E921780E85800B627CB /* CMRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F43E911780E85800B627CB /* CMRegistrationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -395,6 +396,7 @@
 		92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFrontDoorViewController.m; sourceTree = "<group>"; };
 		92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMFrontDoorViewController.xib; path = Source/CMFrontDoorViewController.xib; sourceTree = "<group>"; };
 		92E8C4C01771642F00B06215 /* ios-linen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ios-linen.jpg"; path = "../../../../../../Downloads/ios-linen/ios-linen.jpg"; sourceTree = "<group>"; };
+		92F43E911780E85800B627CB /* CMRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMRegistrationViewController.xib; path = Source/CMRegistrationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -545,6 +547,7 @@
 				92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */,
 				92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */,
 				925CE99D177F83F200FE5F90 /* CMCustomResponsesViewController.xib */,
+				92F43E911780E85800B627CB /* CMRegistrationViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -1049,6 +1052,7 @@
 				925CE997177F7D0000FE5F90 /* placeholder_48.png in Resources */,
 				925CE999177F7E5100FE5F90 /* placeholder_256.png in Resources */,
 				925CE99E177F83F300FE5F90 /* CMCustomResponsesViewController.xib in Resources */,
+				92F43E921780E85800B627CB /* CMRegistrationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
