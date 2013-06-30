@@ -48,10 +48,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UITableViewDelegate Methods
+#pragma mark - UITableViewMethods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
-
-#pragma mark - UITableViewDatasource Methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
