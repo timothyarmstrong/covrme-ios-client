@@ -9,6 +9,7 @@
 #import "CMSettingsViewController.h"
 #import "CMSettingsTableCell.h"
 #import "CMSettingsSwitchedTableCell.h"
+#import "CMCustomResponsesViewController.h"
 
 @interface CMSettingsViewController ()
 
@@ -66,7 +67,34 @@
     }
 }
 
-#pragma mark - UITableViewDataSource Delegate
+- (void)launchCustomResponses
+{
+    CMCustomResponsesViewController *responsesVC =
+    [[CMCustomResponsesViewController alloc] initWithNibName:@"CMCustomResponsesViewController"
+                                                      bundle:nil];
+    
+    [self.navigationController pushViewController:responsesVC animated:YES];
+    
+}
+#pragma mark - UITableView Delegates
+
+- (void)tableView:(UITableView *)tableView
+  willDisplayCell:(UITableViewCell *)cell
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    } 
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row == 2) {
+        [self launchCustomResponses];
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
