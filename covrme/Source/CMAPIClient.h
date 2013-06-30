@@ -22,4 +22,7 @@ typedef void(^CMAPIClientFailureBlock)(NSHTTPURLResponse *response, NSError *err
                          success:(CMAPIClientSuccessBlock)success
                          failure:(CMAPIClientFailureBlock)failure;
 
+- (void)getNewDoorPictureWithParameters:(NSDictionary *)params
+                                success:(CMAPIClientSuccessBlock)success
+                                failure:(CMAPIClientFailureBlock)failure;
 @end

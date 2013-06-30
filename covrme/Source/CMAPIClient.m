@@ -77,4 +77,18 @@
     
     success(nil, responseObject);
 }
+
+- (void)getNewDoorPictureWithParameters:(NSDictionary *)params
+                                success:(CMAPIClientSuccessBlock)success
+                                failure:(CMAPIClientFailureBlock)failure
+{
+    // TODO UNCOMMENT THIS BADBOY
+//    [self getPath:@"http://tiarm.com/covrme/donewpicture.php"
+//       parameters:params
+//          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//              success(operation, responseObject);
+//          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//              failure(operation.response, error);
+//          }];
+}
 @end
