@@ -27,6 +27,10 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#if !__has_feature(objc_arc)
+#error "This source file must be compiled with ARC enabled!"
+#endif
+
 #import "SBJsonWriter.h"
 #import "SBJsonStreamWriter.h"
 #import "SBJsonStreamWriterAccumulator.h"
@@ -43,6 +47,8 @@
 
 @synthesize error;
 @synthesize maxDepth;
+
+@synthesize sortKeysComparator;
 
 - (id)init {
     self = [super init];
@@ -81,6 +87,7 @@
 	SBJsonStreamWriter *streamWriter = [[SBJsonStreamWriter alloc] init];
 	streamWriter.sortKeys = self.sortKeys;
 	streamWriter.maxDepth = self.maxDepth;
+	streamWriter.sortKeysComparator = self.sortKeysComparator;
 	streamWriter.humanReadable = self.humanReadable;
     streamWriter.delegate = accumulator;
 	

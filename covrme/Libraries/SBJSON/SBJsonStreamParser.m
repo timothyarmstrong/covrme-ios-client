@@ -30,10 +30,13 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#if !__has_feature(objc_arc)
+#error "This source file must be compiled with ARC enabled!"
+#endif
+
 #import "SBJsonStreamParser.h"
 #import "SBJsonTokeniser.h"
 #import "SBJsonStreamParserState.h"
-#import <limits.h>
 
 @implementation SBJsonStreamParser
 
@@ -57,9 +60,6 @@
 	return self;
 }
 
-- (void)dealloc {
-    self.state = nil;
-}
 
 #pragma mark Methods
 
@@ -115,7 +115,7 @@
 }
 
 - (void)maxDepthError {
-    self.error = [NSString stringWithFormat:@"Input depth exceeds max depth of %lu", maxDepth];
+    self.error = [NSString stringWithFormat:@"Input depth exceeds max depth of %lu", (unsigned long)maxDepth];
     self.state = [SBJsonStreamParserStateError sharedInstance];
 }
 

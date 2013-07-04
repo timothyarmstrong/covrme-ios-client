@@ -27,6 +27,10 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#if !__has_feature(objc_arc)
+#error "This source file must be compiled with ARC enabled!"
+#endif
+
 #import "NSObject+SBJson.h"
 #import "SBJsonWriter.h"
 #import "SBJsonParser.h"
@@ -50,6 +54,20 @@
 - (id)JSONValue {
     SBJsonParser *parser = [[SBJsonParser alloc] init];
     id repr = [parser objectWithString:self];
+    if (!repr)
+        NSLog(@"-JSONValue failed. Error is: %@", parser.error);
+    return repr;
+}
+
+@end
+
+
+
+@implementation NSData (NSData_SBJsonParsing)
+
+- (id)JSONValue {
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
+    id repr = [parser objectWithData:self];
     if (!repr)
         NSLog(@"-JSONValue failed. Error is: %@", parser.error);
     return repr;
