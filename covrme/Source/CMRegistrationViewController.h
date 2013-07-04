@@ -10,4 +10,12 @@
 
 @interface CMRegistrationViewController : UIViewController
 
+
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordAgainTextField;
+
+- (IBAction)registerTouched:(id)sender;
+
 @end

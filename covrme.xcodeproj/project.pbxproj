@@ -52,6 +52,7 @@
 		92974EC81664528B00C12C91 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC71664528B00C12C91 /* AudioToolbox.framework */; };
 		92974ECA1664529100C12C91 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC91664529100C12C91 /* MessageUI.framework */; };
 		92B786DA177BF65C000D658A /* CMSettingsSwitchedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */; };
+		92C6313E1785E149000069AF /* CMRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C6313D1785E149000069AF /* CMRegistrationViewController.m */; };
 		92E8C2A21771557900B06215 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C2461771557900B06215 /* MagicalImportFunctions.m */; };
 		92E8C2A31771557900B06215 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C2481771557900B06215 /* NSAttributeDescription+MagicalDataImport.m */; };
 		92E8C2A41771557900B06215 /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C24A1771557900B06215 /* NSEntityDescription+MagicalDataImport.m */; };
@@ -191,6 +192,8 @@
 		92974EC91664529100C12C91 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		92B786D8177BF65C000D658A /* CMSettingsSwitchedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsSwitchedTableCell.h; sourceTree = "<group>"; };
 		92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsSwitchedTableCell.m; sourceTree = "<group>"; };
+		92C6313C1785E149000069AF /* CMRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRegistrationViewController.h; sourceTree = "<group>"; };
+		92C6313D1785E149000069AF /* CMRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRegistrationViewController.m; sourceTree = "<group>"; };
 		92E8C2451771557900B06215 /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		92E8C2461771557900B06215 /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		92E8C2471771557900B06215 /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -753,6 +756,8 @@
 				92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */,
 				925CE99A177F83BB00FE5F90 /* CMCustomResponsesViewController.h */,
 				925CE99B177F83BB00FE5F90 /* CMCustomResponsesViewController.m */,
+				92C6313C1785E149000069AF /* CMRegistrationViewController.h */,
+				92C6313D1785E149000069AF /* CMRegistrationViewController.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1135,6 +1140,7 @@
 				925CE992177E010B00FE5F90 /* covrme.xcdatamodeld in Sources */,
 				925CE995177F4A1F00FE5F90 /* CMHistoryTableCell.m in Sources */,
 				925CE99C177F83BB00FE5F90 /* CMCustomResponsesViewController.m in Sources */,
+				92C6313E1785E149000069AF /* CMRegistrationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

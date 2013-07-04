@@ -12,6 +12,7 @@
 #import "CMFrontDoorViewController.h"
 #import "CMHistoryListViewController.h"
 #import "CMSettingsViewController.h"
+#import "CMRegistrationViewController.h"
 
 @implementation AppDelegate
 
@@ -65,6 +66,21 @@
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    
+    // Maybe present registration if required
+    
+    if (![[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user"]){
+        CMRegistrationViewController *registrationVC =
+        [[CMRegistrationViewController alloc]
+         initWithNibName:@"CMRegistrationViewController"
+         bundle:nil];
+        
+        [self.tabBarController presentViewController:registrationVC
+                                            animated:YES
+                                          completion:nil];
+    }
+    
     
     return YES;
 }
