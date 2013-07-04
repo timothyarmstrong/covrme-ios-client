@@ -7,6 +7,7 @@
 //
 
 #import "CMCustomResponsesViewController.h"
+#import "CMCustomResponse.h"
 
 @interface CMCustomResponsesViewController ()
 
@@ -28,6 +29,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
+    self.frc = [CMCustomResponse fetchAllGroupedBy:nil
+                                     withPredicate:nil
+                                          sortedBy:@"createdDate"
+                                         ascending:YES];
+    self.frc.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,10 +68,55 @@
         NSString *text = textField.text;
         
         if (text.length) {
-            NSLog(@"New custom response: %@", text);
+            [MagicalRecord
+             saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
+                 CMCustomResponse *newResponse = [CMCustomResponse createInContext:localContext];
+                 newResponse.responseText = text;
+                 newResponse.createdDate = [NSDate date];
+             } completion:nil];
         }
 
     }
 }
 
+#pragma mark - UITableViewMethods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CMCustomResponseTableCell"];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:@"CMCustomResponseTableCell"];
+    }
+    
+    CMCustomResponse *customResponse = [self.frc.fetchedObjects objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = customResponse.responseText;
+    
+    return cell;
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.frc.fetchedObjects count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44.f;
+}
+
+#pragma mark - NSFetchedResultsController Delegate
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView reloadData];
+}
 @end

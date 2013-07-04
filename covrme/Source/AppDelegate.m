@@ -44,6 +44,9 @@
                                          UIRemoteNotificationTypeSound |
                                          UIRemoteNotificationTypeAlert)];
     
+    // Setup CoreData
+    [MagicalRecord setupCoreDataStack];
+    
     // Front Door VC
     CMFrontDoorViewController *frontDoorVC = [[CMFrontDoorViewController alloc] initWithNibName:@"CMFrontDoorViewController"
                                                                                          bundle:nil];
@@ -122,6 +125,7 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+    [MagicalRecord cleanUp];
     [UAirship land];
 }
 
