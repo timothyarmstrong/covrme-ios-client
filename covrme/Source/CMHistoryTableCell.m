@@ -33,10 +33,20 @@
     [self.pictureView setImageWithURL:[dingDong valueForKey:@"pictureURL"]
                      placeholderImage:[UIImage imageNamed:@"placeholder_48"]];
 
-    self.typeLabel.text = [dingDong valueForKey:@"type"];
+    self.typeLabel.text = [dingDong valueForKey:@"Description"];
     
-    NSDate *timeStamp = [dingDong valueForKey:@"timestamp"];
-    NSString *formattedString = [NSDateFormatter localizedStringFromDate:timeStamp
+
+    
+    // RFC3339 date formatting
+    NSString *timeStamp = [dingDong valueForKey:@"When"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd'T'" ; // HH:mm:ss.Z";
+    
+    NSDate *date;
+    NSError *error;
+    [formatter getObjectValue:&date forString:timeStamp range:nil error:&error];
+    
+    NSString *formattedString = [NSDateFormatter localizedStringFromDate:date
                                                                dateStyle:NSDateFormatterShortStyle
                                                                timeStyle:NSDateFormatterNoStyle];
 

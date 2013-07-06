@@ -18,7 +18,18 @@ typedef void(^CMAPIClientFailureBlock)(NSHTTPURLResponse *response, NSError *err
 
 - (void)postToTimsServerWithParameters:(NSDictionary*)params success:(CMAPIClientSuccessBlock)success failure:(CMAPIClientFailureBlock)failure;
 
-- (void)getHistoryWithParameters:(NSDictionary *)params
+- (void)signupUserWithName:(NSString *)name
+                     email:(NSString *)email
+                  password:(NSString *)pass
+                   success:(CMAPIClientSuccessBlock)success
+                   failure:(CMAPIClientFailureBlock)failure;
+
+- (void)getAuthTokenWithEmail:(NSString *)email
+                     password:(NSString *)password
+                      success:(CMAPIClientSuccessBlock)success
+                      failure:(CMAPIClientFailureBlock)failure;
+
+- (void)getHistoryWithDoorbellID:(NSString *)ID
                          success:(CMAPIClientSuccessBlock)success
                          failure:(CMAPIClientFailureBlock)failure;
 

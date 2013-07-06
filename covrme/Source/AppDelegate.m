@@ -73,7 +73,7 @@
     
     // Maybe present registration if required
     
-    if (![[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user"]){
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"token"]){
         CMRegistrationViewController *registrationVC =
         [[CMRegistrationViewController alloc]
          initWithNibName:@"CMRegistrationViewController"

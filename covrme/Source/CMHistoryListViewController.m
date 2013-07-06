@@ -33,10 +33,10 @@
     UINib *nib = [UINib nibWithNibName:@"CMHistoryTableCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"CMHistoryTableCell"];
     
-    [[CMAPIClient sharedClient] getHistoryWithParameters:nil
+    [[CMAPIClient sharedClient] getHistoryWithDoorbellID:@"65432353"
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      self.dingDongs = (NSArray *) responseObject;
-//                                                     [self.tableView reloadData];
+                                                     [self.tableView reloadData];
                                                  } failure:^(NSHTTPURLResponse *response, NSError *error) {
                                                      
                                                  }];

@@ -7,6 +7,7 @@
 //
 
 #import "CMRegistrationViewController.h"
+#import "CMAPIClient.h"
 
 @interface CMRegistrationViewController ()
 
@@ -35,9 +36,54 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showErrorAlert
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                        message:@"Something went wrong trying to register, try again"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    
+    [alertView show];
+}
+
 - (IBAction)registerTouched:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [[CMAPIClient sharedClient]
+     signupUserWithName:self.nameTextField.text
+     email:self.emailTextField.text
+     password:self.passwordTextField.text
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         NSDictionary *responseDict = (NSDictionary *)responseObject;
+         
+         NSString *name = [responseDict valueForKey:@"name"];
+         NSString *email = [responseDict valueForKey:@"email"];
+         
+         if (name && email) {
+             [[NSUserDefaults standardUserDefaults] setValue:name forKey:@"name"];
+             [[NSUserDefaults standardUserDefaults] setValue:email forKey:@"email"];
+             
+             [[CMAPIClient sharedClient]
+              getAuthTokenWithEmail:self.emailTextField.text
+              password:self.passwordTextField.text
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  
+                  [[NSUserDefaults standardUserDefaults]
+                   setValue:[responseObject valueForKey:@"token"]
+                   forKey:@"token"];
+                  
+                  [self dismissViewControllerAnimated:YES completion:nil];
+              } failure:^(NSHTTPURLResponse *response, NSError *error) {
+                  [self showErrorAlert];
+              }];
+         } else {
+             [self showErrorAlert];
+         }
+         
+     } failure:^(NSHTTPURLResponse *response, NSError *error) {
+         [self showErrorAlert];
+     }];
+    
 }
 
 @end
