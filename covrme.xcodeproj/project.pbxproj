@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		923D85431789264F00016BFA /* on_my_way.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D85411789264E00016BFA /* on_my_way.png */; };
+		923D85441789264F00016BFA /* on_my_way@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D85421789264E00016BFA /* on_my_way@2x.png */; };
+		923D854917892A0B00016BFA /* custom_response.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D854517892A0A00016BFA /* custom_response.png */; };
+		923D854A17892A0B00016BFA /* custom_response@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D854617892A0A00016BFA /* custom_response@2x.png */; };
+		923D854B17892A0B00016BFA /* not_here_atm.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D854717892A0B00016BFA /* not_here_atm.png */; };
+		923D854C17892A0B00016BFA /* not_here_atm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D854817892A0B00016BFA /* not_here_atm@2x.png */; };
 		925BF4B31501C6270054AE57 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925BF4B21501C6270054AE57 /* UIKit.framework */; };
 		925BF4B51501C6270054AE57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925BF4B41501C6270054AE57 /* Foundation.framework */; };
 		925BF4B71501C6270054AE57 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925BF4B61501C6270054AE57 /* CoreGraphics.framework */; };
@@ -126,6 +132,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		923D85411789264E00016BFA /* on_my_way.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on_my_way.png; sourceTree = "<group>"; };
+		923D85421789264E00016BFA /* on_my_way@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "on_my_way@2x.png"; sourceTree = "<group>"; };
+		923D854517892A0A00016BFA /* custom_response.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_response.png; sourceTree = "<group>"; };
+		923D854617892A0A00016BFA /* custom_response@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom_response@2x.png"; sourceTree = "<group>"; };
+		923D854717892A0B00016BFA /* not_here_atm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = not_here_atm.png; sourceTree = "<group>"; };
+		923D854817892A0B00016BFA /* not_here_atm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "not_here_atm@2x.png"; sourceTree = "<group>"; };
 		925BF4AE1501C6270054AE57 /* covrme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = covrme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925BF4B21501C6270054AE57 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		925BF4B41501C6270054AE57 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -731,6 +743,12 @@
 		92E8C2C81771558800B06215 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				923D854517892A0A00016BFA /* custom_response.png */,
+				923D854617892A0A00016BFA /* custom_response@2x.png */,
+				923D854717892A0B00016BFA /* not_here_atm.png */,
+				923D854817892A0B00016BFA /* not_here_atm@2x.png */,
+				923D85411789264E00016BFA /* on_my_way.png */,
+				923D85421789264E00016BFA /* on_my_way@2x.png */,
 				925CE996177F7D0000FE5F90 /* placeholder_48.png */,
 				925CE998177F7E5100FE5F90 /* placeholder_256.png */,
 				92E8C4C01771642F00B06215 /* ios-linen.jpg */,
@@ -1063,6 +1081,12 @@
 				925CE999177F7E5100FE5F90 /* placeholder_256.png in Resources */,
 				925CE99E177F83F300FE5F90 /* CMCustomResponsesViewController.xib in Resources */,
 				92F43E921780E85800B627CB /* CMRegistrationViewController.xib in Resources */,
+				923D85431789264F00016BFA /* on_my_way.png in Resources */,
+				923D85441789264F00016BFA /* on_my_way@2x.png in Resources */,
+				923D854917892A0B00016BFA /* custom_response.png in Resources */,
+				923D854A17892A0B00016BFA /* custom_response@2x.png in Resources */,
+				923D854B17892A0B00016BFA /* not_here_atm.png in Resources */,
+				923D854C17892A0B00016BFA /* not_here_atm@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
