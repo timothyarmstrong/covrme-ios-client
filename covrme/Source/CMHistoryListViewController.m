@@ -32,6 +32,11 @@
     
     UINib *nib = [UINib nibWithNibName:@"CMHistoryTableCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"CMHistoryTableCell"];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
     [[CMAPIClient sharedClient] getHistoryWithDoorbellID:@"65432353"
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
