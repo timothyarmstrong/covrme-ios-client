@@ -22,6 +22,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Settings";
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title
+                                                        image:[UIImage imageNamed:@"settings"]
+                                                          tag:2];
     }
     return self;
 }
@@ -35,8 +38,6 @@
     
     nib = [UINib nibWithNibName:@"CMSettingsSwitchedTableCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"CMSettingsSwitchedTableCell"];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning

@@ -43,6 +43,10 @@
 		927904B0177BEEF500816021 /* CMSettingsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927904AF177BEEF500816021 /* CMSettingsTableCell.xib */; };
 		927904B2177BF03C00816021 /* CMSettingsSwitchedTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927904B1177BF03C00816021 /* CMSettingsSwitchedTableCell.xib */; };
 		927904B5177BF0F100816021 /* CMSettingsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 927904B4177BF0F100816021 /* CMSettingsTableCell.m */; };
+		927E688D1789D00600085AEE /* detaileddoor.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E688B1789D00600085AEE /* detaileddoor.png */; };
+		927E688E1789D00600085AEE /* detaileddoor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E688C1789D00600085AEE /* detaileddoor@2x.png */; };
+		927E68911789D04A00085AEE /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E688F1789D04A00085AEE /* settings.png */; };
+		927E68921789D04A00085AEE /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E68901789D04A00085AEE /* settings@2x.png */; };
 		92974D2E16644C3B00C12C91 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D2D16644C3B00C12C91 /* CFNetwork.framework */; };
 		92974D3016644C4A00C12C91 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D2F16644C4A00C12C91 /* MobileCoreServices.framework */; };
 		92974D3216644C5200C12C91 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D3116644C5200C12C91 /* Security.framework */; };
@@ -189,6 +193,10 @@
 		927904B1177BF03C00816021 /* CMSettingsSwitchedTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMSettingsSwitchedTableCell.xib; sourceTree = "<group>"; };
 		927904B3177BF0F100816021 /* CMSettingsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsTableCell.h; sourceTree = "<group>"; };
 		927904B4177BF0F100816021 /* CMSettingsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsTableCell.m; sourceTree = "<group>"; };
+		927E688B1789D00600085AEE /* detaileddoor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detaileddoor.png; sourceTree = "<group>"; };
+		927E688C1789D00600085AEE /* detaileddoor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detaileddoor@2x.png"; sourceTree = "<group>"; };
+		927E688F1789D04A00085AEE /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		927E68901789D04A00085AEE /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		92974D2D16644C3B00C12C91 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		92974D2F16644C4A00C12C91 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		92974D3116644C5200C12C91 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -743,6 +751,10 @@
 		92E8C2C81771558800B06215 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				927E688F1789D04A00085AEE /* settings.png */,
+				927E68901789D04A00085AEE /* settings@2x.png */,
+				927E688B1789D00600085AEE /* detaileddoor.png */,
+				927E688C1789D00600085AEE /* detaileddoor@2x.png */,
 				923D854517892A0A00016BFA /* custom_response.png */,
 				923D854617892A0A00016BFA /* custom_response@2x.png */,
 				923D854717892A0B00016BFA /* not_here_atm.png */,
@@ -1087,6 +1099,10 @@
 				923D854A17892A0B00016BFA /* custom_response@2x.png in Resources */,
 				923D854B17892A0B00016BFA /* not_here_atm.png in Resources */,
 				923D854C17892A0B00016BFA /* not_here_atm@2x.png in Resources */,
+				927E688D1789D00600085AEE /* detaileddoor.png in Resources */,
+				927E688E1789D00600085AEE /* detaileddoor@2x.png in Resources */,
+				927E68911789D04A00085AEE /* settings.png in Resources */,
+				927E68921789D04A00085AEE /* settings@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
