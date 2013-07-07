@@ -125,6 +125,14 @@
                          success:(CMAPIClientSuccessBlock)success
                          failure:(CMAPIClientFailureBlock)failure
 {
+    
+    NSString *token = [self token];
+    
+    if (!token || !token.length) {
+        failure(nil, nil);
+        return;
+    }
+    
     NSDictionary *params = @{@"authtoken": [self token]};
     
     NSString *path = [NSString stringWithFormat:@"doorbells/%@/visitors", ID];
