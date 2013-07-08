@@ -13,10 +13,9 @@
 
 typedef void(^CMAPIClientStartupBlock)(NSOperation* operation);
 typedef void(^CMAPIClientSuccessBlock) (AFHTTPRequestOperation *operation, id responseObject);
-typedef void(^CMAPIClientCompletionBlock)();
 typedef void(^CMAPIClientFailureBlock)(NSHTTPURLResponse *response, NSError *error);
+typedef void(^CMAPIClientCompletionBlock)();
 
-- (void)postToTimsServerWithParameters:(NSDictionary*)params success:(CMAPIClientSuccessBlock)success failure:(CMAPIClientFailureBlock)failure;
 
 - (void)signupUserWithName:(NSString *)name
                      email:(NSString *)email
@@ -36,4 +35,12 @@ typedef void(^CMAPIClientFailureBlock)(NSHTTPURLResponse *response, NSError *err
 - (void)getNewDoorPictureWithParameters:(NSDictionary *)params
                                 success:(CMAPIClientSuccessBlock)success
                                 failure:(CMAPIClientFailureBlock)failure;
+
+- (void)registerPushToken:(NSString *)token
+                  success:(CMAPIClientSuccessBlock)success
+                  failure:(CMAPIClientFailureBlock)failure;
+
+- (void)registerUserToDoorbellID:(NSString *)doorbellID
+                         success:(CMAPIClientSuccessBlock)success
+                         failure:(CMAPIClientFailureBlock)failure;
 @end

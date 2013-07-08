@@ -49,6 +49,11 @@
     return [[NSUserDefaults standardUserDefaults] valueForKey:@"token"];
 }
 
+- (NSString *)userID
+{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:@"userID"];
+}
+
 - (id)initWithBaseURL:(NSURL *)url {
     
     self = [super initWithBaseURL:url];
@@ -126,10 +131,7 @@
                          failure:(CMAPIClientFailureBlock)failure
 {
     
-    NSString *token = [self token];
-    
-    if (!token || !token.length) {
-        failure(nil, nil);
+    if (![self token] || ![self token].length) {
         return;
     }
     
@@ -152,6 +154,9 @@
                         success:(CMAPIClientSuccessBlock)success
                         failure:(CMAPIClientFailureBlock)failure
 {
+    if (![self token] || ![self token].length) {
+        return;
+    }
     NSDictionary *params = @{@"authtoken": [self token],
                              @"message": [CMAPIClient formattedStringForAPICall:message]};
     
@@ -171,6 +176,10 @@
                            success:(CMAPIClientSuccessBlock)success
                            failure:(CMAPIClientFailureBlock)failure
 {
+    if (![self token] || ![self token].length) {
+        return;
+    }
+    
     NSDictionary *params = @{@"authtoken": [self token]};
     
     NSString *path = [NSString stringWithFormat:@"visitors/%@/photos", visitorID];
@@ -182,5 +191,48 @@
           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               failure(operation.response, error);
           }];
+}
+
+- (void)registerPushToken:(NSString *)token
+                  success:(CMAPIClientSuccessBlock)success
+                  failure:(CMAPIClientFailureBlock)failure
+{
+    
+    if (![self token] || ![self token].length) {
+        return;
+    }
+    
+    NSDictionary *params = @{@"authtoken": [self token],
+                             @"push_token": token};
+    
+    NSString *path = [NSString stringWithFormat:@"users/%@/pushtokens", [self userID]];
+    
+    [self postPath:path
+        parameters:params
+           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+               success(operation, responseObject);
+           }
+           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+               failure(operation.response, error);
+           }];
+}
+
+- (void)registerUserToDoorbellID:(NSString *)doorbellID
+                         success:(CMAPIClientSuccessBlock)success
+                         failure:(CMAPIClientFailureBlock)failure
+{
+    NSDictionary *params = @{@"authtoken": [self token],
+                             @"doorbellId": doorbellID};
+    
+    NSString *path = [NSString stringWithFormat:@"users/%@/doorbells", [self userID]];
+    
+    [self postPath:path
+        parameters:params
+           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+               success(operation, responseObject);
+           }
+           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+               failure(operation.response, error);
+           }];
 }
 @end

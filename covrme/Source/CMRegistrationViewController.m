@@ -8,6 +8,7 @@
 
 #import "CMRegistrationViewController.h"
 #import "CMAPIClient.h"
+#import "AppDelegate.h"
 
 @interface CMRegistrationViewController ()
 
@@ -58,11 +59,14 @@
          
          NSString *name = [responseDict valueForKey:@"name"];
          NSString *email = [responseDict valueForKey:@"email"];
+         NSString *userID = [[responseDict valueForKey:@"Id"] stringValue];
          
          if (name && email) {
              [[NSUserDefaults standardUserDefaults] setValue:name forKey:@"name"];
              [[NSUserDefaults standardUserDefaults] setValue:email forKey:@"email"];
+             [[NSUserDefaults standardUserDefaults] setValue:userID forKey:@"userID"];
              
+             // Get AuthToken
              [[CMAPIClient sharedClient]
               getAuthTokenWithEmail:self.emailTextField.text
               password:self.passwordTextField.text
@@ -72,10 +76,17 @@
                    setValue:[responseObject valueForKey:@"token"]
                    forKey:@"token"];
                   
+                  // Register PushToken
+                  AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                  [delegate registerPushTokenWithServer];
+                  
                   [self dismissViewControllerAnimated:YES completion:nil];
               } failure:^(NSHTTPURLResponse *response, NSError *error) {
                   [self showErrorAlert];
               }];
+             
+
+             
          } else {
              [self showErrorAlert];
          }
