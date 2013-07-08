@@ -83,7 +83,12 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[frontDoorNavController, historyListNavController, settingsNavController];
-    self.tabBarController.selectedIndex = 1;
+    
+    if ([launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
+        self.tabBarController.selectedIndex = 0;
+    } else {
+        self.tabBarController.selectedIndex = 1;
+    }
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
@@ -117,6 +122,12 @@
     [UAirship land];
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    // Push Token Received!
+    self.tabBarController.selectedIndex = 0;
+    
+}
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {

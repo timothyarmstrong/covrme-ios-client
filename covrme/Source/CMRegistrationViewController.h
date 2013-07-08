@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMRegistrationViewController : UIViewController
+@interface CMRegistrationViewController : UIViewController <UITextFieldDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;

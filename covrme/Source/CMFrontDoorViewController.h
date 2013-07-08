@@ -8,9 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMFrontDoorViewController : UIViewController
+@protocol DoorbellResponderDelegate <NSObject>
+
+- (void)sendResponse:(NSString *)text;
+
+@end
+
+@interface CMFrontDoorViewController : UIViewController <DoorbellResponderDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *picture;
 @property (weak, nonatomic) IBOutlet UIView *noOneView;
+
+@property (nonatomic, strong) NSString* currentVisitorID;
+@property (nonatomic, strong) NSString* currentDoorbellID;
+
 - (IBAction)sendCustomTouched:(id)sender;
+- (IBAction)notHereTouched:(id)sender;
+- (IBAction)omwTouched:(id)sender;
 @end

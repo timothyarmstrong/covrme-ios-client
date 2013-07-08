@@ -83,6 +83,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    CMCustomResponse *customResponse = [self.frc.fetchedObjects objectAtIndex:indexPath.row];
+    [self.responderDelegate sendResponse:customResponse.responseText];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

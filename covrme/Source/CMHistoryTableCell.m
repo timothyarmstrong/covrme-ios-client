@@ -30,8 +30,8 @@
 
 - (void)configureWithDingDong:(NSDictionary *)dingDong
 {
-    [self.pictureView setImageWithURL:[dingDong valueForKey:@"pictureURL"]
-                     placeholderImage:[UIImage imageNamed:@"placeholder_48"]];
+    [self.pictureView setImageWithURL:[dingDong valueForKey:@"ThumbnailUrl"]
+                     placeholderImage:[UIImage imageNamed:@"prof_thumb_placeholder"]];
 
     self.typeLabel.text = [dingDong valueForKey:@"Description"];
     

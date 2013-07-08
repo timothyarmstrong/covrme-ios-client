@@ -97,4 +97,16 @@
     
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [[self.view viewWithTag:textField.tag+1] becomeFirstResponder];
+    
+    if (textField == self.passwordAgainTextField) {
+        [self.passwordAgainTextField endEditing:YES];
+        [self registerTouched:self.passwordAgainTextField];
+    }
+    
+    return YES;
+}
+
 @end

@@ -43,4 +43,10 @@ typedef void(^CMAPIClientCompletionBlock)();
 - (void)registerUserToDoorbellID:(NSString *)doorbellID
                          success:(CMAPIClientSuccessBlock)success
                          failure:(CMAPIClientFailureBlock)failure;
+
+- (void)sendMessageToDoorbellID:(NSString *)doorbellID
+                  withVisitorID:(NSString *)visitorID
+                    withMessage:(NSString *)message
+                        success:(CMAPIClientSuccessBlock)success
+                        failure:(CMAPIClientFailureBlock)failure;
 @end
