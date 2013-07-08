@@ -29,11 +29,92 @@
 
 #pragma mark - Helper Methods
 
+- (void)showNoOneView
+{
+    if (self.noOneView.hidden == NO) {
+        return;
+    }
+    
+    self.noOneView.hidden = NO;
+    self.noOneView.alpha = 0.f;
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.noOneView.alpha = 1.0f;
+                     }
+                     completion:^(BOOL finished) {
+                         self.noOneView.alpha = 1.0f;
+                         
+                     }];
+}
+
+- (void)hideNoOneView
+{
+    if (self.noOneView.hidden == YES) {
+        return;
+    }
+    
+
+    self.noOneView.alpha = 1.f;
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.noOneView.alpha = 0.f;
+                     }
+                     completion:^(BOOL finished) {
+                         self.noOneView.alpha = 0.f;
+                         self.noOneView.hidden = YES;
+                     }];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setupImageTouchGesture];
+    self.noOneView.hidden = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[CMAPIClient sharedClient]
+         getHistoryWithDoorbellID:@"65432353"
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSDictionary *dingDong = [responseObject objectAtIndex:0];
+             
+             // RFC3339 date formatting
+             NSString *timeStamp = [dingDong valueForKey:@"When"];
+             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+             formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
+             
+             NSDate *date;
+             NSError *error;
+             [formatter getObjectValue:&date
+                             forString:timeStamp
+                                 range:nil
+                                 error:&error];
+             
+             if (date) {
+                 NSTimeInterval secondsBetween =
+                    [[NSDate date] timeIntervalSinceDate:date];
+                 
+                 if ( secondsBetween <= 60) {
+                     [self hideNoOneView];
+                     return;
+                 }
+             }
+             
+             [self showNoOneView];
+     
+             
+         }
+         failure:^(NSHTTPURLResponse *response, NSError *error) {
+             [self showNoOneView];
+         }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self showNoOneView];
 }
 
 - (void)didReceiveMemoryWarning

@@ -47,6 +47,10 @@
 		927E688E1789D00600085AEE /* detaileddoor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E688C1789D00600085AEE /* detaileddoor@2x.png */; };
 		927E68911789D04A00085AEE /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E688F1789D04A00085AEE /* settings.png */; };
 		927E68921789D04A00085AEE /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E68901789D04A00085AEE /* settings@2x.png */; };
+		927E6895178A5A4300085AEE /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E6893178A5A4300085AEE /* app_icon.png */; };
+		927E6896178A5A4300085AEE /* app_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E6894178A5A4300085AEE /* app_icon@2x.png */; };
+		927E6898178A5A5700085AEE /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E6897178A5A5600085AEE /* app_icon.png */; };
+		927E689A178A5A5E00085AEE /* app_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E6899178A5A5E00085AEE /* app_icon@2x.png */; };
 		92974D2E16644C3B00C12C91 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D2D16644C3B00C12C91 /* CFNetwork.framework */; };
 		92974D3016644C4A00C12C91 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D2F16644C4A00C12C91 /* MobileCoreServices.framework */; };
 		92974D3216644C5200C12C91 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D3116644C5200C12C91 /* Security.framework */; };
@@ -197,6 +201,10 @@
 		927E688C1789D00600085AEE /* detaileddoor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detaileddoor@2x.png"; sourceTree = "<group>"; };
 		927E688F1789D04A00085AEE /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		927E68901789D04A00085AEE /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		927E6893178A5A4300085AEE /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
+		927E6894178A5A4300085AEE /* app_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon@2x.png"; sourceTree = "<group>"; };
+		927E6897178A5A5600085AEE /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
+		927E6899178A5A5E00085AEE /* app_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon@2x.png"; sourceTree = "<group>"; };
 		92974D2D16644C3B00C12C91 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		92974D2F16644C4A00C12C91 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		92974D3116644C5200C12C91 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -458,6 +466,8 @@
 		925BF4A31501C6270054AE57 = {
 			isa = PBXGroup;
 			children = (
+				927E6899178A5A5E00085AEE /* app_icon@2x.png */,
+				927E6897178A5A5600085AEE /* app_icon.png */,
 				92974EC21664518C00C12C91 /* Default-568h@2x.png */,
 				925BF4B81501C6270054AE57 /* covrme */,
 				925BF4B11501C6270054AE57 /* Frameworks */,
@@ -751,6 +761,8 @@
 		92E8C2C81771558800B06215 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				927E6893178A5A4300085AEE /* app_icon.png */,
+				927E6894178A5A4300085AEE /* app_icon@2x.png */,
 				927E688F1789D04A00085AEE /* settings.png */,
 				927E68901789D04A00085AEE /* settings@2x.png */,
 				927E688B1789D00600085AEE /* detaileddoor.png */,
@@ -1103,6 +1115,10 @@
 				927E688E1789D00600085AEE /* detaileddoor@2x.png in Resources */,
 				927E68911789D04A00085AEE /* settings.png in Resources */,
 				927E68921789D04A00085AEE /* settings@2x.png in Resources */,
+				927E6895178A5A4300085AEE /* app_icon.png in Resources */,
+				927E6896178A5A4300085AEE /* app_icon@2x.png in Resources */,
+				927E6898178A5A5700085AEE /* app_icon.png in Resources */,
+				927E689A178A5A5E00085AEE /* app_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
