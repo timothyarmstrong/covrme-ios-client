@@ -807,22 +807,12 @@
 		92E8C2D5177155A300B06215 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				92F5FE0D17A488A5002EF496 /* API */,
 				925CE98F177E00F200FE5F90 /* Model */,
 				92B786D7177BF63A000D658A /* Table Cells */,
+				92F5FE0817A48845002EF496 /* View Controllers */,
 				92E8C2D6177155A300B06215 /* AppDelegate.h */,
 				92E8C2D7177155A300B06215 /* AppDelegate.m */,
-				92E8C2D8177155A300B06215 /* CMAPIClient.h */,
-				92E8C2D9177155A300B06215 /* CMAPIClient.m */,
-				92E8C4B117715B2D00B06215 /* CMHistoryListViewController.h */,
-				92E8C4B217715B2D00B06215 /* CMHistoryListViewController.m */,
-				92E8C4B617715C5500B06215 /* CMSettingsViewController.h */,
-				92E8C4B717715C5500B06215 /* CMSettingsViewController.m */,
-				92E8C4BB17715CBD00B06215 /* CMFrontDoorViewController.h */,
-				92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */,
-				925CE99A177F83BB00FE5F90 /* CMCustomResponsesViewController.h */,
-				925CE99B177F83BB00FE5F90 /* CMCustomResponsesViewController.m */,
-				92C6313C1785E149000069AF /* CMRegistrationViewController.h */,
-				92C6313D1785E149000069AF /* CMRegistrationViewController.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1048,6 +1038,64 @@
 				92E8C3581771571600B06215 /* UASubscriptionProduct.h */,
 			);
 			path = SubscriptionLib;
+			sourceTree = "<group>";
+		};
+		92F5FE0817A48845002EF496 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				92F5FE0C17A4887A002EF496 /* Registration */,
+				92F5FE0B17A4886E002EF496 /* Settings */,
+				92F5FE0A17A48860002EF496 /* History */,
+				92F5FE0917A48850002EF496 /* Front Door */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		92F5FE0917A48850002EF496 /* Front Door */ = {
+			isa = PBXGroup;
+			children = (
+				92E8C4BB17715CBD00B06215 /* CMFrontDoorViewController.h */,
+				92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */,
+			);
+			name = "Front Door";
+			sourceTree = "<group>";
+		};
+		92F5FE0A17A48860002EF496 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				92E8C4B117715B2D00B06215 /* CMHistoryListViewController.h */,
+				92E8C4B217715B2D00B06215 /* CMHistoryListViewController.m */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		92F5FE0B17A4886E002EF496 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				92E8C4B617715C5500B06215 /* CMSettingsViewController.h */,
+				92E8C4B717715C5500B06215 /* CMSettingsViewController.m */,
+				925CE99A177F83BB00FE5F90 /* CMCustomResponsesViewController.h */,
+				925CE99B177F83BB00FE5F90 /* CMCustomResponsesViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		92F5FE0C17A4887A002EF496 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				92C6313C1785E149000069AF /* CMRegistrationViewController.h */,
+				92C6313D1785E149000069AF /* CMRegistrationViewController.m */,
+			);
+			name = Registration;
+			sourceTree = "<group>";
+		};
+		92F5FE0D17A488A5002EF496 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				92E8C2D8177155A300B06215 /* CMAPIClient.h */,
+				92E8C2D9177155A300B06215 /* CMAPIClient.m */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
