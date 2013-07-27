@@ -59,7 +59,7 @@
          
          NSString *name = [responseDict valueForKey:@"name"];
          NSString *email = [responseDict valueForKey:@"email"];
-         NSString *userID = [[responseDict valueForKey:@"Id"] stringValue];
+         NSString *userID = [[responseDict valueForKey:@"id"] stringValue];
          
          if (name && email) {
              [[NSUserDefaults standardUserDefaults] setValue:name forKey:@"name"];

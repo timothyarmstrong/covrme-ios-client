@@ -30,10 +30,16 @@
 
 - (void)configureWithDingDong:(NSDictionary *)dingDong
 {
-    [self.pictureView setImageWithURL:[dingDong valueForKey:@"ThumbnailUrl"]
+    NSString *thumbnail = [NSString stringWithFormat:@"%@=s%@", [dingDong valueForKey:@"photo_thumbnail_url"], @"48"];
+    NSURL *url = [NSURL URLWithString:thumbnail];
+    
+    [self.pictureView setImageWithURL:url
                      placeholderImage:[UIImage imageNamed:@"prof_thumb_placeholder"]];
+    
+    self.pictureView.contentMode = UIViewContentModeScaleAspectFill;
+    self.pictureView.clipsToBounds = YES;
 
-    self.typeLabel.text = [dingDong valueForKey:@"Description"];
+    self.typeLabel.text = [dingDong valueForKey:@"description"];
     
 
     

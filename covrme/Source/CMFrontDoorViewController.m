@@ -9,6 +9,7 @@
 #import "CMFrontDoorViewController.h"
 #import "CMCustomResponsesViewController.h"
 #import "CMAPIClient.h"
+#import "UIImageView+WebCache.h"
 
 @interface CMFrontDoorViewController ()
 
@@ -136,21 +137,41 @@
     [[CMAPIClient sharedClient]
          getHistoryWithDoorbellID:self.currentDoorbellID
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSDictionary *dingDong = [responseObject objectAtIndex:0];
              
-             self.currentVisitorID = [dingDong valueForKey:@"Id"];
+             NSArray *responseArray = (NSArray *)responseObject;
              
+             if (!(responseArray.count)) {
+                 return;
+             }
+             
+             NSDictionary *dingDong = [responseArray objectAtIndex:0];
+             NSString *profilePic =
+                [NSString stringWithFormat:@"%@=s%@",
+                    [dingDong valueForKey:@"photo_thumbnail_url"], @"256"];
+             
+             NSURL *profilePicURL = [NSURL URLWithString:profilePic];
+             
+             self.currentVisitorID = [dingDong valueForKey:@"id"];
+             [self.picture setImageWithURL:profilePicURL
+                          placeholderImage:[UIImage imageNamed:@"placeholder_256"]
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                     [self.picture setImage:image];
+                          }];
              // RFC3339 date formatting
-             NSString *timeStamp = [dingDong valueForKey:@"When"];
+             NSString *timeStamp = [dingDong valueForKey:@"when"];
              NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
              formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
              
              NSDate *date;
              NSError *error;
-             [formatter getObjectValue:&date
-                             forString:timeStamp
-                                 range:nil
-                                 error:&error];
+             
+             if (timeStamp) {
+                 [formatter getObjectValue:&date
+                                 forString:timeStamp
+                                     range:nil
+                                     error:&error];
+             }
+
              
              if (date) {
                  NSTimeInterval secondsBetween =
