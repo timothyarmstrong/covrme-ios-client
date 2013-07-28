@@ -73,7 +73,6 @@
 		92974ECA1664529100C12C91 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC91664529100C12C91 /* MessageUI.framework */; };
 		92B786DA177BF65C000D658A /* CMSettingsSwitchedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */; };
 		92C6313E1785E149000069AF /* CMRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C6313D1785E149000069AF /* CMRegistrationViewController.m */; };
-		92C631411785F7BC000069AF /* CMCustomResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C631401785F7BC000069AF /* CMCustomResponse.m */; };
 		92E8C2A21771557900B06215 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C2461771557900B06215 /* MagicalImportFunctions.m */; };
 		92E8C2A31771557900B06215 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C2481771557900B06215 /* NSAttributeDescription+MagicalDataImport.m */; };
 		92E8C2A41771557900B06215 /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C24A1771557900B06215 /* NSEntityDescription+MagicalDataImport.m */; };
@@ -143,6 +142,10 @@
 		92E8C4BF17715CBD00B06215 /* CMFrontDoorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */; };
 		92E8C4C11771642F00B06215 /* ios-linen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4C01771642F00B06215 /* ios-linen.jpg */; };
 		92F43E921780E85800B627CB /* CMRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F43E911780E85800B627CB /* CMRegistrationViewController.xib */; };
+		92F5FE1217A48919002EF496 /* CMDoorbellManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F5FE1017A48919002EF496 /* CMDoorbellManagementViewController.m */; };
+		92F5FE1317A48919002EF496 /* CMDoorbellManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F5FE1117A48919002EF496 /* CMDoorbellManagementViewController.xib */; };
+		92F5FE1917A494A3002EF496 /* CMCustomResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F5FE1817A494A3002EF496 /* CMCustomResponse.m */; };
+		92F5FE1C17A494BE002EF496 /* CMDoorbell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F5FE1B17A494BE002EF496 /* CMDoorbell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -235,8 +238,6 @@
 		92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsSwitchedTableCell.m; sourceTree = "<group>"; };
 		92C6313C1785E149000069AF /* CMRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRegistrationViewController.h; sourceTree = "<group>"; };
 		92C6313D1785E149000069AF /* CMRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRegistrationViewController.m; sourceTree = "<group>"; };
-		92C6313F1785F7BC000069AF /* CMCustomResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMCustomResponse.h; sourceTree = "<group>"; };
-		92C631401785F7BC000069AF /* CMCustomResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMCustomResponse.m; sourceTree = "<group>"; };
 		92E8C2451771557900B06215 /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		92E8C2461771557900B06215 /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		92E8C2471771557900B06215 /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -443,6 +444,13 @@
 		92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMFrontDoorViewController.xib; path = Source/CMFrontDoorViewController.xib; sourceTree = "<group>"; };
 		92E8C4C01771642F00B06215 /* ios-linen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ios-linen.jpg"; path = "../../../../../../Downloads/ios-linen/ios-linen.jpg"; sourceTree = "<group>"; };
 		92F43E911780E85800B627CB /* CMRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMRegistrationViewController.xib; path = Source/CMRegistrationViewController.xib; sourceTree = "<group>"; };
+		92F5FE0F17A48919002EF496 /* CMDoorbellManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDoorbellManagementViewController.h; sourceTree = "<group>"; };
+		92F5FE1017A48919002EF496 /* CMDoorbellManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDoorbellManagementViewController.m; sourceTree = "<group>"; };
+		92F5FE1117A48919002EF496 /* CMDoorbellManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMDoorbellManagementViewController.xib; path = Source/CMDoorbellManagementViewController.xib; sourceTree = "<group>"; };
+		92F5FE1717A494A3002EF496 /* CMCustomResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMCustomResponse.h; sourceTree = "<group>"; };
+		92F5FE1817A494A3002EF496 /* CMCustomResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMCustomResponse.m; sourceTree = "<group>"; };
+		92F5FE1A17A494BE002EF496 /* CMDoorbell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDoorbell.h; sourceTree = "<group>"; };
+		92F5FE1B17A494BE002EF496 /* CMDoorbell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDoorbell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,8 +591,10 @@
 			isa = PBXGroup;
 			children = (
 				925CE990177E010B00FE5F90 /* covrme.xcdatamodeld */,
-				92C6313F1785F7BC000069AF /* CMCustomResponse.h */,
-				92C631401785F7BC000069AF /* CMCustomResponse.m */,
+				92F5FE1A17A494BE002EF496 /* CMDoorbell.h */,
+				92F5FE1B17A494BE002EF496 /* CMDoorbell.m */,
+				92F5FE1717A494A3002EF496 /* CMCustomResponse.h */,
+				92F5FE1817A494A3002EF496 /* CMCustomResponse.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -598,6 +608,7 @@
 				92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */,
 				925CE99D177F83F200FE5F90 /* CMCustomResponsesViewController.xib */,
 				92F43E911780E85800B627CB /* CMRegistrationViewController.xib */,
+				92F5FE1117A48919002EF496 /* CMDoorbellManagementViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -1076,6 +1087,8 @@
 				92E8C4B717715C5500B06215 /* CMSettingsViewController.m */,
 				925CE99A177F83BB00FE5F90 /* CMCustomResponsesViewController.h */,
 				925CE99B177F83BB00FE5F90 /* CMCustomResponsesViewController.m */,
+				92F5FE0F17A48919002EF496 /* CMDoorbellManagementViewController.h */,
+				92F5FE1017A48919002EF496 /* CMDoorbellManagementViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1191,6 +1204,7 @@
 				927E68A3178A655E00085AEE /* no_one_here@2x.png in Resources */,
 				927E68A5178A8EC500085AEE /* prof_thumb_placeholder.png in Resources */,
 				927E68A7178A8ECE00085AEE /* prof_thumb_placeholder@2x.png in Resources */,
+				92F5FE1317A48919002EF496 /* CMDoorbellManagementViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1274,7 +1288,9 @@
 				925CE995177F4A1F00FE5F90 /* CMHistoryTableCell.m in Sources */,
 				925CE99C177F83BB00FE5F90 /* CMCustomResponsesViewController.m in Sources */,
 				92C6313E1785E149000069AF /* CMRegistrationViewController.m in Sources */,
-				92C631411785F7BC000069AF /* CMCustomResponse.m in Sources */,
+				92F5FE1217A48919002EF496 /* CMDoorbellManagementViewController.m in Sources */,
+				92F5FE1917A494A3002EF496 /* CMCustomResponse.m in Sources */,
+				92F5FE1C17A494BE002EF496 /* CMDoorbell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

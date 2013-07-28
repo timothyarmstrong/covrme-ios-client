@@ -44,7 +44,7 @@
 
     
     // RFC3339 date formatting
-    NSString *timeStamp = [dingDong valueForKey:@"When"];
+    NSString *timeStamp = [dingDong valueForKey:@"when"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
     

@@ -2,7 +2,7 @@
 //  CMCustomResponse.h
 //  covrme
 //
-//  Created by Anthony Wong on 2013-07-04.
+//  Created by Anthony Wong on 2013-07-27.
 //
 //
 
@@ -12,7 +12,7 @@
 
 @interface CMCustomResponse : NSManagedObject
 
-@property (nonatomic, strong) NSString *responseText;
-@property (nonatomic, strong) NSDate *createdDate;
+@property (nonatomic, retain) NSDate *createdDate;
+@property (nonatomic, retain) NSString *responseText;
 
 @end

@@ -11,6 +11,7 @@
 #import "CMSettingsSwitchedTableCell.h"
 #import "CMCustomResponsesViewController.h"
 #import "CMAPIClient.h"
+#import "CMDoorbellManagementViewController.h"
 
 @interface CMSettingsViewController ()
 
@@ -49,21 +50,17 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)path
 {
-    CMSettingsSwitchedTableCell *switchedCell = (CMSettingsSwitchedTableCell *) cell;
     CMSettingsTableCell *settingsCell = (CMSettingsTableCell *) cell;
     
     switch (path.row) {
         case 0:
-            switchedCell.textLabel.text = @"Quiet Mode";
-            break;
-        case 1:
             settingsCell.textLabel.text = @"Ringtone";
             break;
-        case 2:
+        case 1:
             settingsCell.textLabel.text = @"Custom Responses";
             settingsCell.subTextLabel.text = @"";
             break;
-        case 3:
+        case 2:
             settingsCell.textLabel.text = @"Add a doorbell";
             settingsCell.subTextLabel.text = @"";
             break;
@@ -76,67 +73,26 @@
 - (void)launchCustomResponses
 {
     CMCustomResponsesViewController *responsesVC =
-    [[CMCustomResponsesViewController alloc] initWithNibName:@"CMCustomResponsesViewController"
-                                                      bundle:nil];
+        [[CMCustomResponsesViewController alloc]
+            initWithNibName:@"CMCustomResponsesViewController"
+            bundle:nil];
     
     [self.navigationController pushViewController:responsesVC animated:YES];
     
 }
 
-- (void)promptToAddDoorbellID
+- (void)launchDoorbellManagement
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Subscribe to a Doorbell"
-                                                    message:@"Please enter the ID of the Doorbell you wish to subscribe to"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"Add", nil];
+    CMDoorbellManagementViewController *doorbellsVC =
+        [[CMDoorbellManagementViewController alloc]
+            initWithNibName:@"CMDoorbellManagementViewController"
+            bundle:nil];
     
-    
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    UITextField *textField = [alert textFieldAtIndex:0];
-    
-    textField.keyboardType = UIKeyboardTypeDefault;
-    textField.placeholder = @"Your custom response";
-    
-    [alert show];
+    [self.navigationController pushViewController:doorbellsVC
+                                         animated:YES];
 }
 
-#pragma mark - UIAlertView Delegate
-- (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if ([alertView.title isEqualToString:@"Subscribe to a Doorbell"]) {
-        if (buttonIndex > 0) {
-            UITextField *textField = [alertView textFieldAtIndex:0];
-            NSString *text = textField.text;
-            
-            if (text.length) {
-                [[CMAPIClient sharedClient]
-                 registerUserToDoorbellID:text
-                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!"
-                                                                     message:@"Succesfully subscribed to doorbell"
-                                                                    delegate:self
-                                                           cancelButtonTitle:@"Ok"
-                                                           otherButtonTitles:nil];
-                     
-                     [alert show];
-                 }
-                 failure:^(NSHTTPURLResponse *response, NSError *error) {
-                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
-                                                                     message:@"Something went wrong!"
-                                                                    delegate:self
-                                                           cancelButtonTitle:@"Ok"
-                                                           otherButtonTitles:nil];
-                     
-                     [alert show];
-                 }];
-            }
-            
-        }
-    }
 
-}
 
 #pragma mark - UITableView Delegates
 
@@ -153,10 +109,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == 2) {
+    if (indexPath.row == 1) {
         [self launchCustomResponses];
-    } else if (indexPath.row == 3) {
-        [self promptToAddDoorbellID];
+    } else if (indexPath.row == 2) {
+        [self launchDoorbellManagement];
     }
 }
 
@@ -164,11 +120,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    if (indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CMSettingsSwitchedTableCell"];
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CMSettingsTableCell"];
-    }
+    cell = [tableView dequeueReusableCellWithIdentifier:@"CMSettingsTableCell"];
     
     [self configureCell:cell atIndexPath:indexPath];
 
@@ -179,7 +131,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (section) {
         case 0:
-            return 4;
+            return 3;
             break;
             
         default:

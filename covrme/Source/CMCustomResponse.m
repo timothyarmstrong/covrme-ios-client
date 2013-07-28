@@ -2,7 +2,7 @@
 //  CMCustomResponse.m
 //  covrme
 //
-//  Created by Anthony Wong on 2013-07-04.
+//  Created by Anthony Wong on 2013-07-27.
 //
 //
 
@@ -11,6 +11,7 @@
 
 @implementation CMCustomResponse
 
-@dynamic responseText;
 @dynamic createdDate;
+@dynamic responseText;
+
 @end
