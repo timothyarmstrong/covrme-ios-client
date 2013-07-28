@@ -146,6 +146,7 @@
 		92F5FE1317A48919002EF496 /* CMDoorbellManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F5FE1117A48919002EF496 /* CMDoorbellManagementViewController.xib */; };
 		92F5FE1917A494A3002EF496 /* CMCustomResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F5FE1817A494A3002EF496 /* CMCustomResponse.m */; };
 		92F5FE1C17A494BE002EF496 /* CMDoorbell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F5FE1B17A494BE002EF496 /* CMDoorbell.m */; };
+		92F5FE1E17A4B6BB002EF496 /* knock.wav in Resources */ = {isa = PBXBuildFile; fileRef = 92F5FE1D17A4B6BB002EF496 /* knock.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -451,6 +452,7 @@
 		92F5FE1817A494A3002EF496 /* CMCustomResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMCustomResponse.m; sourceTree = "<group>"; };
 		92F5FE1A17A494BE002EF496 /* CMDoorbell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDoorbell.h; sourceTree = "<group>"; };
 		92F5FE1B17A494BE002EF496 /* CMDoorbell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDoorbell.m; sourceTree = "<group>"; };
+		92F5FE1D17A4B6BB002EF496 /* knock.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = knock.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -805,6 +807,7 @@
 				925CE996177F7D0000FE5F90 /* placeholder_48.png */,
 				925CE998177F7E5100FE5F90 /* placeholder_256.png */,
 				92E8C4C01771642F00B06215 /* ios-linen.jpg */,
+				92F5FE1D17A4B6BB002EF496 /* knock.wav */,
 				92E8C2C91771558800B06215 /* dingdong.wav */,
 				92E8C2CA1771558800B06215 /* first.png */,
 				92E8C2CB1771558800B06215 /* first@2x.png */,
@@ -1205,6 +1208,7 @@
 				927E68A5178A8EC500085AEE /* prof_thumb_placeholder.png in Resources */,
 				927E68A7178A8ECE00085AEE /* prof_thumb_placeholder@2x.png in Resources */,
 				92F5FE1317A48919002EF496 /* CMDoorbellManagementViewController.xib in Resources */,
+				92F5FE1E17A4B6BB002EF496 /* knock.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
