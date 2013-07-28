@@ -72,7 +72,11 @@
 		92974EC81664528B00C12C91 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC71664528B00C12C91 /* AudioToolbox.framework */; };
 		92974ECA1664529100C12C91 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC91664529100C12C91 /* MessageUI.framework */; };
 		92B786DA177BF65C000D658A /* CMSettingsSwitchedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */; };
+		92BCAA0F17A4DBA8002AD070 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92BCAA0C17A4DBA8002AD070 /* SVProgressHUD.bundle */; };
+		92BCAA1017A4DBA8002AD070 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BCAA0E17A4DBA8002AD070 /* SVProgressHUD.m */; };
 		92C6313E1785E149000069AF /* CMRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C6313D1785E149000069AF /* CMRegistrationViewController.m */; };
+		92D6054E17A4B9B4008A9C7C /* CMTonesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D6054C17A4B9B4008A9C7C /* CMTonesViewController.m */; };
+		92D6054F17A4B9B4008A9C7C /* CMTonesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D6054D17A4B9B4008A9C7C /* CMTonesViewController.xib */; };
 		92E8C2A21771557900B06215 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C2461771557900B06215 /* MagicalImportFunctions.m */; };
 		92E8C2A31771557900B06215 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C2481771557900B06215 /* NSAttributeDescription+MagicalDataImport.m */; };
 		92E8C2A41771557900B06215 /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C24A1771557900B06215 /* NSEntityDescription+MagicalDataImport.m */; };
@@ -237,8 +241,14 @@
 		92974EC91664529100C12C91 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		92B786D8177BF65C000D658A /* CMSettingsSwitchedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsSwitchedTableCell.h; sourceTree = "<group>"; };
 		92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsSwitchedTableCell.m; sourceTree = "<group>"; };
+		92BCAA0C17A4DBA8002AD070 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		92BCAA0D17A4DBA8002AD070 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		92BCAA0E17A4DBA8002AD070 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		92C6313C1785E149000069AF /* CMRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRegistrationViewController.h; sourceTree = "<group>"; };
 		92C6313D1785E149000069AF /* CMRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRegistrationViewController.m; sourceTree = "<group>"; };
+		92D6054B17A4B9B4008A9C7C /* CMTonesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTonesViewController.h; sourceTree = "<group>"; };
+		92D6054C17A4B9B4008A9C7C /* CMTonesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTonesViewController.m; sourceTree = "<group>"; };
+		92D6054D17A4B9B4008A9C7C /* CMTonesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMTonesViewController.xib; path = Source/CMTonesViewController.xib; sourceTree = "<group>"; };
 		92E8C2451771557900B06215 /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		92E8C2461771557900B06215 /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		92E8C2471771557900B06215 /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -605,12 +615,13 @@
 			isa = PBXGroup;
 			children = (
 				927904AE177BEEE100816021 /* Table Cells */,
-				92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */,
-				92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */,
-				92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */,
 				925CE99D177F83F200FE5F90 /* CMCustomResponsesViewController.xib */,
-				92F43E911780E85800B627CB /* CMRegistrationViewController.xib */,
 				92F5FE1117A48919002EF496 /* CMDoorbellManagementViewController.xib */,
+				92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */,
+				92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */,
+				92F43E911780E85800B627CB /* CMRegistrationViewController.xib */,
+				92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */,
+				92D6054D17A4B9B4008A9C7C /* CMTonesViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -638,9 +649,20 @@
 			name = "Table Cells";
 			sourceTree = "<group>";
 		};
+		92BCAA0B17A4DBA8002AD070 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				92BCAA0C17A4DBA8002AD070 /* SVProgressHUD.bundle */,
+				92BCAA0D17A4DBA8002AD070 /* SVProgressHUD.h */,
+				92BCAA0E17A4DBA8002AD070 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		92E8C22B1771557900B06215 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				92BCAA0B17A4DBA8002AD070 /* SVProgressHUD */,
 				925CE962177DEDC200FE5F90 /* SDWebImage */,
 				92E8C2F91771571500B06215 /* Airship */,
 				92E8C2DC1771563700B06215 /* AFNetworking */,
@@ -1092,6 +1114,8 @@
 				925CE99B177F83BB00FE5F90 /* CMCustomResponsesViewController.m */,
 				92F5FE0F17A48919002EF496 /* CMDoorbellManagementViewController.h */,
 				92F5FE1017A48919002EF496 /* CMDoorbellManagementViewController.m */,
+				92D6054B17A4B9B4008A9C7C /* CMTonesViewController.h */,
+				92D6054C17A4B9B4008A9C7C /* CMTonesViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1209,6 +1233,8 @@
 				927E68A7178A8ECE00085AEE /* prof_thumb_placeholder@2x.png in Resources */,
 				92F5FE1317A48919002EF496 /* CMDoorbellManagementViewController.xib in Resources */,
 				92F5FE1E17A4B6BB002EF496 /* knock.wav in Resources */,
+				92D6054F17A4B9B4008A9C7C /* CMTonesViewController.xib in Resources */,
+				92BCAA0F17A4DBA8002AD070 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1295,6 +1321,8 @@
 				92F5FE1217A48919002EF496 /* CMDoorbellManagementViewController.m in Sources */,
 				92F5FE1917A494A3002EF496 /* CMCustomResponse.m in Sources */,
 				92F5FE1C17A494BE002EF496 /* CMDoorbell.m in Sources */,
+				92D6054E17A4B9B4008A9C7C /* CMTonesViewController.m in Sources */,
+				92BCAA1017A4DBA8002AD070 /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1401,7 +1429,7 @@
 					"\"$(SRCROOT)/covrme/Libraries/Airship\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1426,7 +1454,7 @@
 					"\"$(SRCROOT)/covrme/Libraries/Airship\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -12,6 +12,7 @@
 #import "CMCustomResponsesViewController.h"
 #import "CMAPIClient.h"
 #import "CMDoorbellManagementViewController.h"
+#import "CMTonesViewController.h"
 
 @interface CMSettingsViewController ()
 
@@ -42,6 +43,13 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:@"CMSettingsSwitchedTableCell"];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -52,9 +60,13 @@
 {
     CMSettingsTableCell *settingsCell = (CMSettingsTableCell *) cell;
     
+    NSDictionary *currentTone =
+    [[NSUserDefaults standardUserDefaults] valueForKey:@"pushtone"];
+    
     switch (path.row) {
         case 0:
             settingsCell.textLabel.text = @"Ringtone";
+            settingsCell.subTextLabel.text = currentTone[@"name"];
             break;
         case 1:
             settingsCell.textLabel.text = @"Custom Responses";
@@ -70,12 +82,21 @@
     }
 }
 
+- (void)launchTones
+{
+    CMTonesViewController *tonesVC =
+        [[CMTonesViewController alloc] initWithNibName:@"CMTonesViewController"
+                                                bundle:nil];
+    
+    [self.navigationController pushViewController:tonesVC animated:YES];
+}
+
 - (void)launchCustomResponses
 {
     CMCustomResponsesViewController *responsesVC =
         [[CMCustomResponsesViewController alloc]
             initWithNibName:@"CMCustomResponsesViewController"
-            bundle:nil];
+                     bundle:nil];
     
     [self.navigationController pushViewController:responsesVC animated:YES];
     
@@ -86,7 +107,7 @@
     CMDoorbellManagementViewController *doorbellsVC =
         [[CMDoorbellManagementViewController alloc]
             initWithNibName:@"CMDoorbellManagementViewController"
-            bundle:nil];
+                    bundle:nil];
     
     [self.navigationController pushViewController:doorbellsVC
                                          animated:YES];
@@ -96,20 +117,13 @@
 
 #pragma mark - UITableView Delegates
 
-- (void)tableView:(UITableView *)tableView
-  willDisplayCell:(UITableViewCell *)cell
-forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0) {
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    }
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == 1) {
+    if (indexPath.row == 0) {
+        [self launchTones];
+    } else if (indexPath.row == 1) {
         [self launchCustomResponses];
     } else if (indexPath.row == 2) {
         [self launchDoorbellManagement];
@@ -133,7 +147,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         case 0:
             return 3;
             break;
-            
         default:
             return 0;
             break;

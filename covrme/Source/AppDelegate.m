@@ -20,6 +20,7 @@
 - (void)customizeAppearance
 {
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
 }
 
 - (void)registerPushTokenWithServer
