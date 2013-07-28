@@ -10,6 +10,8 @@
 #import "UIImageView+WebCache.h"
 #import "CMAPIClient.h"
 #import "CMHistoryTableCell.h"
+#import "CMHistoryDetailViewController.h"
+
 @interface CMHistoryListViewController ()
 
 @end
@@ -56,10 +58,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)launchHistoryWithDoorbellID:(NSString *)doorbellID visitorID:(NSString *)visitorID
+{
+    CMHistoryDetailViewController *detailVC =
+        [[CMHistoryDetailViewController alloc]
+             initWithDoorbellID:doorbellID visitorID:visitorID];
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
 #pragma mark - UITableViewMethods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSDictionary *dingDong = [self.dingDongs objectAtIndex:indexPath.row];
+    
+    [self launchHistoryWithDoorbellID:@"65432353" visitorID:dingDong[@"id"]];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -75,6 +75,8 @@
 		92BCAA0F17A4DBA8002AD070 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92BCAA0C17A4DBA8002AD070 /* SVProgressHUD.bundle */; };
 		92BCAA1017A4DBA8002AD070 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BCAA0E17A4DBA8002AD070 /* SVProgressHUD.m */; };
 		92BCAA1217A4DD18002AD070 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BCAA1117A4DD17002AD070 /* QuartzCore.framework */; };
+		92BCAA1617A4DE16002AD070 /* CMHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BCAA1417A4DE16002AD070 /* CMHistoryDetailViewController.m */; };
+		92BCAA1717A4DE16002AD070 /* CMHistoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BCAA1517A4DE16002AD070 /* CMHistoryDetailViewController.xib */; };
 		92C6313E1785E149000069AF /* CMRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C6313D1785E149000069AF /* CMRegistrationViewController.m */; };
 		92D6054E17A4B9B4008A9C7C /* CMTonesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D6054C17A4B9B4008A9C7C /* CMTonesViewController.m */; };
 		92D6054F17A4B9B4008A9C7C /* CMTonesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D6054D17A4B9B4008A9C7C /* CMTonesViewController.xib */; };
@@ -246,6 +248,9 @@
 		92BCAA0D17A4DBA8002AD070 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		92BCAA0E17A4DBA8002AD070 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		92BCAA1117A4DD17002AD070 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		92BCAA1317A4DE16002AD070 /* CMHistoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHistoryDetailViewController.h; sourceTree = "<group>"; };
+		92BCAA1417A4DE16002AD070 /* CMHistoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHistoryDetailViewController.m; sourceTree = "<group>"; };
+		92BCAA1517A4DE16002AD070 /* CMHistoryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMHistoryDetailViewController.xib; path = Source/CMHistoryDetailViewController.xib; sourceTree = "<group>"; };
 		92C6313C1785E149000069AF /* CMRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRegistrationViewController.h; sourceTree = "<group>"; };
 		92C6313D1785E149000069AF /* CMRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRegistrationViewController.m; sourceTree = "<group>"; };
 		92D6054B17A4B9B4008A9C7C /* CMTonesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTonesViewController.h; sourceTree = "<group>"; };
@@ -623,6 +628,7 @@
 				92F5FE1117A48919002EF496 /* CMDoorbellManagementViewController.xib */,
 				92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */,
 				92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */,
+				92BCAA1517A4DE16002AD070 /* CMHistoryDetailViewController.xib */,
 				92F43E911780E85800B627CB /* CMRegistrationViewController.xib */,
 				92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */,
 				92D6054D17A4B9B4008A9C7C /* CMTonesViewController.xib */,
@@ -1105,6 +1111,8 @@
 			children = (
 				92E8C4B117715B2D00B06215 /* CMHistoryListViewController.h */,
 				92E8C4B217715B2D00B06215 /* CMHistoryListViewController.m */,
+				92BCAA1317A4DE16002AD070 /* CMHistoryDetailViewController.h */,
+				92BCAA1417A4DE16002AD070 /* CMHistoryDetailViewController.m */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -1239,6 +1247,7 @@
 				92F5FE1E17A4B6BB002EF496 /* knock.wav in Resources */,
 				92D6054F17A4B9B4008A9C7C /* CMTonesViewController.xib in Resources */,
 				92BCAA0F17A4DBA8002AD070 /* SVProgressHUD.bundle in Resources */,
+				92BCAA1717A4DE16002AD070 /* CMHistoryDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1327,6 +1336,7 @@
 				92F5FE1C17A494BE002EF496 /* CMDoorbell.m in Sources */,
 				92D6054E17A4B9B4008A9C7C /* CMTonesViewController.m in Sources */,
 				92BCAA1017A4DBA8002AD070 /* SVProgressHUD.m in Sources */,
+				92BCAA1617A4DE16002AD070 /* CMHistoryDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
