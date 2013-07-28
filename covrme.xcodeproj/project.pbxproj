@@ -74,6 +74,7 @@
 		92B786DA177BF65C000D658A /* CMSettingsSwitchedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B786D9177BF65C000D658A /* CMSettingsSwitchedTableCell.m */; };
 		92BCAA0F17A4DBA8002AD070 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92BCAA0C17A4DBA8002AD070 /* SVProgressHUD.bundle */; };
 		92BCAA1017A4DBA8002AD070 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BCAA0E17A4DBA8002AD070 /* SVProgressHUD.m */; };
+		92BCAA1217A4DD18002AD070 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BCAA1117A4DD17002AD070 /* QuartzCore.framework */; };
 		92C6313E1785E149000069AF /* CMRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C6313D1785E149000069AF /* CMRegistrationViewController.m */; };
 		92D6054E17A4B9B4008A9C7C /* CMTonesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D6054C17A4B9B4008A9C7C /* CMTonesViewController.m */; };
 		92D6054F17A4B9B4008A9C7C /* CMTonesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D6054D17A4B9B4008A9C7C /* CMTonesViewController.xib */; };
@@ -244,6 +245,7 @@
 		92BCAA0C17A4DBA8002AD070 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		92BCAA0D17A4DBA8002AD070 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		92BCAA0E17A4DBA8002AD070 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		92BCAA1117A4DD17002AD070 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		92C6313C1785E149000069AF /* CMRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRegistrationViewController.h; sourceTree = "<group>"; };
 		92C6313D1785E149000069AF /* CMRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRegistrationViewController.m; sourceTree = "<group>"; };
 		92D6054B17A4B9B4008A9C7C /* CMTonesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTonesViewController.h; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92BCAA1217A4DD18002AD070 /* QuartzCore.framework in Frameworks */,
 				927904A1177BE27600816021 /* ImageIO.framework in Frameworks */,
 				92E8C46D177157E500B06215 /* CoreData.framework in Frameworks */,
 				92974ECA1664529100C12C91 /* MessageUI.framework in Frameworks */,
@@ -518,6 +521,7 @@
 		925BF4B11501C6270054AE57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92BCAA1117A4DD17002AD070 /* QuartzCore.framework */,
 				927904A0177BE27600816021 /* ImageIO.framework */,
 				92E8C46C177157E500B06215 /* CoreData.framework */,
 				92974EC91664529100C12C91 /* MessageUI.framework */,

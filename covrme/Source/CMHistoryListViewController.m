@@ -38,12 +38,15 @@
 {
     [super viewDidAppear:animated];
     
+    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
+    
     [[CMAPIClient sharedClient] getHistoryWithDoorbellID:@"65432353"
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      self.dingDongs = (NSArray *) responseObject;
                                                      [self.tableView reloadData];
+                                                     [SVProgressHUD dismiss];
                                                  } failure:^(NSHTTPURLResponse *response, NSError *error) {
-                                                     
+                                                     [SVProgressHUD dismiss];
                                                  }];
 }
 
