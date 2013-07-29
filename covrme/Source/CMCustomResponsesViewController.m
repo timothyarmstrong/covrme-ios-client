@@ -80,6 +80,27 @@
 }
 
 #pragma mark - UITableViewMethods
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CMCustomResponse *response =
+    [self.frc.fetchedObjects objectAtIndex:[indexPath row]];
+    
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+        CMCustomResponse *localResponse = [response inContext:localContext];
+        
+        [localResponse deleteEntity];
+    }];
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
