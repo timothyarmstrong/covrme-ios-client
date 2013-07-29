@@ -62,6 +62,17 @@
     [alert show];
 }
 
+- (void)showErrorAlert
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                        message:@"Something went wrong deleting.."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    
+    [alertView show];
+}
+
 #pragma mark - UITableViewMethods
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
@@ -77,11 +88,21 @@
     CMDoorbell *doorbell =
         [self.frc.fetchedObjects objectAtIndex:[indexPath row]];
     
-    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-        CMDoorbell *localDoorbell = [doorbell inContext:localContext];
-        
-        [localDoorbell deleteEntity];
-    }];
+    [SVProgressHUD showWithStatus:@"Deleting..."
+                         maskType:SVProgressHUDMaskTypeClear];
+    
+    [[CMAPIClient sharedClient] deleteDoorbellID:[NSString stringWithFormat:@"%@", doorbell.doorbellID]
+                                         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                             [SVProgressHUD dismiss];
+                                             [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                                                 CMDoorbell *localDoorbell = [doorbell inContext:localContext];
+                                                 
+                                                 [localDoorbell deleteEntity];
+                                             }];
+                                         } failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                             [SVProgressHUD dismiss];
+                                             [self showErrorAlert];
+                                         }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

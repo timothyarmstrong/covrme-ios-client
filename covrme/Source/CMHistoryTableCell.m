@@ -51,7 +51,18 @@
     self.pictureView.contentMode = UIViewContentModeScaleAspectFill;
     self.pictureView.clipsToBounds = YES;
 
-    self.typeLabel.text = [dingDong valueForKey:@"description"];
+    
+    NSString *description = dingDong[@"description"];
+    
+    
+    if (description && !description.length) {
+        self.typeLabel.text = @"Unspecified";
+    } else {
+        self.typeLabel.text = description;
+    }
+
+    
+    
     
 
     

@@ -277,4 +277,23 @@
                failure(operation.response, error);
            }];
 }
+
+- (void)deleteDoorbellID:(NSString *)doorbellID
+                 success:(CMAPIClientSuccessBlock)success
+                 failure:(CMAPIClientFailureBlock)failure
+{
+    NSDictionary *params = @{@"authtoken": [self token],
+                             @"doorbellId": doorbellID};
+    
+    NSString *path = [NSString stringWithFormat:@"users/%@/doorbells", [self userID]];
+    
+    [self deletePath:path
+          parameters:params
+           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+               success(operation, responseObject);
+           }
+           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+               failure(operation.response, error);
+           }];
+}
 @end

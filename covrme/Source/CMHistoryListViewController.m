@@ -11,6 +11,7 @@
 #import "CMAPIClient.h"
 #import "CMHistoryTableCell.h"
 #import "CMHistoryDetailViewController.h"
+#import "CMDoorbell.h"
 
 @interface CMHistoryListViewController ()
 
@@ -43,16 +44,25 @@
     NSString *token = [[CMAPIClient sharedClient] token];
     
     if (token && token.length) {
-        [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
+
+        NSArray *results = [CMDoorbell findByAttribute:@"doorbellID" withValue:@65432353];
         
-        [[CMAPIClient sharedClient] getHistoryWithDoorbellID:@"65432353"
-                                                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                         self.dingDongs = (NSArray *) responseObject;
-                                                         [self.tableView reloadData];
-                                                         [SVProgressHUD dismiss];
-                                                     } failure:^(NSHTTPURLResponse *response, NSError *error) {
-                                                         [SVProgressHUD dismiss];
-                                                     }];
+        if (results.count) {
+            [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
+        
+            [[CMAPIClient sharedClient] getHistoryWithDoorbellID:@"65432353"
+                                                         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                             self.dingDongs = (NSArray *) responseObject;
+                                                             [self.tableView reloadData];
+                                                             [SVProgressHUD dismiss];
+                                                         } failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                                             [self.tableView reloadData];
+                                                             [SVProgressHUD dismiss];
+                                                         }];
+        } else {
+            self.dingDongs = nil;
+            [self.tableView reloadData];    
+        }
     }
 
 }
