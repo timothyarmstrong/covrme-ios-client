@@ -136,6 +136,10 @@
           setValue:[responseObject valueForKey:@"token"]
           forKey:@"token"];
          
+         [[NSUserDefaults standardUserDefaults]
+          setValue:[responseObject valueForKey:@"user_id"]
+          forKey:@"userID"];
+         
          [[NSUserDefaults standardUserDefaults] synchronize];
          
          // Register PushToken
