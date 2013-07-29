@@ -36,20 +36,25 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:@"CMHistoryTableCell"];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
-    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
+    NSString *token = [[CMAPIClient sharedClient] token];
     
-    [[CMAPIClient sharedClient] getHistoryWithDoorbellID:@"65432353"
-                                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                     self.dingDongs = (NSArray *) responseObject;
-                                                     [self.tableView reloadData];
-                                                     [SVProgressHUD dismiss];
-                                                 } failure:^(NSHTTPURLResponse *response, NSError *error) {
-                                                     [SVProgressHUD dismiss];
-                                                 }];
+    if (token && token.length) {
+        [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
+        
+        [[CMAPIClient sharedClient] getHistoryWithDoorbellID:@"65432353"
+                                                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                         self.dingDongs = (NSArray *) responseObject;
+                                                         [self.tableView reloadData];
+                                                         [SVProgressHUD dismiss];
+                                                     } failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                                         [SVProgressHUD dismiss];
+                                                     }];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning

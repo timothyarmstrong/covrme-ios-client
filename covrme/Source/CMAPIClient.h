@@ -17,6 +17,8 @@ typedef void(^CMAPIClientFailureBlock)(NSHTTPURLResponse *response, NSError *err
 typedef void(^CMAPIClientCompletionBlock)();
 
 
+- (NSString *)token;
+
 - (void)signupUserWithName:(NSString *)name
                      email:(NSString *)email
                   password:(NSString *)pass
@@ -40,6 +42,11 @@ typedef void(^CMAPIClientCompletionBlock)();
 - (void)getNewDoorPictureWithParameters:(NSDictionary *)params
                                 success:(CMAPIClientSuccessBlock)success
                                 failure:(CMAPIClientFailureBlock)failure;
+
+- (void)setDoorbellTone:(NSString *)filename
+                success:(CMAPIClientSuccessBlock)success
+                failure:(CMAPIClientFailureBlock)failure;
+
 
 - (void)registerPushToken:(NSString *)token
                   success:(CMAPIClientSuccessBlock)success

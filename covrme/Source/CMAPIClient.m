@@ -217,6 +217,24 @@
           }];
 }
 
+- (void)setDoorbellTone:(NSString *)filename
+                success:(CMAPIClientSuccessBlock)success
+                failure:(CMAPIClientFailureBlock)failure
+{
+    NSDictionary *params = @{@"authtoken": [self token],
+                             @"sound": filename};
+    
+    NSString *path = [NSString stringWithFormat:@"users/%@/settings", [self userID]];
+    
+    [self putPath:path
+       parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              success(operation, responseObject);
+          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              failure(operation.response, error);
+          }];
+}
+
 - (void)registerPushToken:(NSString *)token
                   success:(CMAPIClientSuccessBlock)success
                   failure:(CMAPIClientFailureBlock)failure

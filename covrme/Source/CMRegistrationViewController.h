@@ -11,6 +11,9 @@
 @interface CMRegistrationViewController : UIViewController <UITextFieldDelegate>
 
 
+@property (nonatomic, weak) UITextField* activeField;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;

@@ -33,8 +33,20 @@
     NSString *thumbnail = [NSString stringWithFormat:@"%@=s%@", [dingDong valueForKey:@"photo_thumbnail_url"], @"48"];
     NSURL *url = [NSURL URLWithString:thumbnail];
     
+    __weak CMHistoryTableCell *weakSelf = self;
+    
     [self.pictureView setImageWithURL:url
-                     placeholderImage:[UIImage imageNamed:@"prof_thumb_placeholder"]];
+                     placeholderImage:[UIImage imageNamed:@"prof_thumb_placeholder"]
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                if (image && cacheType == SDImageCacheTypeNone)
+                                {
+                                    weakSelf.pictureView.alpha = 0.0;
+                                    [UIView animateWithDuration:1.0
+                                                     animations:^{
+                                                         weakSelf.pictureView.alpha = 1.0;
+                                                     }];
+                                }
+                            }];
     
     self.pictureView.contentMode = UIViewContentModeScaleAspectFill;
     self.pictureView.clipsToBounds = YES;

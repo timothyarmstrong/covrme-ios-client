@@ -8,7 +8,7 @@
 
 #import "CMHistoryDetailViewController.h"
 #import "CMAPIClient.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+WebCache.h"
 
 @interface CMHistoryDetailViewController ()
 
@@ -35,9 +35,9 @@
     self.tableView.userInteractionEnabled = NO;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
     [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
     
@@ -60,8 +60,20 @@
     NSString *thumbnail = [NSString stringWithFormat:@"%@=s%@", [response valueForKey:@"photo_thumbnail_url"], @"300"];
     NSURL *url = [NSURL URLWithString:thumbnail];
     
+    __weak CMHistoryDetailViewController *weakSelf = self;
+    
     [self.headerImageView setImageWithURL:url
-                     placeholderImage:[UIImage imageNamed:@"prof_thumb_placeholder"]];
+                         placeholderImage:[UIImage imageNamed:@"history_detail_placeholder"]
+                                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                    if (image && cacheType == SDImageCacheTypeNone)
+                                    {
+                                        weakSelf.headerImageView.alpha = 0.0;
+                                        [UIView animateWithDuration:1.0
+                                                         animations:^{
+                                                             weakSelf.headerImageView.alpha = 1.0;
+                                                         }];
+                                    }
+                                }];
     
     self.headerImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.headerImageView.clipsToBounds = YES;

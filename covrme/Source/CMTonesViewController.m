@@ -7,6 +7,8 @@
 //
 
 #import "CMTonesViewController.h"
+#import "CMAPIClient.h"
+#import "SVProgressHUD.h"
 
 @interface CMTonesViewController ()
 
@@ -18,6 +20,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
+        self.title = @"Tones";
+        
         self.toneEntries =
             @[
               @{ @"name": @"Default", @"filename": @"Default.wav" },
@@ -32,15 +37,57 @@
             [[NSUserDefaults standardUserDefaults] setObject:self.toneEntries[0]
                                                       forKey:@"pushtone"];
         }
+        
+        [self setupAudioPlayers];
     }
+    
     return self;
 }
 
--(void)viewWillDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
+    NSDictionary *chosenTone = self.toneEntries[self.lastCheckedPath.row];
     
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSString *toneFilename = chosenTone[@"filename"];
+    
+    [SVProgressHUD showWithStatus:@"Saving"];
+    
+    [[CMAPIClient sharedClient] setDoorbellTone:toneFilename
+                                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                            [[NSUserDefaults standardUserDefaults] synchronize];
+                                            [SVProgressHUD dismiss];
+                                            [super viewWillDisappear:animated];
+                                            
+                                        } failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                            [SVProgressHUD dismiss];
+                                            [super viewWillDisappear:animated];
+                                        }];
+
+
+}
+
+- (void)setupAudioPlayers
+{
+    
+    NSURL *defaultURL = [[NSBundle mainBundle] URLForResource:@"dingdong"
+                                                withExtension:@"wav"];
+    
+    NSURL *dingDongURL = [[NSBundle mainBundle] URLForResource:@"dingdong"
+                                                 withExtension:@"wav"];
+    
+    NSURL *knockURL = [[NSBundle mainBundle] URLForResource:@"knock"
+                                              withExtension:@"wav"];
+    
+    self.audioPlayers =
+    @[
+      [[AVAudioPlayer alloc] initWithContentsOfURL:defaultURL error:nil], // default
+      [[AVAudioPlayer alloc] initWithContentsOfURL:dingDongURL error:nil],
+      [[AVAudioPlayer alloc] initWithContentsOfURL:knockURL error:nil]
+      ];
+    
+    for (AVAudioPlayer *player in self.audioPlayers) {
+        [player prepareToPlay];
+    }
 }
 
 #pragma mark - UITableView Delegates
@@ -60,9 +107,19 @@
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
     self.lastCheckedPath = indexPath;
     
+    NSDictionary *toneEntry = self.toneEntries[indexPath.row];
+    
     [[NSUserDefaults standardUserDefaults]
-        setObject:self.toneEntries[indexPath.row]
+        setObject:toneEntry
            forKey:@"pushtone"];
+    
+    // Don't play cell 0, default iOS sound
+    if (indexPath.row > 0) {
+        
+        AVAudioPlayer *player = self.audioPlayers[indexPath.row];
+
+        [player play];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
