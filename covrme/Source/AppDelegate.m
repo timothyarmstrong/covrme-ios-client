@@ -14,6 +14,7 @@
 #import "CMSettingsViewController.h"
 #import "CMRegistrationViewController.h"
 #import "CMAPIClient.h"
+#import "CMLoginViewController.h"
 
 @implementation AppDelegate
 
@@ -98,12 +99,14 @@
     // Maybe present registration if required
     
     if (![[NSUserDefaults standardUserDefaults] valueForKey:@"token"]){
-        CMRegistrationViewController *registrationVC =
-        [[CMRegistrationViewController alloc]
-         initWithNibName:@"CMRegistrationViewController"
-         bundle:nil];
+        CMLoginViewController *loginVC =
+            [[CMLoginViewController alloc] initWithNibName:@"CMLoginViewController"
+                                                    bundle:nil];
         
-        [self.tabBarController presentViewController:registrationVC
+        UINavigationController *loginNavController =
+            [[UINavigationController alloc] initWithRootViewController:loginVC];
+        
+        [self.tabBarController presentViewController:loginNavController
                                             animated:YES
                                           completion:nil];
     }

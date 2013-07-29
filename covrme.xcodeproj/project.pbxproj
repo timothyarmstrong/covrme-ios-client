@@ -257,7 +257,7 @@
 		92BCAA2017A5D3DA002AD070 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		92BCAA2917A5FABF002AD070 /* CMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLoginViewController.h; sourceTree = "<group>"; };
 		92BCAA2A17A5FAC1002AD070 /* CMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLoginViewController.m; sourceTree = "<group>"; };
-		92BCAA2B17A5FAC3002AD070 /* CMLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMLoginViewController.xib; sourceTree = "<group>"; };
+		92BCAA2B17A5FAC3002AD070 /* CMLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMLoginViewController.xib; path = Source/CMLoginViewController.xib; sourceTree = "<group>"; };
 		92C6313C1785E149000069AF /* CMRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRegistrationViewController.h; sourceTree = "<group>"; };
 		92C6313D1785E149000069AF /* CMRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRegistrationViewController.m; sourceTree = "<group>"; };
 		92D6054B17A4B9B4008A9C7C /* CMTonesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTonesViewController.h; sourceTree = "<group>"; };
@@ -641,6 +641,7 @@
 				92F43E911780E85800B627CB /* CMRegistrationViewController.xib */,
 				92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */,
 				92D6054D17A4B9B4008A9C7C /* CMTonesViewController.xib */,
+				92BCAA2B17A5FAC3002AD070 /* CMLoginViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -1146,7 +1147,6 @@
 			children = (
 				92BCAA2917A5FABF002AD070 /* CMLoginViewController.h */,
 				92BCAA2A17A5FAC1002AD070 /* CMLoginViewController.m */,
-				92BCAA2B17A5FAC3002AD070 /* CMLoginViewController.xib */,
 				92C6313C1785E149000069AF /* CMRegistrationViewController.h */,
 				92C6313D1785E149000069AF /* CMRegistrationViewController.m */,
 			);

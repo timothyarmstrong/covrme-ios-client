@@ -28,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"Register";
 	// Do any additional setup after loading the view.
 }
 
@@ -76,7 +78,7 @@
 // Called when the UIKeyboardWillHideNotification is sent
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
-    UIScrollView *this = (UIScrollView *)self;
+    UIScrollView *this = (UIScrollView *)self.view;
     
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     this.contentInset = contentInsets;
@@ -107,6 +109,9 @@
 
 - (IBAction)registerTouched:(id)sender
 {
+    [SVProgressHUD showWithStatus:@"Registering..."
+                         maskType:SVProgressHUDMaskTypeBlack];
+    
     [[CMAPIClient sharedClient]
      signupUserWithName:self.nameTextField.text
      email:self.emailTextField.text
@@ -128,6 +133,7 @@
               getAuthTokenWithEmail:self.emailTextField.text
               password:self.passwordTextField.text
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  [SVProgressHUD dismiss];
                   
                   [[NSUserDefaults standardUserDefaults]
                    setValue:[responseObject valueForKey:@"token"]
@@ -139,16 +145,15 @@
                   
                   [self dismissViewControllerAnimated:YES completion:nil];
               } failure:^(NSHTTPURLResponse *response, NSError *error) {
+                  [SVProgressHUD dismiss];
                   [self showErrorAlert];
               }];
-             
-
-             
          } else {
+             [SVProgressHUD dismiss];
              [self showErrorAlert];
          }
-         
      } failure:^(NSHTTPURLResponse *response, NSError *error) {
+         [SVProgressHUD dismiss];
          [self showErrorAlert];
      }];
     
