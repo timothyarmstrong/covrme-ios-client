@@ -63,23 +63,32 @@
     NSDictionary *currentTone =
     [[NSUserDefaults standardUserDefaults] valueForKey:@"pushtone"];
     
-    switch (path.row) {
-        case 0:
-            settingsCell.textLabel.text = @"Ringtone";
-            settingsCell.subTextLabel.text = currentTone[@"name"];
-            break;
-        case 1:
-            settingsCell.textLabel.text = @"Custom Responses";
-            settingsCell.subTextLabel.text = @"";
-            break;
-        case 2:
-            settingsCell.textLabel.text = @"Add a doorbell";
-            settingsCell.subTextLabel.text = @"";
-            break;
-        default:
-            settingsCell.textLabel.text = @"Set me up!";
-            break;
+    // Regular Section
+    if (path.section == 0) {
+        settingsCell.backgroundColor = [UIColor whiteColor];
+        switch (path.row) {
+            case 0:
+                settingsCell.textLabel.text = @"Ringtone";
+                settingsCell.subTextLabel.text = currentTone[@"name"];
+                break;
+            case 1:
+                settingsCell.textLabel.text = @"Custom Responses";
+                settingsCell.subTextLabel.text = @"";
+                break;
+            case 2:
+                settingsCell.textLabel.text = @"Add a doorbell";
+                settingsCell.subTextLabel.text = @"";
+                break;
+            default:
+                settingsCell.textLabel.text = @"Set me up!";
+                break;
+        }
+    } else if (path.section == 1) {
+        settingsCell.backgroundColor = [UIColor redColor];
+        settingsCell.textLabel.text = @"Reset App";
+        settingsCell.subTextLabel.text = @"";
     }
+
 }
 
 - (void)launchTones
@@ -113,21 +122,28 @@
                                          animated:YES];
 }
 
-
+- (void)resetApp
+{
+    
+}
 
 #pragma mark - UITableView Delegates
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (indexPath.row == 0) {
-        [self launchTones];
-    } else if (indexPath.row == 1) {
-        [self launchCustomResponses];
-    } else if (indexPath.row == 2) {
-        [self launchDoorbellManagement];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            [self launchTones];
+        } else if (indexPath.row == 1) {
+            [self launchCustomResponses];
+        } else if (indexPath.row == 2) {
+            [self launchDoorbellManagement];
+        }
+    } else if (indexPath.section == 1) {
+        [self resetApp];
     }
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -147,6 +163,9 @@
         case 0:
             return 3;
             break;
+        case 1:
+            return 1;
+            break;
         default:
             return 0;
             break;
@@ -155,11 +174,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Client Settings";
+    if (section == 0) {
+        return @"Client Settings";
+    } else {
+        return @"";
+    }
 }
 @end

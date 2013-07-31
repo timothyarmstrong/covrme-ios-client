@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.userInteractionEnabled = NO;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -116,6 +116,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2
                                       reuseIdentifier:@"CMHistoryDetailTableViewCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     if (indexPath.section == 0) {
