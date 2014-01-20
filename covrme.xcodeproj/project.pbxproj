@@ -150,7 +150,6 @@
 		92E8C4BA17715C5500B06215 /* CMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4B817715C5500B06215 /* CMSettingsViewController.xib */; };
 		92E8C4BE17715CBD00B06215 /* CMFrontDoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */; };
 		92E8C4BF17715CBD00B06215 /* CMFrontDoorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */; };
-		92E8C4C11771642F00B06215 /* ios-linen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92E8C4C01771642F00B06215 /* ios-linen.jpg */; };
 		92F43E921780E85800B627CB /* CMRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F43E911780E85800B627CB /* CMRegistrationViewController.xib */; };
 		92F5FE1217A48919002EF496 /* CMDoorbellManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F5FE1017A48919002EF496 /* CMDoorbellManagementViewController.m */; };
 		92F5FE1317A48919002EF496 /* CMDoorbellManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F5FE1117A48919002EF496 /* CMDoorbellManagementViewController.xib */; };
@@ -467,7 +466,6 @@
 		92E8C4BB17715CBD00B06215 /* CMFrontDoorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFrontDoorViewController.h; sourceTree = "<group>"; };
 		92E8C4BC17715CBD00B06215 /* CMFrontDoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFrontDoorViewController.m; sourceTree = "<group>"; };
 		92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMFrontDoorViewController.xib; path = Source/CMFrontDoorViewController.xib; sourceTree = "<group>"; };
-		92E8C4C01771642F00B06215 /* ios-linen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ios-linen.jpg"; path = "../../../../../../Downloads/ios-linen/ios-linen.jpg"; sourceTree = "<group>"; };
 		92F43E911780E85800B627CB /* CMRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMRegistrationViewController.xib; path = Source/CMRegistrationViewController.xib; sourceTree = "<group>"; };
 		92F5FE0F17A48919002EF496 /* CMDoorbellManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDoorbellManagementViewController.h; sourceTree = "<group>"; };
 		92F5FE1017A48919002EF496 /* CMDoorbellManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDoorbellManagementViewController.m; sourceTree = "<group>"; };
@@ -848,7 +846,6 @@
 				923D85411789264E00016BFA /* on_my_way.png */,
 				923D85421789264E00016BFA /* on_my_way@2x.png */,
 				925CE998177F7E5100FE5F90 /* placeholder_256.png */,
-				92E8C4C01771642F00B06215 /* ios-linen.jpg */,
 				92F5FE1D17A4B6BB002EF496 /* knock.wav */,
 				92E8C2C91771558800B06215 /* dingdong.wav */,
 				92E8C2CA1771558800B06215 /* first.png */,
@@ -1189,6 +1186,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
+				TargetAttributes = {
+					925BF4AD1501C6270054AE57 = {
+						DevelopmentTeam = R8EJR3GXQZ;
+					};
+				};
 			};
 			buildConfigurationList = 925BF4A81501C6270054AE57 /* Build configuration list for PBXProject "covrme" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1227,7 +1229,6 @@
 				92E8C4B517715B2D00B06215 /* CMHistoryListViewController.xib in Resources */,
 				92E8C4BA17715C5500B06215 /* CMSettingsViewController.xib in Resources */,
 				92E8C4BF17715CBD00B06215 /* CMFrontDoorViewController.xib in Resources */,
-				92E8C4C11771642F00B06215 /* ios-linen.jpg in Resources */,
 				9279049D177BE0A600816021 /* CMHistoryTableCell.xib in Resources */,
 				927904B0177BEEF500816021 /* CMSettingsTableCell.xib in Resources */,
 				927904B2177BF03C00816021 /* CMSettingsSwitchedTableCell.xib in Resources */,
@@ -1438,6 +1439,8 @@
 		925BF4DB1501C6270054AE57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/covrme/Libraries\"",
@@ -1450,13 +1453,14 @@
 					"$(BUILT_PRODUCTS_DIR)/**",
 				);
 				INFOPLIST_FILE = "covrme/covrme-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Airship\"",
 					"\"$(SRCROOT)/covrme/Libraries/Airship\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1466,6 +1470,8 @@
 		925BF4DC1501C6270054AE57 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/covrme/Libraries\"",
@@ -1475,13 +1481,14 @@
 				GCC_PREFIX_HEADER = "covrme/covrme-Prefix.pch";
 				HEADER_SEARCH_PATHS = "../Airship/**";
 				INFOPLIST_FILE = "covrme/covrme-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Airship\"",
 					"\"$(SRCROOT)/covrme/Libraries/Airship\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
