@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMLoginViewController : UIViewController
+@interface CMLoginViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, weak) UITextField *activeField;
 

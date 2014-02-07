@@ -22,7 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self registerForKeyboardNotifications];
+//        [self registerForKeyboardNotifications];
     }
     return self;
 }
@@ -40,48 +40,11 @@
 
 }
 
-// Call this method somewhere in your view controller setup code.
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-}
 
-// Called when the UIKeyboardDidShowNotification is sent.
-- (void)keyboardWasShown:(NSNotification*)aNotification
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    UIScrollView *this = (UIScrollView *)self.view;
-    
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    this.contentInset = contentInsets;
-    this.scrollIndicatorInsets = contentInsets;
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your application might not need or want this behavior.
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbSize.height;
-    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, self.activeField.frame.origin.y-kbSize.height);
-        [this setContentOffset:scrollPoint animated:YES];
-    }
+    [self.view endEditing:YES];
 }
-
-// Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    UIScrollView *this = (UIScrollView *)self.view;
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    this.contentInset = contentInsets;
-    this.scrollIndicatorInsets = contentInsets;
-}
-
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92150C9518A58A3A00597195 /* UIColor+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 92150C9418A58A3A00597195 /* UIColor+Helpers.m */; };
+		92150C9818A58A7600597195 /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 92150C9718A58A7600597195 /* NSString+Helpers.m */; };
 		923D85431789264F00016BFA /* on_my_way.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D85411789264E00016BFA /* on_my_way.png */; };
 		923D85441789264F00016BFA /* on_my_way@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D85421789264E00016BFA /* on_my_way@2x.png */; };
 		923D854917892A0B00016BFA /* custom_response.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D854517892A0A00016BFA /* custom_response.png */; };
@@ -159,6 +161,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92150C9318A58A3A00597195 /* UIColor+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helpers.h"; sourceTree = "<group>"; };
+		92150C9418A58A3A00597195 /* UIColor+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helpers.m"; sourceTree = "<group>"; };
+		92150C9618A58A7600597195 /* NSString+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helpers.h"; sourceTree = "<group>"; };
+		92150C9718A58A7600597195 /* NSString+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helpers.m"; sourceTree = "<group>"; };
 		923D85411789264E00016BFA /* on_my_way.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on_my_way.png; sourceTree = "<group>"; };
 		923D85421789264E00016BFA /* on_my_way@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "on_my_way@2x.png"; sourceTree = "<group>"; };
 		923D854517892A0A00016BFA /* custom_response.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_response.png; sourceTree = "<group>"; };
@@ -509,6 +515,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92150C9218A58A2500597195 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				92150C9318A58A3A00597195 /* UIColor+Helpers.h */,
+				92150C9418A58A3A00597195 /* UIColor+Helpers.m */,
+				92150C9618A58A7600597195 /* NSString+Helpers.h */,
+				92150C9718A58A7600597195 /* NSString+Helpers.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		925BF4A31501C6270054AE57 = {
 			isa = PBXGroup;
 			children = (
@@ -860,6 +877,7 @@
 		92E8C2D5177155A300B06215 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				92150C9218A58A2500597195 /* Helpers */,
 				92F5FE0D17A488A5002EF496 /* API */,
 				925CE98F177E00F200FE5F90 /* Model */,
 				92B786D7177BF63A000D658A /* Table Cells */,
@@ -1185,7 +1203,7 @@
 		925BF4A51501C6270054AE57 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					925BF4AD1501C6270054AE57 = {
 						DevelopmentTeam = R8EJR3GXQZ;
@@ -1305,6 +1323,7 @@
 				92E8C2BF1771557900B06215 /* SBJsonStreamParserAccumulator.m in Sources */,
 				92E8C2C01771557900B06215 /* SBJsonStreamParserAdapter.m in Sources */,
 				92E8C2C11771557900B06215 /* SBJsonStreamParserState.m in Sources */,
+				92150C9818A58A7600597195 /* NSString+Helpers.m in Sources */,
 				92E8C2C21771557900B06215 /* SBJsonStreamWriter.m in Sources */,
 				92E8C2C31771557900B06215 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				92E8C2C41771557900B06215 /* SBJsonStreamWriterState.m in Sources */,
@@ -1330,6 +1349,7 @@
 				925CE980177DEDC200FE5F90 /* MKAnnotationView+WebCache.m in Sources */,
 				925CE981177DEDC200FE5F90 /* NSData+GIF.m in Sources */,
 				925CE982177DEDC200FE5F90 /* SDImageCache.m in Sources */,
+				92150C9518A58A3A00597195 /* UIColor+Helpers.m in Sources */,
 				925CE983177DEDC200FE5F90 /* SDWebImageCompat.m in Sources */,
 				925CE984177DEDC200FE5F90 /* SDWebImageDecoder.m in Sources */,
 				925CE985177DEDC200FE5F90 /* SDWebImageDownloader.m in Sources */,
@@ -1373,9 +1393,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1390,9 +1411,12 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"../Airship/**",
@@ -1400,8 +1424,9 @@
 					"$(SOURCE_ROOT)/SDWebImage-3.3.framework/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "950A50B7-7265-429A-AAD9-878A567EF844";
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1409,9 +1434,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1419,9 +1445,12 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"../Airship/**",
@@ -1431,7 +1460,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "950A50B7-7265-429A-AAD9-878A567EF844";
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1461,7 +1490,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1489,7 +1518,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

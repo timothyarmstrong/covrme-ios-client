@@ -15,13 +15,15 @@
 #import "CMRegistrationViewController.h"
 #import "CMAPIClient.h"
 #import "CMLoginViewController.h"
+#import "UIColor+Helpers.h"
 
 @implementation AppDelegate
 
 - (void)customizeAppearance
 {
-    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
+    [[UIView appearance] setTintColor:[UIColor colorFromHexString:@"594d2b"]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorFromHexString:@"594d2b"]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorFromHexString:@"ffdd7a"]];
 }
 
 - (void)registerPushTokenWithServer
