@@ -21,9 +21,12 @@
 
 - (void)customizeAppearance
 {
-    [[UIView appearance] setTintColor:[UIColor colorFromHexString:@"594d2b"]];
-    [[UINavigationBar appearance] setTintColor:[UIColor colorFromHexString:@"594d2b"]];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorFromHexString:@"ffdd7a"]];
+    [[UIView appearance] setTintColor:[UIColor colorFromHexString:@"0f75bc"]];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+        @{NSForegroundColorAttributeName : [UIColor colorFromHexString:@"ffffff"],
+          NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:22]}];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorFromHexString:@"ffffff"]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorFromHexString:@"0f75bc"]];
 }
 
 - (void)registerPushTokenWithServer
