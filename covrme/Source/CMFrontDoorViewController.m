@@ -202,9 +202,6 @@
              
              [self showNoOneView];
              
-             // TODO REMOVE THIS
-             [self hideNoOneView];
-             
          }
          failure:^(NSHTTPURLResponse *response, NSError *error) {
              [self showNoOneView];

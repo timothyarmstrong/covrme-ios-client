@@ -79,26 +79,26 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No one appears to be at your door." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="272" translatesAutoresizingMaskIntoConstraints="NO" id="336">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No one appears to be at your door." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="272" translatesAutoresizingMaskIntoConstraints="NO" id="336">
                             <rect key="frame" x="24" y="163" width="272" height="47"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="369"/>
                                 <constraint firstAttribute="width" constant="272" id="370"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="no_one_here.png" translatesAutoresizingMaskIntoConstraints="NO" id="346">
-                            <rect key="frame" x="0.0" y="395" width="320" height="124"/>
+                            <rect key="frame" x="98" y="221" width="125" height="125"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.058823529411764705" green="0.45882352941176469" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="346" firstAttribute="leading" secondItem="323" secondAttribute="leading" id="356"/>
-                        <constraint firstItem="346" firstAttribute="bottom" secondItem="323" secondAttribute="bottom" constant="-49" id="360"/>
+                        <constraint firstItem="346" firstAttribute="leading" secondItem="323" secondAttribute="leading" constant="98" id="356"/>
+                        <constraint firstItem="346" firstAttribute="bottom" secondItem="323" secondAttribute="bottom" constant="-222" id="360"/>
                         <constraint firstItem="336" firstAttribute="top" secondItem="323" secondAttribute="top" constant="163" id="368"/>
                         <constraint firstAttribute="centerX" secondItem="336" secondAttribute="centerX" id="372"/>
                     </constraints>
@@ -128,7 +128,7 @@
         </view>
     </objects>
     <resources>
-        <image name="no_one_here.png" width="320" height="124"/>
+        <image name="no_one_here.png" width="125" height="125"/>
         <image name="placeholder_256.png" width="256" height="256"/>
     </resources>
 </document>

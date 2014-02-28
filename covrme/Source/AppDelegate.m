@@ -76,7 +76,7 @@
     CMFrontDoorViewController *frontDoorVC = [[CMFrontDoorViewController alloc] initWithNibName:@"CMFrontDoorViewController"
                                                                                          bundle:nil];
     UINavigationController *frontDoorNavController = [[UINavigationController alloc] initWithRootViewController:frontDoorVC];
-    frontDoorNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    frontDoorNavController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
     // History List VC
     CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithNibName:@"CMHistoryListViewController"
