@@ -76,16 +76,21 @@
     CMFrontDoorViewController *frontDoorVC = [[CMFrontDoorViewController alloc] initWithNibName:@"CMFrontDoorViewController"
                                                                                          bundle:nil];
     UINavigationController *frontDoorNavController = [[UINavigationController alloc] initWithRootViewController:frontDoorVC];
+    frontDoorNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     // History List VC
     CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithNibName:@"CMHistoryListViewController"
                                                                                                bundle:nil];
     UINavigationController *historyListNavController = [[UINavigationController alloc] initWithRootViewController:historyListVC];
+    historyListNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+
 
     // Settings VC
     CMSettingsViewController *settingsVC = [[CMSettingsViewController alloc] initWithNibName:@"CMSettingsViewController"
                                                                                       bundle:nil];
     UINavigationController *settingsNavController = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    settingsNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+
 
     
     self.tabBarController = [[UITabBarController alloc] init];

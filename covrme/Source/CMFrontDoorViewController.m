@@ -6,6 +6,8 @@
 //
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "CMFrontDoorViewController.h"
 #import "CMCustomResponsesViewController.h"
 #import "CMAPIClient.h"
@@ -28,6 +30,11 @@
 
     }
     return self;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 #pragma mark - Private Methods
@@ -130,6 +137,16 @@
     // Do any additional setup after loading the view from its nib.
     [self setupImageTouchGesture];
     self.noOneView.hidden = NO;
+    
+    // Round the buttons
+    self.omwButton.layer.cornerRadius = 10;
+    self.omwButton.clipsToBounds = YES;
+    
+    self.notHereButton.layer.cornerRadius = 10;
+    self.notHereButton.clipsToBounds = YES;
+    
+    self.sendCustomButton.layer.cornerRadius = 10;
+    self.sendCustomButton.clipsToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -184,7 +201,9 @@
              }
              
              [self showNoOneView];
-     
+             
+             // TODO REMOVE THIS
+             [self hideNoOneView];
              
          }
          failure:^(NSHTTPURLResponse *response, NSError *error) {

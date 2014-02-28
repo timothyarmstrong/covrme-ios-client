@@ -18,6 +18,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *picture;
 @property (weak, nonatomic) IBOutlet UIView *noOneView;
+@property (weak, nonatomic) IBOutlet UIButton *omwButton;
+@property (weak, nonatomic) IBOutlet UIButton *notHereButton;
+@property (weak, nonatomic) IBOutlet UIButton *sendCustomButton;
 
 @property (nonatomic, strong) NSString* currentVisitorID;
 @property (nonatomic, strong) NSString* currentDoorbellID;
