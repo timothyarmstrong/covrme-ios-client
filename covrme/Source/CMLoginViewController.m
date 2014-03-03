@@ -10,6 +10,7 @@
 #import "CMAPIClient.h"
 #import "AppDelegate.h"
 #import "CMRegistrationViewController.h"
+#import "CMDoorbell.h"
 
 @interface CMLoginViewController ()
 
@@ -109,7 +110,33 @@
          AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
          [delegate registerPushTokenWithServer];
          
-         [self dismissViewControllerAnimated:YES completion:nil];
+         // Get existing doorbells
+         [[CMAPIClient sharedClient] getRegisteredDoorbellsWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSArray *registeredBells = [NSArray arrayWithArray:responseObject];
+             
+             if (registeredBells && registeredBells.count) {
+                 [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                     for (int i = 0; i < registeredBells.count; i++) {
+                         NSDictionary *doorbellDict = registeredBells[i];
+                         
+                         CMDoorbell* doorbell = [CMDoorbell createInContext:localContext];
+                         doorbell.doorbellID = [NSNumber numberWithInteger:[doorbellDict[@"id"] integerValue]];
+                         doorbell.name = doorbellDict[@"name"];
+                         doorbell.addedDate = [NSDate date];
+                     }
+                 } completion:^(BOOL success, NSError *error) {
+                     [self dismissViewControllerAnimated:YES completion:nil];
+                 }];
+             } else {
+                 [self dismissViewControllerAnimated:YES completion:nil];
+             }
+             
+         }
+                                                               failure:^{
+                                                                   [SVProgressHUD dismiss];
+                                                                   [self showErrorAlert];
+                                                               }];
      } failure:^(NSHTTPURLResponse *response, NSError *error) {
          [SVProgressHUD dismiss];
          [self showErrorAlert];

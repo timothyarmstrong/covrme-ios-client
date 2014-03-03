@@ -190,19 +190,25 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                 [[CMAPIClient sharedClient]
                  registerUserToDoorbellID:text
                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!"
-                                                                     message:@"Would you like to name this doorbell?"
-                                                                    delegate:self
-                                                           cancelButtonTitle:@"Skip"
-                                                           otherButtonTitles:@"Name It", nil];
+                     NSDictionary *doorbellDict = responseObject[@"doorbell"];
                      
-                     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-                     UITextField *textField = [alert textFieldAtIndex:0];
+                     NSString *name = doorbellDict[@"name"];
                      
-                     textField.keyboardType = UIKeyboardTypeDefault;
-                     textField.placeholder = @"Home, Work...";
+                     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                         CMDoorbell* doorbell = [CMDoorbell createInContext:localContext];
+                         
+                         doorbell.doorbellID = [NSNumber numberWithInt:[self.pendingDoorbellID intValue]];
+                         self.pendingDoorbellID = nil;
+                         
+                         doorbell.addedDate = [NSDate date];
+                         
+                         if (name && name.length) {
+                             doorbell.name = name;
+                         } else {
+                             doorbell.name = nil;
+                         }
+                     }];
                      
-                     [alert show];
                  }
                  failure:^(NSHTTPURLResponse *response, NSError *error) {
                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
@@ -216,29 +222,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
             }
             
         }
-    } else if ([alertView.title isEqualToString:@"Success!"]) {
-
-        NSString *name;
-        
-        if (buttonIndex > 0) {
-            UITextField *textField = [alertView textFieldAtIndex:0];
-            name = textField.text;
-        }
-        
-        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-            CMDoorbell* doorbell = [CMDoorbell createInContext:localContext];
-            
-            doorbell.doorbellID = [NSNumber numberWithInt:[self.pendingDoorbellID intValue]];
-            self.pendingDoorbellID = nil;
-            
-            doorbell.addedDate = [NSDate date];
-            
-            if (name && name.length) {
-                doorbell.name = name;
-            } else {
-                doorbell.name = nil;
-            }
-        }];
     }
     
 }

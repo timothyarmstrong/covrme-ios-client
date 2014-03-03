@@ -259,6 +259,23 @@
            }];
 }
 
+- (void)getRegisteredDoorbellsWithSuccess:(CMAPIClientSuccessBlock)success
+                                  failure:(CMAPIClientCompletionBlock)failure
+{
+    NSDictionary *params = @{@"authtoken": [self token]};
+    
+    NSString *path = [NSString stringWithFormat:@"users/%@/doorbells", [self userID]];
+    
+    [self getPath:path
+       parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              success(operation, responseObject);
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              failure(operation.response, error);
+          }];
+}
+
 - (void)registerUserToDoorbellID:(NSString *)doorbellID
                          success:(CMAPIClientSuccessBlock)success
                          failure:(CMAPIClientFailureBlock)failure

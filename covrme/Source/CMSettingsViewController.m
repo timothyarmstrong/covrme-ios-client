@@ -13,6 +13,9 @@
 #import "CMAPIClient.h"
 #import "CMDoorbellManagementViewController.h"
 #import "CMTonesViewController.h"
+#import "CMLoginViewController.h"
+#import "CMDoorbell.h"
+#import "CMCustomResponse.h"
 
 @interface CMSettingsViewController ()
 
@@ -124,7 +127,26 @@
 
 - (void)resetApp
 {
+    NSString *domainName = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domainName];
     
+    CMLoginViewController *loginVC =
+    [[CMLoginViewController alloc] initWithNibName:@"CMLoginViewController"
+                                            bundle:nil];
+    
+    UINavigationController *loginNavController =
+    [[UINavigationController alloc] initWithRootViewController:loginVC];
+    
+    [self.tabBarController presentViewController:loginNavController
+                                        animated:YES
+                                      completion:nil];
+    
+    self.tabBarController.selectedIndex = 1;
+
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+        [CMDoorbell truncateAllInContext:localContext];
+        [CMCustomResponse truncateAllInContext:localContext];
+    }];
 }
 
 #pragma mark - UITableView Delegates
