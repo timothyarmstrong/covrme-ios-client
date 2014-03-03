@@ -79,7 +79,7 @@
                 settingsCell.subTextLabel.text = @"";
                 break;
             case 2:
-                settingsCell.textLabel.text = @"Add a doorbell";
+                settingsCell.textLabel.text = @"Manage doorbells";
                 settingsCell.subTextLabel.text = @"";
                 break;
             default:

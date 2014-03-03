@@ -207,6 +207,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                          } else {
                              doorbell.name = nil;
                          }
+                     } completion:^(BOOL success, NSError *error) {
+                         [[NSNotificationCenter defaultCenter] postNotificationName:@"kDoorbellAddedNotification" object:nil];
                      }];
                      
                  }

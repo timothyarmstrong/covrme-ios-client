@@ -16,6 +16,7 @@
 #import "CMAPIClient.h"
 #import "CMLoginViewController.h"
 #import "UIColor+Helpers.h"
+#import "CMDoorbellListViewController.h"
 
 @implementation AppDelegate
 
@@ -79,10 +80,16 @@
     frontDoorNavController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
     // History List VC
-    CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithNibName:@"CMHistoryListViewController"
-                                                                                               bundle:nil];
-    UINavigationController *historyListNavController = [[UINavigationController alloc] initWithRootViewController:historyListVC];
-    historyListNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+//    CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithNibName:@"CMHistoryListViewController"
+//                                                                                               bundle:nil];
+//    UINavigationController *historyListNavController = [[UINavigationController alloc] initWithRootViewController:historyListVC];
+//    historyListNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    
+    // Doorbell List VC
+    CMDoorbellListViewController *doorbellListVC = [[CMDoorbellListViewController alloc] initWithNibName:@"CMDoorbellListViewController"
+                                                                                                  bundle:nil];
+    UINavigationController *doorbellListNavController = [[UINavigationController alloc] initWithRootViewController:doorbellListVC];
+    doorbellListNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 
 
     // Settings VC
@@ -94,7 +101,7 @@
 
     
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[frontDoorNavController, historyListNavController, settingsNavController];
+    self.tabBarController.viewControllers = @[frontDoorNavController, doorbellListNavController, settingsNavController];
     
     if ([launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
         self.tabBarController.selectedIndex = 0;

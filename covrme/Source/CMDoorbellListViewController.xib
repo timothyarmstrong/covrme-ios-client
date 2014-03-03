@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMDoorbellListViewController">
+            <connections>
+                <outlet property="tableView" destination="gim-vH-fFG" id="Fv8-j7-bit"/>
+                <outlet property="view" destination="ROZ-9k-Awa" id="JcF-iH-08k"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ROZ-9k-Awa">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gim-vH-fFG">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ka4-50-A6C"/>
+                        <outlet property="delegate" destination="-1" id="pSD-m3-mXv"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="gim-vH-fFG" firstAttribute="top" secondItem="ROZ-9k-Awa" secondAttribute="top" id="ODv-V9-NSr"/>
+                <constraint firstItem="gim-vH-fFG" firstAttribute="leading" secondItem="ROZ-9k-Awa" secondAttribute="leading" id="OLn-j9-J9j"/>
+                <constraint firstItem="gim-vH-fFG" firstAttribute="bottom" secondItem="ROZ-9k-Awa" secondAttribute="bottom" id="gGf-m5-vg9"/>
+                <constraint firstItem="gim-vH-fFG" firstAttribute="trailing" secondItem="ROZ-9k-Awa" secondAttribute="trailing" id="wLK-Bt-geJ"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

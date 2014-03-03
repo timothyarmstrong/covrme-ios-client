@@ -80,6 +80,8 @@
 		92BCAA2117A5D3DA002AD070 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BCAA2017A5D3DA002AD070 /* AVFoundation.framework */; };
 		92BCAA2C17A5FAC5002AD070 /* CMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BCAA2A17A5FAC1002AD070 /* CMLoginViewController.m */; };
 		92BCAA2D17A5FAC5002AD070 /* CMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BCAA2B17A5FAC3002AD070 /* CMLoginViewController.xib */; };
+		92BD419918C4FD2F00E9BFFA /* CMDoorbellListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BD419718C4FD2F00E9BFFA /* CMDoorbellListViewController.m */; };
+		92BD419A18C4FD2F00E9BFFA /* CMDoorbellListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BD419818C4FD2F00E9BFFA /* CMDoorbellListViewController.xib */; };
 		92C6313E1785E149000069AF /* CMRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C6313D1785E149000069AF /* CMRegistrationViewController.m */; };
 		92D6054E17A4B9B4008A9C7C /* CMTonesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D6054C17A4B9B4008A9C7C /* CMTonesViewController.m */; };
 		92D6054F17A4B9B4008A9C7C /* CMTonesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D6054D17A4B9B4008A9C7C /* CMTonesViewController.xib */; };
@@ -260,6 +262,9 @@
 		92BCAA2917A5FABF002AD070 /* CMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLoginViewController.h; sourceTree = "<group>"; };
 		92BCAA2A17A5FAC1002AD070 /* CMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLoginViewController.m; sourceTree = "<group>"; };
 		92BCAA2B17A5FAC3002AD070 /* CMLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMLoginViewController.xib; path = Source/CMLoginViewController.xib; sourceTree = "<group>"; };
+		92BD419618C4FD2F00E9BFFA /* CMDoorbellListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDoorbellListViewController.h; sourceTree = "<group>"; };
+		92BD419718C4FD2F00E9BFFA /* CMDoorbellListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDoorbellListViewController.m; sourceTree = "<group>"; };
+		92BD419818C4FD2F00E9BFFA /* CMDoorbellListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMDoorbellListViewController.xib; path = Source/CMDoorbellListViewController.xib; sourceTree = "<group>"; };
 		92C6313C1785E149000069AF /* CMRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRegistrationViewController.h; sourceTree = "<group>"; };
 		92C6313D1785E149000069AF /* CMRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRegistrationViewController.m; sourceTree = "<group>"; };
 		92D6054B17A4B9B4008A9C7C /* CMTonesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTonesViewController.h; sourceTree = "<group>"; };
@@ -648,6 +653,7 @@
 				927904AE177BEEE100816021 /* Table Cells */,
 				925CE99D177F83F200FE5F90 /* CMCustomResponsesViewController.xib */,
 				92F5FE1117A48919002EF496 /* CMDoorbellManagementViewController.xib */,
+				92BD419818C4FD2F00E9BFFA /* CMDoorbellListViewController.xib */,
 				92E8C4BD17715CBD00B06215 /* CMFrontDoorViewController.xib */,
 				92E8C4B317715B2D00B06215 /* CMHistoryListViewController.xib */,
 				92BCAA1517A4DE16002AD070 /* CMHistoryDetailViewController.xib */,
@@ -1130,6 +1136,8 @@
 		92F5FE0A17A48860002EF496 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				92BD419618C4FD2F00E9BFFA /* CMDoorbellListViewController.h */,
+				92BD419718C4FD2F00E9BFFA /* CMDoorbellListViewController.m */,
 				92E8C4B117715B2D00B06215 /* CMHistoryListViewController.h */,
 				92E8C4B217715B2D00B06215 /* CMHistoryListViewController.m */,
 				92BCAA1317A4DE16002AD070 /* CMHistoryDetailViewController.h */,
@@ -1238,6 +1246,7 @@
 				92E8C2D31771558800B06215 /* second.png in Resources */,
 				92E8C2D41771558800B06215 /* second@2x.png in Resources */,
 				92E8C4031771571600B06215 /* CHANGELOG in Resources */,
+				92BD419A18C4FD2F00E9BFFA /* CMDoorbellListViewController.xib in Resources */,
 				92E8C4061771571600B06215 /* LICENSE in Resources */,
 				92E8C4071771571600B06215 /* README.rst in Resources */,
 				92E8C4B517715B2D00B06215 /* CMHistoryListViewController.xib in Resources */,
@@ -1345,6 +1354,7 @@
 				925CE982177DEDC200FE5F90 /* SDImageCache.m in Sources */,
 				92150C9518A58A3A00597195 /* UIColor+Helpers.m in Sources */,
 				925CE983177DEDC200FE5F90 /* SDWebImageCompat.m in Sources */,
+				92BD419918C4FD2F00E9BFFA /* CMDoorbellListViewController.m in Sources */,
 				925CE984177DEDC200FE5F90 /* SDWebImageDecoder.m in Sources */,
 				925CE985177DEDC200FE5F90 /* SDWebImageDownloader.m in Sources */,
 				925CE986177DEDC200FE5F90 /* SDWebImageDownloaderOperation.m in Sources */,

@@ -12,6 +12,7 @@
 #import "CMCustomResponsesViewController.h"
 #import "CMAPIClient.h"
 #import "UIImageView+WebCache.h"
+#import "CMDoorbell.h"
 
 @interface CMFrontDoorViewController ()
 
@@ -25,9 +26,6 @@
     if (self) {
         self.title = @"Front Door";
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:[UIImage imageNamed:@"detaileddoor"] tag:0];
-        
-        self.currentDoorbellID = @"65432353";
-
     }
     return self;
 }
@@ -151,66 +149,89 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [[CMAPIClient sharedClient]
-         getHistoryWithDoorbellID:self.currentDoorbellID
+    
+    NSArray *doorbells = [CMDoorbell findAll];
+    
+    for (int i = 0; i < doorbells.count; i++) {
+        
+        CMDoorbell *bell = doorbells[i];
+        
+        [[CMAPIClient sharedClient]
+         getHistoryWithDoorbellID:[NSString stringWithFormat:@"%@", bell.doorbellID]
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              
-             NSArray *responseArray = (NSArray *)responseObject;
-             
-             if (!(responseArray.count)) {
-                 return;
-             }
-             
-             NSDictionary *dingDong = [responseArray objectAtIndex:0];
-             NSString *profilePic =
-                [NSString stringWithFormat:@"%@=s%@",
-                    [dingDong valueForKey:@"photo_thumbnail_url"], @"256"];
-             
-             NSURL *profilePicURL = [NSURL URLWithString:profilePic];
-             
-             self.currentVisitorID = [dingDong valueForKey:@"id"];
-             [self.picture setImageWithURL:profilePicURL
-                          placeholderImage:[UIImage imageNamed:@"placeholder_256"]
-                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                     [self.picture setImage:image];
-                          }];
-             // RFC3339 date formatting
-             NSString *timeStamp = [dingDong valueForKey:@"when"];
-             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-             formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
-             
-             NSDate *date;
-             NSError *error;
-             
-             if (timeStamp) {
-                 [formatter getObjectValue:&date
-                                 forString:timeStamp
-                                     range:nil
-                                     error:&error];
-             }
-
-             
-             if (date) {
-                 NSTimeInterval secondsBetween =
-                    [[NSDate date] timeIntervalSinceDate:date];
+             @synchronized(_currentDoorbellID) {
                  
-                 if ( secondsBetween <= 60) {
-                     [self hideNoOneView];
+                 if (_currentDoorbellID) {
                      return;
                  }
+                 
+                 NSArray *responseArray = (NSArray *)responseObject;
+                 
+                 if (!(responseArray.count)) {
+                     return;
+                 }
+                 
+                 NSDictionary *dingDong = [responseArray objectAtIndex:0];
+                 NSString *profilePic =
+                 [NSString stringWithFormat:@"%@=s%@",
+                  [dingDong valueForKey:@"photo_thumbnail_url"], @"256"];
+                 
+                 NSURL *profilePicURL = [NSURL URLWithString:profilePic];
+                 
+                 self.currentVisitorID = [dingDong valueForKey:@"id"];
+                 [self.picture setImageWithURL:profilePicURL
+                              placeholderImage:[UIImage imageNamed:@"placeholder_256"]
+                                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                         [self.picture setImage:image];
+                                     }];
+
+                 // RFC3339 date formatting
+                 NSString *timeStamp = [dingDong valueForKey:@"when"];
+                 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                 formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
+                 
+                 NSDate *date;
+                 NSError *error;
+                 
+                 if (timeStamp) {
+                     [formatter getObjectValue:&date
+                                     forString:timeStamp
+                                         range:nil
+                                         error:&error];
+                 }
+                 
+                 if (date) {
+                     NSTimeInterval secondsBetween = [[NSDate date] timeIntervalSinceDate:date];
+                     
+                     if (secondsBetween <= 600000000) {
+                         self.currentDoorbellID = [NSString stringWithFormat:@"%@", bell.doorbellID];
+                         [self hideNoOneView];
+                         return;
+                     }
+                 }
+                 
+                 [self showNoOneView];
              }
              
-             [self showNoOneView];
+
              
          }
          failure:^(NSHTTPURLResponse *response, NSError *error) {
-             [self showNoOneView];
+             
+             @synchronized(_currentDoorbellID) {
+                 [self showNoOneView];
+                 
+             }
          }];
+    }
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    self.currentDoorbellID = nil;
     [self showNoOneView];
 }
 

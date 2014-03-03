@@ -19,15 +19,17 @@
 
 @implementation CMHistoryListViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithDoorbell:(CMDoorbell *)doorbell
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"CMHistoryListViewController" bundle:nil];
     if (self) {
         self.title = @"History";
         self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemHistory tag:0];
+        self.doorbell = doorbell;
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -35,6 +37,18 @@
     
     UINib *nib = [UINib nibWithNibName:@"CMHistoryTableCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"CMHistoryTableCell"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doorbellAdded) name:@"kDoorbellAddedNotification" object:nil];
+}
+
+- (void)doorbellAdded
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
+- (void)viewDidUnload
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -45,12 +59,14 @@
     
     if (token && token.length) {
 
-        NSArray *results = [CMDoorbell findByAttribute:@"doorbellID" withValue:@65432353];
+        NSNumber *doorbellID = self.doorbell.doorbellID;
+        
+        NSArray *results = [CMDoorbell findByAttribute:@"doorbellID" withValue:doorbellID];
         
         if (results.count) {
             [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
         
-            [[CMAPIClient sharedClient] getHistoryWithDoorbellID:@"65432353"
+            [[CMAPIClient sharedClient] getHistoryWithDoorbellID:[NSString stringWithFormat:@"%@", doorbellID]
                                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                              self.dingDongs = (NSArray *) responseObject;
                                                              [self.tableView reloadData];
@@ -89,7 +105,8 @@
     
     NSDictionary *dingDong = [self.dingDongs objectAtIndex:indexPath.row];
     
-    [self launchHistoryWithDoorbellID:@"65432353" visitorID:dingDong[@"id"]];
+    [self launchHistoryWithDoorbellID:[NSString stringWithFormat:@"%@", self.doorbell.doorbellID]
+                            visitorID:dingDong[@"id"]];
     
 }
 
