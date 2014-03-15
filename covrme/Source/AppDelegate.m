@@ -129,6 +129,9 @@
     }
     
     
+    // Reset our badge notification every time we open the app
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
     return YES;
 }
 

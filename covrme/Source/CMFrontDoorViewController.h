@@ -25,6 +25,8 @@
 @property (nonatomic, strong) NSString* currentVisitorID;
 @property (nonatomic, strong) NSString* currentDoorbellID;
 
+@property (nonatomic, strong) NSString *lastDoorbellID;
+
 - (IBAction)sendCustomTouched:(id)sender;
 - (IBAction)notHereTouched:(id)sender;
 - (IBAction)omwTouched:(id)sender;

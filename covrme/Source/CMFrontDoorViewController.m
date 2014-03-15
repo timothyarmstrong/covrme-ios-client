@@ -40,7 +40,7 @@
 - (void)sendResponse:(NSString *)text
 {
     [[CMAPIClient sharedClient]
-         sendMessageToDoorbellID:self.currentDoorbellID
+         sendMessageToDoorbellID:self.lastDoorbellID
          withVisitorID:self.currentVisitorID
          withMessage:text
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -63,11 +63,12 @@
 
 - (void)showFailureMessageAlert
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Subscribe to a Doorbell"
-                                                    message:@"Please enter the ID of the Doorbell you wish to subscribe to"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"Add", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
+                                                    message:@"Something went wrong!"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Ok"
+                                          otherButtonTitles:nil];
+    
     [alert show];
 }
 
@@ -204,7 +205,7 @@
                  if (date) {
                      NSTimeInterval secondsBetween = [[NSDate date] timeIntervalSinceDate:date];
                      
-                     if (secondsBetween <= 600000000) {
+                     if (secondsBetween <= 60) {
                          self.currentDoorbellID = [NSString stringWithFormat:@"%@", bell.doorbellID];
                          [self hideNoOneView];
                          return;
@@ -231,6 +232,8 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    self.lastDoorbellID = self.currentDoorbellID;
+    
     self.currentDoorbellID = nil;
     [self showNoOneView];
 }

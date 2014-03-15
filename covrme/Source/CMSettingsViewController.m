@@ -146,7 +146,21 @@
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
         [CMDoorbell truncateAllInContext:localContext];
         [CMCustomResponse truncateAllInContext:localContext];
+    } completion:^(BOOL success, NSError *error) {
+        UIAlertView *resetAlert = [[UIAlertView alloc] initWithTitle:@"App Reset"
+                                   message:@"The application has been reset, you will need to restart the application and relogin."
+                                  delegate:self
+                         cancelButtonTitle:@"OK"
+                         otherButtonTitles:nil];
+        
+        [resetAlert show];
     }];
+}
+
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    exit(0);
 }
 
 #pragma mark - UITableView Delegates
