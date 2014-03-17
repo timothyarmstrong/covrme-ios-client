@@ -213,10 +213,14 @@
                  if (date) {
                      NSTimeInterval secondsBetween = [[NSDate date] timeIntervalSinceDate:date];
                      
-                     if (secondsBetween <= 60) {
+                     if (secondsBetween <= 60   ) {
                          self.currentDoorbellID = [NSString stringWithFormat:@"%@", bell.doorbellID];
                          self.title = [bell.name capitalizedString];
                          self.typeLabel.text = [dingDong[@"description"] capitalizedString];
+                         
+                         if (!self.typeLabel.text) {
+                             self.typeLabel.text = @"Visitor";
+                         }
                          [self hideNoOneView];
                          return;
                      }
@@ -224,7 +228,7 @@
                  
                  [self showNoOneView];
                  self.title = @"Front Door";
-                 self.typeLabel.text = @"";
+                 self.typeLabel.text = @"Visitor";
              }
              
 
