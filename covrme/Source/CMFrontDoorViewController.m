@@ -13,6 +13,7 @@
 #import "CMAPIClient.h"
 #import "UIImageView+WebCache.h"
 #import "CMDoorbell.h"
+#import "UIColor+Helpers.h"
 
 @interface CMFrontDoorViewController ()
 
@@ -39,6 +40,11 @@
 
 - (void)sendResponse:(NSString *)text
 {
+    
+    if (!self.lastDoorbellID) {
+        self.lastDoorbellID = self.currentDoorbellID;
+    }
+    
     [[CMAPIClient sharedClient]
          sendMessageToDoorbellID:self.lastDoorbellID
          withVisitorID:self.currentVisitorID
@@ -146,6 +152,8 @@
     
     self.sendCustomButton.layer.cornerRadius = 10;
     self.sendCustomButton.clipsToBounds = YES;
+    
+    self.typeLabel.textColor = [UIColor colorFromHexString:@"0f75bc"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -207,12 +215,16 @@
                      
                      if (secondsBetween <= 60) {
                          self.currentDoorbellID = [NSString stringWithFormat:@"%@", bell.doorbellID];
+                         self.title = [bell.name capitalizedString];
+                         self.typeLabel.text = [dingDong[@"description"] capitalizedString];
                          [self hideNoOneView];
                          return;
                      }
                  }
                  
                  [self showNoOneView];
+                 self.title = @"Front Door";
+                 self.typeLabel.text = @"";
              }
              
 

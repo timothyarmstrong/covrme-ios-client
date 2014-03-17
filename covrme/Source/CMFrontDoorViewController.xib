@@ -12,6 +12,7 @@
                 <outlet property="omwButton" destination="25" id="RkX-61-oZm"/>
                 <outlet property="picture" destination="16" id="53"/>
                 <outlet property="sendCustomButton" destination="39" id="Idj-7n-QvR"/>
+                <outlet property="typeLabel" destination="JDO-dJ-bO6" id="acc-uj-SnL"/>
                 <outlet property="view" destination="1" id="137"/>
             </connections>
         </placeholder>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="center" image="placeholder_256.png" translatesAutoresizingMaskIntoConstraints="NO" id="16">
-                    <rect key="frame" x="32" y="77" width="256" height="256"/>
+                    <rect key="frame" x="32" y="77" width="256" height="192"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25">
@@ -75,6 +76,13 @@
                         <action selector="sendCustomTouched:" destination="-1" eventType="touchUpInside" id="54"/>
                     </connections>
                 </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delivery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDO-dJ-bO6">
+                    <rect key="frame" x="32" y="277" width="256" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="323" userLabel="No One Here">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -129,6 +137,6 @@
     </objects>
     <resources>
         <image name="no_one_here.png" width="125" height="125"/>
-        <image name="placeholder_256.png" width="256" height="256"/>
+        <image name="placeholder_256.png" width="256" height="192"/>
     </resources>
 </document>

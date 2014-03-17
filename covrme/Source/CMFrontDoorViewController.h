@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *omwButton;
 @property (weak, nonatomic) IBOutlet UIButton *notHereButton;
 @property (weak, nonatomic) IBOutlet UIButton *sendCustomButton;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
 @property (nonatomic, strong) NSString* currentVisitorID;
 @property (nonatomic, strong) NSString* currentDoorbellID;

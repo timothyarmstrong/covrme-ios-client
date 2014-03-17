@@ -45,7 +45,7 @@
                                                      visitorID:self.visitorID
                                                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                            [self parseResponse:responseObject];
-                                                           
+                                                        
                                                            [self.tableView reloadData];
                                                            [SVProgressHUD dismiss];
                                                        } failure:^(NSHTTPURLResponse *response, NSError *error) {
@@ -79,6 +79,7 @@
     self.headerImageView.clipsToBounds = YES;
     
     self.typeString = [response valueForKey:@"description"];
+    self.title = [self.typeString capitalizedString];
     
 
     // RFC3339 date formatting

@@ -15,5 +15,5 @@
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
 - (void)registerPushTokenWithServer;
-
+- (void)reconfigureTabBarController;
 @end

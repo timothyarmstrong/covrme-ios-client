@@ -58,7 +58,7 @@
     if (description && !description.length) {
         self.typeLabel.text = @"Unspecified";
     } else {
-        self.typeLabel.text = description;
+        self.typeLabel.text = [description capitalizedString];
     }
 
     

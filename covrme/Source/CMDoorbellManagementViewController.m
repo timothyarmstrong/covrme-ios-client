@@ -9,6 +9,7 @@
 #import "CMAPIClient.h"
 #import "CMDoorbellManagementViewController.h"
 #import "CMDoorbell.h"
+#import "AppDelegate.h"
 
 @interface CMDoorbellManagementViewController ()
 
@@ -167,6 +168,9 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
 #pragma mark - NSFetchedResultsController Delegate
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [delegate reconfigureTabBarController];
+    
     [self.tableView reloadData];
 }
 
@@ -208,7 +212,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                              doorbell.name = nil;
                          }
                      } completion:^(BOOL success, NSError *error) {
-                         [[NSNotificationCenter defaultCenter] postNotificationName:@"kDoorbellAddedNotification" object:nil];
+                         [[NSNotificationCenter defaultCenter] postNotificationName:@"kDoorbellAddedNotification"
+                                                                             object:nil];
+                        
                      }];
                      
                  }

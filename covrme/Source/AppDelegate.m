@@ -17,6 +17,7 @@
 #import "CMLoginViewController.h"
 #import "UIColor+Helpers.h"
 #import "CMDoorbellListViewController.h"
+#import "CMDoorbell.h"
 
 @implementation AppDelegate
 
@@ -109,6 +110,9 @@
         self.tabBarController.selectedIndex = 1;
     }
     
+    [self reconfigureTabBarController];
+
+    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
@@ -131,6 +135,8 @@
     
     // Reset our badge notification every time we open the app
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+
     
     return YES;
 }
@@ -176,6 +182,33 @@
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
 {
     NSLog(@"FAILED TO REGISTER FOR PUSH: %@", err);
+}
+
+- (void)reconfigureTabBarController
+{
+    
+    NSArray *doorbells = [CMDoorbell findAll];
+    
+    if (doorbells.count < 2) {
+        CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithDoorbell:doorbells[0]];
+        NSMutableArray *oldVCs = [self.tabBarController.viewControllers mutableCopy];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:historyListVC];
+        navController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        
+        oldVCs[1] = navController;
+        self.tabBarController.viewControllers = oldVCs;
+    } else {
+        NSMutableArray *oldVCs = [self.tabBarController.viewControllers mutableCopy];
+        
+        CMDoorbellListViewController *doorbellListVC = [[CMDoorbellListViewController alloc] initWithNibName:@"CMDoorbellListViewController"
+                                                                                                      bundle:nil];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:doorbellListVC];
+        navController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        
+        oldVCs[1] = navController;
+        self.tabBarController.viewControllers = oldVCs;
+    }
+
 }
 
 

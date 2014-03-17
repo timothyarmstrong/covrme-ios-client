@@ -68,7 +68,7 @@
         historyListVC.navigationItem.hidesBackButton = YES;
     }
     
-    [self.navigationController pushViewController:historyListVC animated:YES];
+    [self.navigationController pushViewController:historyListVC animated:animated];
     
 }
 

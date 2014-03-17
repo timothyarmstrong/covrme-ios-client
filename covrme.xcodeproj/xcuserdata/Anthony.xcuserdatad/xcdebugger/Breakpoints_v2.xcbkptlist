@@ -70,13 +70,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "covrme/Source/CMRegistrationViewController.m"
-            timestampString = "415571416.766708"
+            filePath = "covrme/Source/CMFrontDoorViewController.m"
+            timestampString = "416774980.088773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "-registerTouched:"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-sendResponse:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -86,13 +86,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "covrme/Source/AppDelegate.m"
-            timestampString = "415573989.31413"
+            filePath = "covrme/Source/CMFrontDoorViewController.m"
+            timestampString = "416774980.088773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-registerPushTokenWithServer"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-sendResponse:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -102,29 +102,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "covrme/Source/CMLoginViewController.m"
-            timestampString = "415574101.822792"
+            filePath = "covrme/Source/CMFrontDoorViewController.m"
+            timestampString = "416774980.088773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-loginTouched:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "covrme/Source/AppDelegate.m"
-            timestampString = "415574124.536563"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-sendResponse:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
