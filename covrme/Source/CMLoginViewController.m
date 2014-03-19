@@ -121,7 +121,7 @@
                          NSDictionary *doorbellDict = registeredBells[i];
                          
                          CMDoorbell* doorbell = [CMDoorbell createInContext:localContext];
-                         doorbell.doorbellID = [NSNumber numberWithInteger:[doorbellDict[@"id"] integerValue]];
+                         doorbell.doorbellID = doorbellDict[@"id"];
                          doorbell.name = doorbellDict[@"name"];
                          doorbell.addedDate = [NSDate date];
                      }

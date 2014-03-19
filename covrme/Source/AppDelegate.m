@@ -189,7 +189,7 @@
     
     NSArray *doorbells = [CMDoorbell findAll];
     
-    if (doorbells.count < 2) {
+    if (doorbells.count < 2 && doorbells.count != 0) {
         CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithDoorbell:doorbells[0]];
         NSMutableArray *oldVCs = [self.tabBarController.viewControllers mutableCopy];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:historyListVC];

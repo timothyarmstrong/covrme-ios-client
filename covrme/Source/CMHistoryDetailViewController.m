@@ -102,8 +102,7 @@
                                                      timeStyle:NSDateFormatterShortStyle];
     self.timeString = formattedString;
     
-    // TODO: Real status string.
-    self.statusString = @"Missed";
+    self.statusString = [response valueForKey:@"status"];
 }
 
 #pragma mark - UITableView Delegates
@@ -141,6 +140,12 @@
             case 1:
                 cell.textLabel.text = @"Status";
                 cell.detailTextLabel.text = self.statusString;
+                
+                if ([self.statusString isEqualToString:@"Missed"]) {
+                    cell.detailTextLabel.textColor = [UIColor redColor];
+                } else {
+                    cell.detailTextLabel.textColor = [UIColor greenColor];
+                }
             default:
                 break;
         }

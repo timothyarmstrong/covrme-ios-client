@@ -166,7 +166,7 @@
         CMDoorbell *bell = doorbells[i];
         
         [[CMAPIClient sharedClient]
-         getHistoryWithDoorbellID:[NSString stringWithFormat:@"%@", bell.doorbellID]
+         getActiveVisitorsWithDoorbellID:bell.doorbellID
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              
              @synchronized(_currentDoorbellID) {
@@ -175,64 +175,39 @@
                      return;
                  }
                  
-                 NSArray *responseArray = (NSArray *)responseObject;
+                 NSString *message = [responseObject valueForKey:@"message"];
                  
-                 if (!(responseArray.count)) {
-                     return;
-                 }
-                 
-                 NSDictionary *dingDong = [responseArray objectAtIndex:0];
-                 NSString *profilePic =
-                 [NSString stringWithFormat:@"%@=s%@",
-                  [dingDong valueForKey:@"photo_thumbnail_url"], @"256"];
-                 
-                 NSURL *profilePicURL = [NSURL URLWithString:profilePic];
-                 
-                 self.currentVisitorID = [dingDong valueForKey:@"id"];
-                 [self.picture setImageWithURL:profilePicURL
-                              placeholderImage:[UIImage imageNamed:@"placeholder_256"]
-                                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                         [self.picture setImage:image];
-                                     }];
-
-                 // RFC3339 date formatting
-                 NSString *timeStamp = [dingDong valueForKey:@"when"];
-                 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                 formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
-                 
-                 NSDate *date;
-                 NSError *error;
-                 
-                 if (timeStamp) {
-                     [formatter getObjectValue:&date
-                                     forString:timeStamp
-                                         range:nil
-                                         error:&error];
-                 }
-                 
-                 if (date) {
-                     NSTimeInterval secondsBetween = [[NSDate date] timeIntervalSinceDate:date];
+                 if (message && message.length) {
+                     [self showNoOneView];
+                 } else {
+                     self.currentDoorbellID = bell.doorbellID;
                      
-                     if (secondsBetween <= 60   ) {
-                         self.currentDoorbellID = [NSString stringWithFormat:@"%@", bell.doorbellID];
-                         self.title = [bell.name capitalizedString];
-                         self.typeLabel.text = [dingDong[@"description"] capitalizedString];
+                     NSString *thumbnailURL = [responseObject valueForKey:@"photo_thumbnail_url"];
+                     NSString *formattedThumbnailURL;
+                     if (thumbnailURL.length) {
+                         formattedThumbnailURL = [NSString stringWithFormat:@"%@=s%@", thumbnailURL, @"256"];
                          
-                         if (!self.typeLabel.text) {
-                             self.typeLabel.text = @"Visitor";
-                         }
-                         [self hideNoOneView];
-                         return;
+                         [self.picture setImageWithURL:[NSURL URLWithString:formattedThumbnailURL]
+                                      placeholderImage:[UIImage imageNamed:@"history_detail_placeholder"]
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                                 [self.picture setImage:image];
+                                             }];
+                         
+                     } else {
+                         [self.picture setImage:[UIImage imageNamed:@"history_detail_placeholder±"]];
                      }
+                     
+                     self.currentVisitorID = [responseObject valueForKey:@"id"];
+                     self.title = [bell.name capitalizedString];
+                     self.typeLabel.text = [responseObject[@"description"] capitalizedString];
+                     
+                     if (!self.typeLabel.text) {
+                         self.typeLabel.text = @"Visitor";
+                     }
+                     
+                     [self hideNoOneView];
                  }
-                 
-                 [self showNoOneView];
-                 self.title = @"Front Door";
-                 self.typeLabel.text = @"Visitor";
              }
-             
-
-             
          }
          failure:^(NSHTTPURLResponse *response, NSError *error) {
              

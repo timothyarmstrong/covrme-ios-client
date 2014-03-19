@@ -148,6 +148,28 @@
           }];
 }
 
+- (void)getActiveVisitorsWithDoorbellID:(NSString *)ID
+                                success:(CMAPIClientSuccessBlock)success
+                                failure:(CMAPIClientFailureBlock)failure
+{
+    if (![self token] || ![self token].length) {
+        return;
+    }
+    
+    NSDictionary *params = @{@"authtoken": [self token]};
+    
+    NSString *path = [NSString stringWithFormat:@"doorbells/%@/visitors/active", ID];
+    
+    [self getPath:path
+       parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              success(operation, responseObject);
+          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              failure(operation.response, error);
+          }];
+}
+
+
 - (void)getHistoryDetailWithDoorbellID:(NSString *)doorbellID
                              visitorID:(NSString *)visitorID
                          success:(CMAPIClientSuccessBlock)success

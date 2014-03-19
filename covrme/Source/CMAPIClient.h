@@ -34,6 +34,10 @@ typedef void(^CMAPIClientCompletionBlock)();
                          success:(CMAPIClientSuccessBlock)success
                          failure:(CMAPIClientFailureBlock)failure;
 
+- (void)getActiveVisitorsWithDoorbellID:(NSString *)ID
+                                success:(CMAPIClientSuccessBlock)success
+                                failure:(CMAPIClientFailureBlock)failure;
+
 - (void)getHistoryDetailWithDoorbellID:(NSString *)doorbellID
                              visitorID:(NSString *)visitorID
                                success:(CMAPIClientSuccessBlock)success

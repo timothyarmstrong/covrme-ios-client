@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CMCustomResponse" representedClassName="CMCustomResponse" syncable="YES">
         <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="responseText" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CMDingDong" syncable="YES">
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="missed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="pictureURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
@@ -13,12 +13,12 @@
     </entity>
     <entity name="CMDoorbell" representedClassName="CMDoorbell" syncable="YES">
         <attribute name="addedDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="doorbellID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="doorbellID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CMCustomResponse" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="CMDingDong" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="CMDoorbell" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="CMCustomResponse" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CMDingDong" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CMDoorbell" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

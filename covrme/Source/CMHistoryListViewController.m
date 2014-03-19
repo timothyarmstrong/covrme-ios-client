@@ -59,7 +59,7 @@
     
     if (token && token.length) {
 
-        NSNumber *doorbellID = self.doorbell.doorbellID;
+        NSString *doorbellID = self.doorbell.doorbellID;
         
         NSArray *results = [CMDoorbell findByAttribute:@"doorbellID" withValue:doorbellID];
         

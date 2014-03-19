@@ -160,7 +160,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
     UITextField *textField = [alert textFieldAtIndex:0];
     
     textField.keyboardType = UIKeyboardTypeDefault;
-    textField.placeholder = @"Doorbell ID (ex. 653241)";
+    textField.placeholder = @"(ex: DXOL-LQ0K-A4KR-A45X)";
     
     [alert show];
 }
@@ -201,7 +201,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                      [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
                          CMDoorbell* doorbell = [CMDoorbell createInContext:localContext];
                          
-                         doorbell.doorbellID = [NSNumber numberWithInt:[self.pendingDoorbellID intValue]];
+                         doorbell.doorbellID = self.pendingDoorbellID;
                          self.pendingDoorbellID = nil;
                          
                          doorbell.addedDate = [NSDate date];
