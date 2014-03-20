@@ -73,22 +73,6 @@
     return self;
 }
 
-
-- (void)postToTimsServerWithParameters:(NSDictionary*)params
-                               success:(CMAPIClientSuccessBlock)success
-                               failure:(CMAPIClientFailureBlock)failure
-{
-    [self postPath:@"http://timarm.com/covrme/response.php"
-        parameters:params
-           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-               success(operation, responseObject);
-           } 
-           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-               failure(operation.response, error);
-           }
-     ];
-}
-
 - (void)signupUserWithName:(NSString *)name
                      email:(NSString *)email
                   password:(NSString *)pass

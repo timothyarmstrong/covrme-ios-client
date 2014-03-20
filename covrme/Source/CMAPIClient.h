@@ -43,10 +43,6 @@ typedef void(^CMAPIClientCompletionBlock)();
                                success:(CMAPIClientSuccessBlock)success
                                failure:(CMAPIClientFailureBlock)failure;
 
-- (void)getNewDoorPictureWithParameters:(NSDictionary *)params
-                                success:(CMAPIClientSuccessBlock)success
-                                failure:(CMAPIClientFailureBlock)failure;
-
 - (void)setDoorbellTone:(NSString *)filename
                 success:(CMAPIClientSuccessBlock)success
                 failure:(CMAPIClientFailureBlock)failure;

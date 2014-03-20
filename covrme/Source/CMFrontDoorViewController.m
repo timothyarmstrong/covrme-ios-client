@@ -135,18 +135,6 @@
     [self.picture addGestureRecognizer:tapGesture];
 }
 
-- (void)imageTouched:(id)sender
-{
-    [[CMAPIClient sharedClient] getNewDoorPictureWithParameters:nil
-                                                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                            // Get the new picture url from the response object
-                                                            // and set it
-                                                        } failure:^(NSHTTPURLResponse *response, NSError *error) {
-                                                            // Handle error
-                                                            
-                                                        }];
-}
-
 
 - (void)viewDidLoad
 {
