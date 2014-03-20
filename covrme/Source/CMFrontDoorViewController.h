@@ -23,10 +23,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendCustomButton;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
-@property (nonatomic, strong) NSString* currentVisitorID;
-@property (nonatomic, strong) NSString* currentDoorbellID;
+@property (nonatomic, strong) NSString *currentVisitorID;
+@property (nonatomic, strong) NSString *currentDoorbellID;
 
 @property (nonatomic, strong) NSString *lastDoorbellID;
+@property (nonatomic, strong) NSString *lastVisitorID;
+
+@property (nonatomic, strong) NSString *statusString;
+@property (nonatomic, strong) NSString *typeString;
+@property (nonatomic, strong) NSTimer *pollingTimer;
+
+- (void)checkForVisitors;
+
 
 - (IBAction)sendCustomTouched:(id)sender;
 - (IBAction)notHereTouched:(id)sender;

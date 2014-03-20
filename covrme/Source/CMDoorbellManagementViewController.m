@@ -181,7 +181,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     if ([alertView.title isEqualToString:@"Register a Doorbell"]) {
         if (buttonIndex > 0) {
             UITextField *textField = [alertView textFieldAtIndex:0];
-            NSString *text = textField.text;
+            NSString *text = [textField.text uppercaseString];
             
             if (text.length) {
                 

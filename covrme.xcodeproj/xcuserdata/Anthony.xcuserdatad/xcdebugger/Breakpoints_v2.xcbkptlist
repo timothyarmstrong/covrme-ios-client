@@ -70,13 +70,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "covrme/Source/CMFrontDoorViewController.m"
-            timestampString = "416774980.088773"
+            filePath = "covrme/Source/CMDoorbellManagementViewController.m"
+            timestampString = "417035996.629593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-sendResponse:"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -86,13 +86,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "covrme/Source/CMFrontDoorViewController.m"
-            timestampString = "416774980.088773"
+            filePath = "covrme/Source/CMDoorbellManagementViewController.m"
+            timestampString = "417035997.951469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-sendResponse:"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -102,13 +102,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "covrme/Source/CMFrontDoorViewController.m"
-            timestampString = "416774980.088773"
+            filePath = "covrme/Source/CMDoorbellManagementViewController.m"
+            timestampString = "417036110.974265"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-sendResponse:"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

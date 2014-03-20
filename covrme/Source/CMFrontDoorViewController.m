@@ -41,18 +41,30 @@
 - (void)sendResponse:(NSString *)text
 {
     
-    if (!self.lastDoorbellID) {
-        self.lastDoorbellID = self.currentDoorbellID;
+    if (!self.currentDoorbellID) {
+        self.currentDoorbellID = self.lastDoorbellID;
     }
     
+    if (!self.currentVisitorID) {
+        self.currentVisitorID = self.lastVisitorID;
+    }
+    
+    self.lastDoorbellID = @"";
+    self.lastVisitorID = @"";
+    
+    [SVProgressHUD showWithStatus:@"Sending reply" maskType:SVProgressHUDMaskTypeBlack];
+    
     [[CMAPIClient sharedClient]
-         sendMessageToDoorbellID:self.lastDoorbellID
+         sendMessageToDoorbellID:self.currentDoorbellID
          withVisitorID:self.currentVisitorID
          withMessage:text
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             [SVProgressHUD dismiss];
              [self showSuccessMessageAlert];
+             
          }
          failure:^(NSHTTPURLResponse *response, NSError *error) {
+             [SVProgressHUD dismiss];
              [self showFailureMessageAlert];
          }];
 }
@@ -146,87 +158,38 @@
     // Round the buttons
     self.omwButton.layer.cornerRadius = 10;
     self.omwButton.clipsToBounds = YES;
+    [self.omwButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.omwButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+
     
     self.notHereButton.layer.cornerRadius = 10;
     self.notHereButton.clipsToBounds = YES;
+    [self.notHereButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.notHereButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     
     self.sendCustomButton.layer.cornerRadius = 10;
     self.sendCustomButton.clipsToBounds = YES;
+    [self.sendCustomButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.sendCustomButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     
     self.typeLabel.textColor = [UIColor colorFromHexString:@"0f75bc"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self checkForVisitors];
+    [self startPolling];
     
-    NSArray *doorbells = [CMDoorbell findAll];
-    
-    for (int i = 0; i < doorbells.count; i++) {
-        
-        CMDoorbell *bell = doorbells[i];
-        
-        [[CMAPIClient sharedClient]
-         getActiveVisitorsWithDoorbellID:bell.doorbellID
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             @synchronized(_currentDoorbellID) {
-                 
-                 if (_currentDoorbellID) {
-                     return;
-                 }
-                 
-                 NSString *message = [responseObject valueForKey:@"message"];
-                 
-                 if (message && message.length) {
-                     [self showNoOneView];
-                 } else {
-                     self.currentDoorbellID = bell.doorbellID;
-                     
-                     NSString *thumbnailURL = [responseObject valueForKey:@"photo_thumbnail_url"];
-                     NSString *formattedThumbnailURL;
-                     if (thumbnailURL.length) {
-                         formattedThumbnailURL = [NSString stringWithFormat:@"%@=s%@", thumbnailURL, @"256"];
-                         
-                         [self.picture setImageWithURL:[NSURL URLWithString:formattedThumbnailURL]
-                                      placeholderImage:[UIImage imageNamed:@"history_detail_placeholder"]
-                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                                 [self.picture setImage:image];
-                                             }];
-                         
-                     } else {
-                         [self.picture setImage:[UIImage imageNamed:@"history_detail_placeholder±"]];
-                     }
-                     
-                     self.currentVisitorID = [responseObject valueForKey:@"id"];
-                     self.title = [bell.name capitalizedString];
-                     self.typeLabel.text = [responseObject[@"description"] capitalizedString];
-                     
-                     if (!self.typeLabel.text) {
-                         self.typeLabel.text = @"Visitor";
-                     }
-                     
-                     [self hideNoOneView];
-                 }
-             }
-         }
-         failure:^(NSHTTPURLResponse *response, NSError *error) {
-             
-             @synchronized(_currentDoorbellID) {
-                 [self showNoOneView];
-                 
-             }
-         }];
-    }
-
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     self.lastDoorbellID = self.currentDoorbellID;
+    self.lastVisitorID = self.currentVisitorID;
     
-    self.currentDoorbellID = nil;
     [self showNoOneView];
+    [self endPolling];
 }
 
 - (IBAction)sendCustomTouched:(id)sender
@@ -240,6 +203,99 @@
     
 }
 
+- (void)startPolling
+{
+    if (self.pollingTimer) {
+        [self.pollingTimer invalidate];
+    }
+    
+    self.pollingTimer = [NSTimer scheduledTimerWithTimeInterval:2.5 target:self selector:@selector(checkForVisitors) userInfo:nil repeats:YES];
+}
+
+- (void)endPolling
+{
+    if (self.pollingTimer) {
+        [self.pollingTimer invalidate];
+    }
+}
+
+- (void)checkForVisitors
+{
+    [[CMAPIClient sharedClient]
+     getActiveVisitorsWithDoorbellID:@"all"
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         
+         NSString *message = [responseObject valueForKey:@"message"];
+         
+         if (message && message.length) {
+             self.currentDoorbellID = @"";
+             self.currentVisitorID = @"";
+             [self showNoOneView];
+         } else {
+             NSDictionary *doorbell = responseObject[@"doorbell"];
+             NSDictionary *visitor = responseObject[@"visitor"];
+             
+             NSString *thumbnailURL = visitor[@"photo_thumbnail_url"];
+             NSString *formattedThumbnailURL;
+             if (thumbnailURL.length) {
+                 formattedThumbnailURL = [NSString stringWithFormat:@"%@=s%@", thumbnailURL, @"256"];
+                 
+                 [self.picture setImageWithURL:[NSURL URLWithString:formattedThumbnailURL]
+                              placeholderImage:[UIImage imageNamed:@"history_detail_placeholder"]
+                                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                         [self.picture setImage:image];
+                                     }];
+                 
+             } else {
+                 [self.picture setImage:[UIImage imageNamed:@"history_detail_placeholder"]];
+             }
+             
+             self.currentDoorbellID = doorbell[@"id"];
+             self.currentVisitorID = visitor[@"id"];
+             self.title = [doorbell[@"name"] capitalizedString];
+             self.typeString = [visitor[@"description"] capitalizedString];
+             self.statusString = [visitor[@"status"] lowercaseString];
+             
+             if (!self.typeLabel.text) {
+                 self.typeLabel.text = @"Visitor";
+             }
+             
+             [self configureView];
+             [self hideNoOneView];
+         }
+     }
+     failure:^(NSHTTPURLResponse *response, NSError *error) {
+         [self showNoOneView];
+     }];
+}
+
+- (void)configureView
+{
+    if ([self.statusString isEqualToString:@"covered"]) {
+        self.omwButton.enabled = NO;
+        self.omwButton.alpha = 0.5f;
+        
+        self.notHereButton.enabled = NO;
+        self.notHereButton.alpha = 0.5f;
+        
+        self.sendCustomButton.enabled = NO;
+        self.sendCustomButton.alpha = 0.5f;
+        
+        self.typeString = @"Covered";
+    } else {
+        self.omwButton.enabled = YES;
+        self.omwButton.alpha = 1.0f;
+        
+        self.notHereButton.enabled = YES;
+        self.notHereButton.alpha = 1.0f;
+        
+        self.sendCustomButton.enabled = YES;
+        self.sendCustomButton.alpha = 1.0f;
+    }
+    
+    self.typeLabel.text = self.typeString;
+
+}
 - (IBAction)notHereTouched:(id)sender
 {
     [self sendResponse:@"I'm not available right now."];

@@ -87,7 +87,7 @@
                 break;
         }
     } else if (path.section == 1) {
-        settingsCell.backgroundColor = [UIColor redColor];
+        settingsCell.textLabel.textColor = [UIColor redColor];
         settingsCell.textLabel.text = @"Reset App";
         settingsCell.subTextLabel.text = @"";
     }

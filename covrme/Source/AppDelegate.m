@@ -78,7 +78,7 @@
     CMFrontDoorViewController *frontDoorVC = [[CMFrontDoorViewController alloc] initWithNibName:@"CMFrontDoorViewController"
                                                                                          bundle:nil];
     UINavigationController *frontDoorNavController = [[UINavigationController alloc] initWithRootViewController:frontDoorVC];
-    frontDoorNavController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    frontDoorNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     // History List VC
 //    CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithNibName:@"CMHistoryListViewController"
@@ -154,9 +154,13 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    // Push Token Received!
-    self.tabBarController.selectedIndex = 0;
-    
+    if (self.tabBarController.selectedIndex == 0) {
+        CMFrontDoorViewController *fdvc = (CMFrontDoorViewController *)self.tabBarController.selectedViewController;
+        [fdvc checkForVisitors];
+    } else {
+        // Push Token Received!
+        self.tabBarController.selectedIndex = 0;
+    }
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
