@@ -265,6 +265,29 @@
            }];
 }
 
+- (void)revokePushToken:(NSString *)token
+                success:(CMAPIClientSuccessBlock)success
+                failure:(CMAPIClientFailureBlock)failure;
+{
+    if (![self token] || ![self token].length) {
+        return;
+    }
+    
+    NSDictionary *params = @{@"authtoken": [self token],
+                             @"push_token": token};
+    
+    NSString *path = [NSString stringWithFormat:@"users/%@/pushtokens", [self userID]];
+    
+    [self deletePath:path
+          parameters:params
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 success(operation, responseObject);
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 failure(operation.response, error);
+             }];
+}
+
 - (void)getRegisteredDoorbellsWithSuccess:(CMAPIClientSuccessBlock)success
                                   failure:(CMAPIClientCompletionBlock)failure
 {

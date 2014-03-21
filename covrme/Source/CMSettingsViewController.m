@@ -127,34 +127,48 @@
 
 - (void)resetApp
 {
-    NSString *domainName = [[NSBundle mainBundle] bundleIdentifier];
-    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domainName];
     
-    CMLoginViewController *loginVC =
-    [[CMLoginViewController alloc] initWithNibName:@"CMLoginViewController"
-                                            bundle:nil];
+    NSString *pushToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"userPushToken"];
     
-    UINavigationController *loginNavController =
-    [[UINavigationController alloc] initWithRootViewController:loginVC];
+    if (!pushToken.length) {
+        return;
+    }
     
-    [self.tabBarController presentViewController:loginNavController
-                                        animated:YES
-                                      completion:nil];
-    
-    self.tabBarController.selectedIndex = 1;
-
-    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-        [CMDoorbell truncateAllInContext:localContext];
-        [CMCustomResponse truncateAllInContext:localContext];
-    } completion:^(BOOL success, NSError *error) {
-        UIAlertView *resetAlert = [[UIAlertView alloc] initWithTitle:@"App Reset"
-                                   message:@"The application has been reset, you will need to restart the application and relogin."
-                                  delegate:self
-                         cancelButtonTitle:@"OK"
-                         otherButtonTitles:nil];
-        
-        [resetAlert show];
-    }];
+    [[CMAPIClient sharedClient] revokePushToken:pushToken
+                                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                            NSLog(@"Successfully deregistered pushtoken %@.. proceeding to blow up the rest of the code", pushToken);
+                                            NSString *domainName = [[NSBundle mainBundle] bundleIdentifier];
+                                            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domainName];
+                                            
+                                            CMLoginViewController *loginVC =
+                                            [[CMLoginViewController alloc] initWithNibName:@"CMLoginViewController"
+                                                                                    bundle:nil];
+                                            
+                                            UINavigationController *loginNavController =
+                                            [[UINavigationController alloc] initWithRootViewController:loginVC];
+                                            
+                                            [self.tabBarController presentViewController:loginNavController
+                                                                                animated:YES
+                                                                              completion:nil];
+                                            
+                                            self.tabBarController.selectedIndex = 1;
+                                            
+                                            [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                                                [CMDoorbell truncateAllInContext:localContext];
+                                                [CMCustomResponse truncateAllInContext:localContext];
+                                            } completion:^(BOOL success, NSError *error) {
+                                                UIAlertView *resetAlert = [[UIAlertView alloc] initWithTitle:@"App Reset"
+                                                                                                     message:@"The application has been reset, you will need to restart the application and relogin."
+                                                                                                    delegate:self
+                                                                                           cancelButtonTitle:@"OK"
+                                                                                           otherButtonTitles:nil];
+                                                
+                                                [resetAlert show];
+                                            }];
+                                        }
+                                        failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                            NSLog(@"Failed to register pushtoken %@", pushToken);
+                                        }];
 }
 
 - (void)alertView:(UIAlertView *)alertView

@@ -52,6 +52,10 @@ typedef void(^CMAPIClientCompletionBlock)();
                   success:(CMAPIClientSuccessBlock)success
                   failure:(CMAPIClientFailureBlock)failure;
 
+- (void)revokePushToken:(NSString *)token
+                success:(CMAPIClientSuccessBlock)success
+                failure:(CMAPIClientFailureBlock)failure;
+
 - (void)getRegisteredDoorbellsWithSuccess:(CMAPIClientSuccessBlock)success
                                   failure:(CMAPIClientCompletionBlock)failure;
 

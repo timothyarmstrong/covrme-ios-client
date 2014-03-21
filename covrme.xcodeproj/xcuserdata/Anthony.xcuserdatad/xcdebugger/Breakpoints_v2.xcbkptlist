@@ -119,12 +119,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "covrme/Source/CMFrontDoorViewController.m"
-            timestampString = "417059775.849161"
+            timestampString = "417073861.100302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "-updateDoorbellWithDoorbellDictionary:"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "-checkForVisitors"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
