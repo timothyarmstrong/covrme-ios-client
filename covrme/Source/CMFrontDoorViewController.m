@@ -250,11 +250,47 @@
              
              [self configureView];
              [self hideNoOneView];
+             [self updateDoorbellWithDoorbellDictionary:doorbell];
          }
      }
      failure:^(NSHTTPURLResponse *response, NSError *error) {
          [self showNoOneView];
      }];
+}
+
+- (void)updateDoorbellWithDoorbellDictionary:(NSDictionary *)doorbell
+{
+    NSArray *results = [CMDoorbell findAllWithPredicate:[NSPredicate predicateWithFormat:@"doorbellID = %@", doorbell[@"id"]]];
+    
+    if (results.count != 1) {
+        NSLog(@"Couldn't find a matching doorbell to update..! wtf!? PredicateID: %@", doorbell[@"id"]);
+        return;
+    }
+    
+    CMDoorbell *storedBell = [results firstObject];
+    NSString *storedLowerName = [storedBell.name lowercaseString];
+    NSString *doorbellLowerName = [doorbell[@"name"] lowercaseString];
+    
+    
+    if (![storedLowerName isEqualToString:doorbellLowerName]) {
+        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+            NSArray *results = [CMDoorbell findAllWithPredicate:[NSPredicate predicateWithFormat:@"doorbellID = %@", doorbell[@"id"]]];
+            
+            if (results.count != 1) {
+                NSLog(@"Couldn't find a matching doorbell to update..! wtf!? PredicateID: %@", doorbell[@"id"]);
+                return;
+            }
+            
+            CMDoorbell *storedBell = [results firstObject];
+            
+            if (![[storedBell.name lowercaseString] isEqualToString:[doorbell[@"name"] lowercaseString]]) {
+                storedBell.name = [doorbell[@"name"] capitalizedString];
+            }
+        }];
+    }
+    
+    
+
 }
 
 - (void)configureView

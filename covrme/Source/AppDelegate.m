@@ -30,6 +30,7 @@
     
     [[UINavigationBar appearance] setTintColor:[UIColor colorFromHexString:@"ffffff"]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorFromHexString:@"0f75bc"]];
+
 }
 
 - (void)registerPushTokenWithServer
