@@ -79,8 +79,7 @@
     CMFrontDoorViewController *frontDoorVC = [[CMFrontDoorViewController alloc] initWithNibName:@"CMFrontDoorViewController"
                                                                                          bundle:nil];
     UINavigationController *frontDoorNavController = [[UINavigationController alloc] initWithRootViewController:frontDoorVC];
-    frontDoorNavController.navigationBar.barStyle = UIBarStyleBlack;
-    frontDoorNavController.navigationBar.translucent = NO;
+    frontDoorNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     // History List VC
 //    CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithNibName:@"CMHistoryListViewController"
@@ -92,20 +91,13 @@
     CMDoorbellListViewController *doorbellListVC = [[CMDoorbellListViewController alloc] initWithNibName:@"CMDoorbellListViewController"
                                                                                                   bundle:nil];
     UINavigationController *doorbellListNavController = [[UINavigationController alloc] initWithRootViewController:doorbellListVC];
-    doorbellListNavController.navigationBar.barStyle = UIBarStyleBlack;
-    doorbellListNavController.navigationBar.translucent = NO;
-
-
+    doorbellListNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 
     // Settings VC
     CMSettingsViewController *settingsVC = [[CMSettingsViewController alloc] initWithNibName:@"CMSettingsViewController"
                                                                                       bundle:nil];
     UINavigationController *settingsNavController = [[UINavigationController alloc] initWithRootViewController:settingsVC];
-    settingsNavController.navigationBar.barStyle = UIBarStyleBlack;
-    settingsNavController.navigationBar.translucent = NO;
-
-
-
+    settingsNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[frontDoorNavController, doorbellListNavController, settingsNavController];
@@ -203,8 +195,7 @@
         CMHistoryListViewController *historyListVC = [[CMHistoryListViewController alloc] initWithDoorbell:doorbells[0]];
         NSMutableArray *oldVCs = [self.tabBarController.viewControllers mutableCopy];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:historyListVC];
-        navController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-        navController.navigationBar.translucent = NO;
+        navController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 
         oldVCs[1] = navController;
         self.tabBarController.viewControllers = oldVCs;
@@ -214,8 +205,7 @@
         CMDoorbellListViewController *doorbellListVC = [[CMDoorbellListViewController alloc] initWithNibName:@"CMDoorbellListViewController"
                                                                                                       bundle:nil];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:doorbellListVC];
-        navController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-        navController.navigationBar.translucent = NO;
+        navController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 
         oldVCs[1] = navController;
         self.tabBarController.viewControllers = oldVCs;
