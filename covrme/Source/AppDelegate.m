@@ -153,13 +153,8 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    if (self.tabBarController.selectedIndex == 0) {
-        CMFrontDoorViewController *fdvc = (CMFrontDoorViewController *)self.tabBarController.selectedViewController;
-        [fdvc checkForVisitors];
-    } else {
-        // Push Token Received!
-        self.tabBarController.selectedIndex = 0;
-    }
+    // Push Token Received!
+    self.tabBarController.selectedIndex = 0;
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
