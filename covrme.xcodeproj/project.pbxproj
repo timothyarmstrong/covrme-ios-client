@@ -54,6 +54,8 @@
 		927E68A1178A655E00085AEE /* covrme_banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E689D178A655D00085AEE /* covrme_banner@2x.png */; };
 		927E68A2178A655E00085AEE /* no_one_here.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E689E178A655D00085AEE /* no_one_here.png */; };
 		927E68A3178A655E00085AEE /* no_one_here@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 927E689F178A655E00085AEE /* no_one_here@2x.png */; };
+		92889C4818DBE8E8007F8916 /* covrme-launch-tall.png in Resources */ = {isa = PBXBuildFile; fileRef = 92889C4618DBE8E8007F8916 /* covrme-launch-tall.png */; };
+		92889C4918DBE8E8007F8916 /* covrme-launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 92889C4718DBE8E8007F8916 /* covrme-launch.png */; };
 		92974D2E16644C3B00C12C91 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D2D16644C3B00C12C91 /* CFNetwork.framework */; };
 		92974D3016644C4A00C12C91 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D2F16644C4A00C12C91 /* MobileCoreServices.framework */; };
 		92974D3216644C5200C12C91 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D3116644C5200C12C91 /* Security.framework */; };
@@ -64,7 +66,6 @@
 		92974D3C16644C7400C12C91 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D3B16644C7400C12C91 /* StoreKit.framework */; };
 		92974D3E16644C7D00C12C91 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974D3D16644C7D00C12C91 /* CoreLocation.framework */; };
 		92974D4016644DC100C12C91 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92974D3F16644DC100C12C91 /* AirshipConfig.plist */; };
-		92974EC31664518C00C12C91 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92974EC21664518C00C12C91 /* Default-568h@2x.png */; };
 		92974EC5166451F800C12C91 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC4166451F800C12C91 /* MapKit.framework */; };
 		92974EC81664528B00C12C91 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC71664528B00C12C91 /* AudioToolbox.framework */; };
 		92974ECA1664529100C12C91 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92974EC91664529100C12C91 /* MessageUI.framework */; };
@@ -231,6 +232,8 @@
 		927E689D178A655D00085AEE /* covrme_banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "covrme_banner@2x.png"; sourceTree = "<group>"; };
 		927E689E178A655D00085AEE /* no_one_here.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_one_here.png; sourceTree = "<group>"; };
 		927E689F178A655E00085AEE /* no_one_here@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_one_here@2x.png"; sourceTree = "<group>"; };
+		92889C4618DBE8E8007F8916 /* covrme-launch-tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "covrme-launch-tall.png"; sourceTree = "<group>"; };
+		92889C4718DBE8E8007F8916 /* covrme-launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "covrme-launch.png"; sourceTree = "<group>"; };
 		92974D2D16644C3B00C12C91 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		92974D2F16644C4A00C12C91 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		92974D3116644C5200C12C91 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -241,7 +244,6 @@
 		92974D3B16644C7400C12C91 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		92974D3D16644C7D00C12C91 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		92974D3F16644DC100C12C91 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
-		92974EC21664518C00C12C91 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		92974EC4166451F800C12C91 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		92974EC71664528B00C12C91 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		92974EC91664529100C12C91 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -531,10 +533,11 @@
 		925BF4A31501C6270054AE57 = {
 			isa = PBXGroup;
 			children = (
+				92889C4618DBE8E8007F8916 /* covrme-launch-tall.png */,
+				92889C4718DBE8E8007F8916 /* covrme-launch.png */,
 				92A3645418B3CCAD00DD9CC6 /* app_spotlight_icon.png */,
 				927E6899178A5A5E00085AEE /* app_icon@2x.png */,
 				927E6897178A5A5600085AEE /* app_icon.png */,
-				92974EC21664518C00C12C91 /* Default-568h@2x.png */,
 				925BF4B81501C6270054AE57 /* covrme */,
 				925BF4B11501C6270054AE57 /* Frameworks */,
 				925BF4AF1501C6270054AE57 /* Products */,
@@ -1238,7 +1241,6 @@
 			files = (
 				925BF4BD1501C6270054AE57 /* InfoPlist.strings in Resources */,
 				92974D4016644DC100C12C91 /* AirshipConfig.plist in Resources */,
-				92974EC31664518C00C12C91 /* Default-568h@2x.png in Resources */,
 				92E8C2CF1771558800B06215 /* dingdong.wav in Resources */,
 				92E8C2D01771558800B06215 /* first.png in Resources */,
 				92E8C2D11771558800B06215 /* first@2x.png in Resources */,
@@ -1261,6 +1263,7 @@
 				923D85431789264F00016BFA /* on_my_way.png in Resources */,
 				923D85441789264F00016BFA /* on_my_way@2x.png in Resources */,
 				923D854917892A0B00016BFA /* custom_response.png in Resources */,
+				92889C4918DBE8E8007F8916 /* covrme-launch.png in Resources */,
 				923D854A17892A0B00016BFA /* custom_response@2x.png in Resources */,
 				923D854B17892A0B00016BFA /* not_here_atm.png in Resources */,
 				923D854C17892A0B00016BFA /* not_here_atm@2x.png in Resources */,
@@ -1271,6 +1274,7 @@
 				927E6898178A5A5700085AEE /* app_icon.png in Resources */,
 				927E689A178A5A5E00085AEE /* app_icon@2x.png in Resources */,
 				927E68A0178A655E00085AEE /* covrme_banner.png in Resources */,
+				92889C4818DBE8E8007F8916 /* covrme-launch-tall.png in Resources */,
 				927E68A1178A655E00085AEE /* covrme_banner@2x.png in Resources */,
 				927E68A2178A655E00085AEE /* no_one_here.png in Resources */,
 				927E68A3178A655E00085AEE /* no_one_here@2x.png in Resources */,
